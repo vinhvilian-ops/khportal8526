@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
+import { Route as DuKhachRouteImport } from './routes/du-khach'
+import { Route as DoanhNghiepRouteImport } from './routes/doanh-nghiep'
+import { Route as CongDanRouteImport } from './routes/cong-dan'
+import { Route as ChinhQuyenRouteImport } from './routes/chinh-quyen'
 import { Route as IndexRouteImport } from './routes/index'
 
+const GioiThieuRoute = GioiThieuRouteImport.update({
+  id: '/gioi-thieu',
+  path: '/gioi-thieu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DuKhachRoute = DuKhachRouteImport.update({
+  id: '/du-khach',
+  path: '/du-khach',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoanhNghiepRoute = DoanhNghiepRouteImport.update({
+  id: '/doanh-nghiep',
+  path: '/doanh-nghiep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CongDanRoute = CongDanRouteImport.update({
+  id: '/cong-dan',
+  path: '/cong-dan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChinhQuyenRoute = ChinhQuyenRouteImport.update({
+  id: '/chinh-quyen',
+  path: '/chinh-quyen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chinh-quyen': typeof ChinhQuyenRoute
+  '/cong-dan': typeof CongDanRoute
+  '/doanh-nghiep': typeof DoanhNghiepRoute
+  '/du-khach': typeof DuKhachRoute
+  '/gioi-thieu': typeof GioiThieuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chinh-quyen': typeof ChinhQuyenRoute
+  '/cong-dan': typeof CongDanRoute
+  '/doanh-nghiep': typeof DoanhNghiepRoute
+  '/du-khach': typeof DuKhachRoute
+  '/gioi-thieu': typeof GioiThieuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chinh-quyen': typeof ChinhQuyenRoute
+  '/cong-dan': typeof CongDanRoute
+  '/doanh-nghiep': typeof DoanhNghiepRoute
+  '/du-khach': typeof DuKhachRoute
+  '/gioi-thieu': typeof GioiThieuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chinh-quyen'
+    | '/cong-dan'
+    | '/doanh-nghiep'
+    | '/du-khach'
+    | '/gioi-thieu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chinh-quyen'
+    | '/cong-dan'
+    | '/doanh-nghiep'
+    | '/du-khach'
+    | '/gioi-thieu'
+  id:
+    | '__root__'
+    | '/'
+    | '/chinh-quyen'
+    | '/cong-dan'
+    | '/doanh-nghiep'
+    | '/du-khach'
+    | '/gioi-thieu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChinhQuyenRoute: typeof ChinhQuyenRoute
+  CongDanRoute: typeof CongDanRoute
+  DoanhNghiepRoute: typeof DoanhNghiepRoute
+  DuKhachRoute: typeof DuKhachRoute
+  GioiThieuRoute: typeof GioiThieuRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gioi-thieu': {
+      id: '/gioi-thieu'
+      path: '/gioi-thieu'
+      fullPath: '/gioi-thieu'
+      preLoaderRoute: typeof GioiThieuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/du-khach': {
+      id: '/du-khach'
+      path: '/du-khach'
+      fullPath: '/du-khach'
+      preLoaderRoute: typeof DuKhachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doanh-nghiep': {
+      id: '/doanh-nghiep'
+      path: '/doanh-nghiep'
+      fullPath: '/doanh-nghiep'
+      preLoaderRoute: typeof DoanhNghiepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cong-dan': {
+      id: '/cong-dan'
+      path: '/cong-dan'
+      fullPath: '/cong-dan'
+      preLoaderRoute: typeof CongDanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chinh-quyen': {
+      id: '/chinh-quyen'
+      path: '/chinh-quyen'
+      fullPath: '/chinh-quyen'
+      preLoaderRoute: typeof ChinhQuyenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +157,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChinhQuyenRoute: ChinhQuyenRoute,
+  CongDanRoute: CongDanRoute,
+  DoanhNghiepRoute: DoanhNghiepRoute,
+  DuKhachRoute: DuKhachRoute,
+  GioiThieuRoute: GioiThieuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
