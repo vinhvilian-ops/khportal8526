@@ -79,12 +79,16 @@ export function SiteHeader() {
 
       {/* Ticker */}
       <div className="bg-gov-red text-primary-foreground">
-        <div className="container mx-auto flex items-center gap-4 px-4 py-2 overflow-hidden">
-          <span className="shrink-0 bg-gov-red-dark px-3 py-1 text-xs font-bold rounded">📢 THÔNG BÁO</span>
-          <div className="flex gap-8 animate-[marquee_40s_linear_infinite] whitespace-nowrap text-sm">
-            {[...TICKER, ...TICKER].map((t, i) => (
-              <span key={i}>★ {t}</span>
-            ))}
+        <div className="container mx-auto flex items-center gap-4 px-4 py-2">
+          <span className="shrink-0 relative z-10 bg-gov-red-dark px-3 py-1 text-xs font-bold rounded shadow-md">📢 THÔNG BÁO</span>
+          <div className="relative flex-1 overflow-hidden">
+            <div className="flex gap-8 animate-[marquee_40s_linear_infinite] whitespace-nowrap text-sm">
+              {[...TICKER, ...TICKER].map((t, i) => (
+                <span key={i}>★ {t}</span>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-gov-red to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-gov-red to-transparent" />
           </div>
         </div>
       </div>
