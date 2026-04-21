@@ -87,7 +87,7 @@ function HomePage() {
 
       <div className="container mx-auto px-4 grid gap-6 lg:grid-cols-12">
         {/* Featured leader news */}
-        <article className="lg:col-span-5 relative rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white shadow-lg min-h-[360px] flex flex-col justify-end p-6">
+        <article className="lg:col-span-7 relative rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white shadow-lg min-h-[360px] flex flex-col justify-end p-6">
           <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_30%,oklch(0.85_0.17_90),transparent_60%)]" />
           <span className="relative inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
           <p className="relative text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
@@ -95,7 +95,7 @@ function HomePage() {
         </article>
 
         {/* Side news list */}
-        <div className="lg:col-span-4 space-y-3">
+        <div className="lg:col-span-5 space-y-3">
           {LEADER_NEWS.slice(1).map((n, i) => (
             <a key={i} href="#" className="flex gap-3 p-3 rounded-lg bg-card hover:shadow-md transition group">
               <div className={`h-16 w-20 shrink-0 rounded bg-gradient-to-br ${["from-gov-cyan to-gov-blue","from-gov-orange to-gov-red","from-gov-green to-gov-blue"][i]}`} />
@@ -106,26 +106,6 @@ function HomePage() {
             </a>
           ))}
         </div>
-
-        {/* Right rail: chỉ đạo điều hành PT/TT */}
-        <aside className="lg:col-span-3 rounded-xl bg-gov-blue-dark text-white p-4">
-          <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2">CHỈ ĐẠO, ĐIỀU HÀNH<br />PHỦ, THỦ TƯỚNG</h4>
-          <div className="aspect-video rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark mb-3 flex items-center justify-center relative overflow-hidden">
-            <Play className="h-10 w-10 text-gov-yellow" />
-          </div>
-          <ul className="space-y-2 text-xs">
-            {[
-              "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức…\"",
-              "Phân công soạn thảo 9 dự án luật",
-              "100% CBCC cấp xã chưa đáp ứng yêu cầu chuyển môn vị trí việc làm được cử đi bồi dưỡng",
-              "Kéo dài thời gian giữ chức vụ đối với 2 cán bộ thuộc Bộ Quốc phòng",
-              "Tiêu chí phân bổ vốn đầu tư công từ ngân sách trung ương cho địa phương giai đoạn 2026–2030",
-            ].map((t, i) => (
-              <li key={i} className="flex gap-2"><Star className="h-3 w-3 shrink-0 text-gov-yellow mt-0.5" /><span className="text-white/90">{t}</span></li>
-            ))}
-          </ul>
-          <p className="mt-3 text-[10px] italic text-white/60">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
-        </aside>
       </div>
 
       {/* Quick links */}
@@ -146,6 +126,33 @@ function HomePage() {
           <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide">GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG</h3>
           <p className="mt-2 text-gov-yellow font-semibold">VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026</p>
         </div>
+      </div>
+
+      {/* Chỉ đạo điều hành PT/TT — chuyển xuống dưới banner Giỗ Tổ */}
+      <div className="container mx-auto px-4 mt-8">
+        <aside className="rounded-xl bg-gov-blue-dark text-white p-5">
+          <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
+            <Megaphone className="h-4 w-4 text-gov-yellow" />
+            CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
+          </h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="aspect-video md:col-span-1 rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark flex items-center justify-center relative overflow-hidden">
+              <Play className="h-10 w-10 text-gov-yellow" />
+            </div>
+            <ul className="md:col-span-2 grid sm:grid-cols-2 gap-x-4 gap-y-2 text-xs">
+              {[
+                "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức…\"",
+                "Phân công soạn thảo 9 dự án luật",
+                "100% CBCC cấp xã chưa đáp ứng yêu cầu chuyển môn vị trí việc làm được cử đi bồi dưỡng",
+                "Kéo dài thời gian giữ chức vụ đối với 2 cán bộ thuộc Bộ Quốc phòng",
+                "Tiêu chí phân bổ vốn đầu tư công từ ngân sách trung ương cho địa phương giai đoạn 2026–2030",
+              ].map((t, i) => (
+                <li key={i} className="flex gap-2"><Star className="h-3 w-3 shrink-0 text-gov-yellow mt-0.5" /><span className="text-white/90">{t}</span></li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-3 text-[10px] italic text-white/60">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
+        </aside>
       </div>
 
       {/* Directives + Map */}
