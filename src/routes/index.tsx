@@ -88,7 +88,21 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* ============ CẤP 1 — CHÍNH QUYỀN ============ */}
-      <PageHero level="CẤP 1" topic="CHÍNH QUYỀN" title="Hoạt động lãnh đạo tỉnh" />
+      <div className="container mx-auto px-4 pt-10 pb-6 flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gov-blue-dark">
+            Hoạt động lãnh đạo tỉnh
+          </h2>
+          <div className="mt-3 h-1 w-20 rounded bg-gov-yellow" />
+        </div>
+        <a
+          href="#"
+          className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue-dark hover:text-gov-blue transition"
+        >
+          Xem tất cả bài viết
+          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
 
       <div className="container mx-auto px-4">
         <div className="grid gap-6 lg:grid-cols-12">
@@ -128,17 +142,6 @@ function HomePage() {
               </a>
             ))}
           </div>
-        </div>
-
-        {/* View all CTA — full width, hài hòa với tổng thể */}
-        <div className="mt-6 flex justify-center">
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 rounded-full border border-gov-red/30 bg-gov-red/5 px-6 py-2.5 text-sm font-semibold text-gov-red transition hover:bg-gov-red hover:text-white hover:shadow-md"
-          >
-            Xem tất cả bài viết
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
         </div>
       </div>
 
