@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import {
@@ -11,6 +12,12 @@ import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
 import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
 import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
 import gioToHungVuong from "@/assets/gio-to-hung-vuong.jpg";
+import dir1 from "@/assets/dir-1.jpg";
+import dir2 from "@/assets/dir-2.jpg";
+import dir3 from "@/assets/dir-3.jpg";
+import dir4 from "@/assets/dir-4.jpg";
+import dir5 from "@/assets/dir-5.jpg";
+import dir6 from "@/assets/dir-6.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,14 +47,25 @@ const QUICK_LINKS = [
   { icon: Search, label: "Tra cứu CSDL Thủ tục hành chính", color: "bg-gov-blue/10 text-gov-blue" },
 ];
 
-const DIRECTIVES = [
-  "Phát triển nguồn nhân lực Khánh Hòa theo hướng hiện đại, bền vững",
-  "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số",
-  "Đẩy mạnh kiểm tra trực tuyến đăng ký kinh doanh, nâng cao hiệu quả quản lý nhà nước",
-  "Triển khai thực hiện chương trình đào tạo nghề cho lao động nông thôn đến năm 2030",
-  "Cải thiện chất lượng phục vụ, nâng cao mức độ hài lòng của người dân, tổ chức, doanh nghiệp",
-  "Khánh Hòa phấn đấu đưa chất lượng giáo dục phổ thông vào tốp đầu cả nước đến năm 2030",
-];
+const DIRECTIVES_TABS = {
+  "THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH": [
+    { title: "Phân cấp quản lý nhà nước về đất đai trên địa bàn tỉnh Khánh Hòa", date: "21/04/2026", image: dir1 },
+    { title: "Triển khai cơ chế, chính sách đặc biệt tạo đột phá cho công tác bảo vệ, chăm sóc sức khỏe nhân dân", date: "21/04/2026", image: dir2 },
+    { title: "Phát triển ngành thép Khánh Hòa theo hướng hiện đại, bền vững", date: "20/04/2026", image: dir3 },
+    { title: "Đẩy mạnh kiểm tra trực tuyến đăng ký kinh doanh, nâng cao hiệu quả quản lý nhà nước", date: "20/04/2026", image: dir4 },
+    { title: "Cải thiện chất lượng phục vụ, nâng cao mức độ hài lòng của người dân, tổ chức, doanh nghiệp", date: "20/04/2026", image: dir5 },
+    { title: "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số", date: "19/04/2026", image: dir6 },
+  ],
+  "HOẠT ĐỘNG SỞ, NGÀNH, ĐỊA PHƯƠNG": [
+    { title: "Sở Nông nghiệp & Môi trường tổ chức hội nghị tổng kết quý I/2026", date: "20/04/2026", image: dir1 },
+    { title: "Triển khai chương trình đào tạo nghề cho lao động nông thôn đến năm 2030", date: "20/04/2026", image: dir2 },
+    { title: "Phát triển nguồn nhân lực Khánh Hòa theo hướng hiện đại, bền vững", date: "19/04/2026", image: dir3 },
+    { title: "Khánh Hòa phấn đấu đưa chất lượng giáo dục phổ thông vào tốp đầu cả nước", date: "19/04/2026", image: dir4 },
+    { title: "UBND tỉnh tiếp công dân định kỳ tháng 4/2026", date: "18/04/2026", image: dir5 },
+    { title: "Hội nghị xúc tiến đầu tư các xã ven biển", date: "18/04/2026", image: dir6 },
+  ],
+} as const;
+type DirectiveTab = keyof typeof DIRECTIVES_TABS;
 
 const POLICY_NEWS = [
   { date: "17/04/2026", title: "SẮP XẾP TRƯỜNG HỌC: Chỉ sáp nhập trường, điểm trường trong phạm vi 1 đơn vị hành chính cấp xã" },
