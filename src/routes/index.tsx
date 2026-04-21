@@ -135,11 +135,11 @@ function HomePage() {
             <Megaphone className="h-4 w-4 text-gov-yellow" />
             CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
           </h4>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="aspect-video md:col-span-1 rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark flex items-center justify-center relative overflow-hidden">
+          <div className="space-y-4">
+            <div className="aspect-video rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark flex items-center justify-center relative overflow-hidden">
               <Play className="h-10 w-10 text-gov-yellow" />
             </div>
-            <ul className="md:col-span-2 grid sm:grid-cols-2 gap-x-4 gap-y-2 text-xs">
+            <ul className="space-y-2 text-xs">
               {[
                 "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức…\"",
                 "Phân công soạn thảo 9 dự án luật",
