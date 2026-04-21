@@ -128,34 +128,7 @@ function HomePage() {
         </div>
       </div>
 
-      {/* Chỉ đạo điều hành PT/TT — chuyển xuống dưới banner Giỗ Tổ */}
-      <div className="container mx-auto px-4 mt-8">
-        <aside className="rounded-xl bg-gov-blue-dark text-white p-5">
-          <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
-            <Megaphone className="h-4 w-4 text-gov-yellow" />
-            CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
-          </h4>
-          <div className="space-y-4">
-            <div className="aspect-video rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark flex items-center justify-center relative overflow-hidden">
-              <Play className="h-10 w-10 text-gov-yellow" />
-            </div>
-            <ul className="space-y-2 text-xs">
-              {[
-                "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức…\"",
-                "Phân công soạn thảo 9 dự án luật",
-                "100% CBCC cấp xã chưa đáp ứng yêu cầu chuyển môn vị trí việc làm được cử đi bồi dưỡng",
-                "Kéo dài thời gian giữ chức vụ đối với 2 cán bộ thuộc Bộ Quốc phòng",
-                "Tiêu chí phân bổ vốn đầu tư công từ ngân sách trung ương cho địa phương giai đoạn 2026–2030",
-              ].map((t, i) => (
-                <li key={i} className="flex gap-2"><Star className="h-3 w-3 shrink-0 text-gov-yellow mt-0.5" /><span className="text-white/90">{t}</span></li>
-              ))}
-            </ul>
-          </div>
-          <p className="mt-3 text-[10px] italic text-white/60">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
-        </aside>
-      </div>
-
-      {/* Directives + Map */}
+      {/* Directives + (Govt directives + Map) */}
       <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 rounded-xl bg-card p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4 border-b pb-2">
@@ -173,13 +146,40 @@ function HomePage() {
             ))}
           </div>
         </div>
-        <div className="rounded-xl bg-card p-5 shadow-sm">
-          <h4 className="font-bold text-gov-blue-dark mb-3 flex items-center gap-2"><MapPin className="h-4 w-4 text-gov-red" /> BẢN ĐỒ HÀNH CHÍNH</h4>
-          <div className="aspect-square rounded-lg bg-gradient-to-br from-gov-yellow via-gov-orange to-gov-red flex items-center justify-center text-white shadow-inner">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 mx-auto mb-2" />
-              <p className="font-bold">TỈNH KHÁNH HÒA</p>
-              <p className="text-xs">65 xã, phường, đặc khu</p>
+
+        <div className="space-y-6">
+          <aside className="rounded-xl bg-gov-blue-dark text-white p-5">
+            <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
+              <Megaphone className="h-4 w-4 text-gov-yellow" />
+              CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
+            </h4>
+            <div className="space-y-4">
+              <div className="aspect-video rounded bg-gradient-to-br from-gov-blue to-gov-blue-dark flex items-center justify-center relative overflow-hidden">
+                <Play className="h-10 w-10 text-gov-yellow" />
+              </div>
+              <ul className="space-y-2 text-xs">
+                {[
+                  "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức…\"",
+                  "Phân công soạn thảo 9 dự án luật",
+                  "100% CBCC cấp xã chưa đáp ứng yêu cầu chuyển môn vị trí việc làm được cử đi bồi dưỡng",
+                  "Kéo dài thời gian giữ chức vụ đối với 2 cán bộ thuộc Bộ Quốc phòng",
+                  "Tiêu chí phân bổ vốn đầu tư công từ ngân sách trung ương cho địa phương giai đoạn 2026–2030",
+                ].map((t, i) => (
+                  <li key={i} className="flex gap-2"><Star className="h-3 w-3 shrink-0 text-gov-yellow mt-0.5" /><span className="text-white/90">{t}</span></li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-3 text-[10px] italic text-white/60">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
+          </aside>
+
+          <div className="rounded-xl bg-card p-5 shadow-sm">
+            <h4 className="font-bold text-gov-blue-dark mb-3 flex items-center gap-2"><MapPin className="h-4 w-4 text-gov-red" /> BẢN ĐỒ HÀNH CHÍNH</h4>
+            <div className="aspect-square rounded-lg bg-gradient-to-br from-gov-yellow via-gov-orange to-gov-red flex items-center justify-center text-white shadow-inner">
+              <div className="text-center">
+                <MapPin className="h-12 w-12 mx-auto mb-2" />
+                <p className="font-bold">TỈNH KHÁNH HÒA</p>
+                <p className="text-xs">65 xã, phường, đặc khu</p>
+              </div>
             </div>
           </div>
         </div>
