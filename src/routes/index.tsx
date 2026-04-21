@@ -10,6 +10,7 @@ import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
 import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
 import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
+import gioToHungVuong from "@/assets/gio-to-hung-vuong.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -159,10 +160,19 @@ function HomePage() {
 
       {/* Hùng Vương banner */}
       <div className="container mx-auto px-4 mt-8">
-        <div className="rounded-xl bg-gradient-to-r from-gov-red via-[oklch(0.5_0.22_15)] to-gov-red-dark p-8 text-center text-white shadow-lg">
-          <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide">GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG</h3>
-          <p className="mt-2 text-gov-yellow font-semibold">VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026</p>
-        </div>
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-red via-[oklch(0.5_0.22_15)] to-gov-red-dark p-8 text-center text-white shadow-lg">
+          <img
+            src={gioToHungVuong}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-overlay"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gov-red/70 via-transparent to-gov-red-dark/70" />
+          <div className="relative">
+            <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide drop-shadow">GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG</h3>
+            <p className="mt-2 text-gov-yellow font-semibold drop-shadow">VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026</p>
+          </div>
       </div>
 
       {/* Directives + (Govt directives + Map) */}
