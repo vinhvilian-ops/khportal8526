@@ -4,7 +4,12 @@ import {
   Calendar, FileText, FileCheck, MessageSquare, FilePlus, Search,
   HelpCircle, Database, Briefcase, Scale, Star, BookOpen, Sparkles,
   AlertCircle, Newspaper, Megaphone, Bell, BarChart3, Play, MapPin, QrCode,
+  ChevronRight,
 } from "lucide-react";
+import leaderFeatured from "@/assets/leader-featured.jpg";
+import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
+import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
+import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,10 +24,10 @@ export const Route = createFileRoute("/")({
 });
 
 const LEADER_NEWS = [
-  { tag: "TIN NỔI BẬT", date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Lê Hữu Hoàng thăm, tặng quà gia đình người có công tại xã Đồng Khánh Sơn", main: true },
-  { date: "20/04/2026", title: "Rà soát toàn bộ hồ sơ Dự án đầu tư hỗ trợ phát triển vùng dược liệu quý" },
-  { date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Trần Hòa Nam thăm, tặng quà người có công với cách mạng" },
-  { date: "19/04/2026", title: "Lãnh đạo tỉnh Khánh Hòa đánh giá, dâng hương tại Khu Di tích lịch sử quốc gia đặc biệt Đền phủ Quánh, tỉnh Quảng…" },
+  { tag: "TIN NỔI BẬT", date: "20/04/2026", title: "Phó Chủ tịch Thường trực UBND tỉnh Nguyễn Long Biên thăm, tặng quà người có công với cách mạng tại phường Phan Rang", image: leaderFeatured, main: true },
+  { date: "20/04/2026", title: "Rà soát, đánh giá thực trạng đội ngũ chuyên trách công nghệ thông tin cấp xã, phường", image: leaderThumb1 },
+  { date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Lê Huyền thăm, tặng quà gia đình người có công tại xã Đồng Khánh Sơn", image: leaderThumb2 },
+  { date: "20/04/2026", title: "Rà soát toàn bộ hồ sơ Dự án đầu tư hỗ trợ phát triển vùng dược liệu quý", image: leaderThumb3 },
 ];
 
 const QUICK_LINKS = [
@@ -87,24 +92,43 @@ function HomePage() {
 
       <div className="container mx-auto px-4 grid gap-6 lg:grid-cols-12">
         {/* Featured leader news */}
-        <article className="lg:col-span-7 relative rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white shadow-lg min-h-[360px] flex flex-col justify-end p-6">
-          <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_30%,oklch(0.85_0.17_90),transparent_60%)]" />
-          <span className="relative inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
-          <p className="relative text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
-          <h3 className="relative text-xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
+        <article className="lg:col-span-7 relative rounded-xl overflow-hidden shadow-lg min-h-[360px] flex flex-col justify-end">
+          <img
+            src={LEADER_NEWS[0].image}
+            alt={LEADER_NEWS[0].title}
+            width={1024}
+            height={640}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+          <div className="relative p-6 text-white">
+            <span className="inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
+            <p className="text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
+            <h3 className="text-xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
+          </div>
         </article>
 
         {/* Side news list */}
-        <div className="lg:col-span-5 space-y-3">
+        <div className="lg:col-span-5 flex flex-col gap-3">
           {LEADER_NEWS.slice(1).map((n, i) => (
             <a key={i} href="#" className="flex gap-3 p-3 rounded-lg bg-card hover:shadow-md transition group">
-              <div className={`h-16 w-20 shrink-0 rounded bg-gradient-to-br ${["from-gov-cyan to-gov-blue","from-gov-orange to-gov-red","from-gov-green to-gov-blue"][i]}`} />
+              <img
+                src={n.image}
+                alt={n.title}
+                width={512}
+                height={512}
+                loading="lazy"
+                className="h-16 w-24 shrink-0 rounded object-cover"
+              />
               <div>
                 <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
                 <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
               </div>
             </a>
           ))}
+          <a href="#" className="mt-1 self-end inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline">
+            Xem tất cả bài viết <ChevronRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
 
