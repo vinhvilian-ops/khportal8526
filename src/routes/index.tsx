@@ -166,9 +166,9 @@ function HomePage() {
             alt=""
             aria-hidden="true"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-overlay"
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-gov-red/70 via-transparent to-gov-red-dark/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gov-red/55 via-gov-red/25 to-gov-red-dark/55" />
           <div className="relative">
             <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide drop-shadow">GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG</h3>
             <p className="mt-2 text-gov-yellow font-semibold drop-shadow">VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026</p>
