@@ -124,20 +124,20 @@ function HomePage() {
           </article>
 
           {/* Side news list */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
+          <div className="lg:col-span-5 flex flex-col gap-4">
             {LEADER_NEWS.slice(1).map((n, i) => (
-              <a key={i} href="#" className="flex gap-3 p-3 rounded-lg bg-card hover:shadow-md transition group">
+              <a key={i} href="#" className="flex-1 flex gap-4 p-4 rounded-lg bg-card hover:shadow-md transition group">
                 <img
                   src={n.image}
                   alt={n.title}
                   width={512}
                   height={512}
                   loading="lazy"
-                  className="h-16 w-24 shrink-0 rounded object-cover"
+                  className="h-24 w-32 lg:h-28 lg:w-36 shrink-0 rounded object-cover"
                 />
-                <div>
-                  <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
-                  <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                <div className="flex flex-col justify-center">
+                  <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
                 </div>
               </a>
             ))}
