@@ -87,7 +87,7 @@ function HomePage() {
 
       <div className="container mx-auto px-4 grid gap-6 lg:grid-cols-12">
         {/* Featured leader news */}
-        <article className="lg:col-span-5 relative rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white shadow-lg min-h-[360px] flex flex-col justify-end p-6">
+        <article className="lg:col-span-7 relative rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white shadow-lg min-h-[360px] flex flex-col justify-end p-6">
           <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_30%,oklch(0.85_0.17_90),transparent_60%)]" />
           <span className="relative inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
           <p className="relative text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
