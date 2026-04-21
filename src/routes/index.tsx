@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import {
@@ -11,6 +12,12 @@ import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
 import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
 import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
 import gioToHungVuong from "@/assets/gio-to-hung-vuong.jpg";
+import dir1 from "@/assets/dir-1.jpg";
+import dir2 from "@/assets/dir-2.jpg";
+import dir3 from "@/assets/dir-3.jpg";
+import dir4 from "@/assets/dir-4.jpg";
+import dir5 from "@/assets/dir-5.jpg";
+import dir6 from "@/assets/dir-6.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,14 +47,25 @@ const QUICK_LINKS = [
   { icon: Search, label: "Tra cứu CSDL Thủ tục hành chính", color: "bg-gov-blue/10 text-gov-blue" },
 ];
 
-const DIRECTIVES = [
-  "Phát triển nguồn nhân lực Khánh Hòa theo hướng hiện đại, bền vững",
-  "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số",
-  "Đẩy mạnh kiểm tra trực tuyến đăng ký kinh doanh, nâng cao hiệu quả quản lý nhà nước",
-  "Triển khai thực hiện chương trình đào tạo nghề cho lao động nông thôn đến năm 2030",
-  "Cải thiện chất lượng phục vụ, nâng cao mức độ hài lòng của người dân, tổ chức, doanh nghiệp",
-  "Khánh Hòa phấn đấu đưa chất lượng giáo dục phổ thông vào tốp đầu cả nước đến năm 2030",
-];
+const DIRECTIVES_TABS = {
+  "THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH": [
+    { title: "Phân cấp quản lý nhà nước về đất đai trên địa bàn tỉnh Khánh Hòa", date: "21/04/2026", image: dir1 },
+    { title: "Triển khai cơ chế, chính sách đặc biệt tạo đột phá cho công tác bảo vệ, chăm sóc sức khỏe nhân dân", date: "21/04/2026", image: dir2 },
+    { title: "Phát triển ngành thép Khánh Hòa theo hướng hiện đại, bền vững", date: "20/04/2026", image: dir3 },
+    { title: "Đẩy mạnh kiểm tra trực tuyến đăng ký kinh doanh, nâng cao hiệu quả quản lý nhà nước", date: "20/04/2026", image: dir4 },
+    { title: "Cải thiện chất lượng phục vụ, nâng cao mức độ hài lòng của người dân, tổ chức, doanh nghiệp", date: "20/04/2026", image: dir5 },
+    { title: "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số", date: "19/04/2026", image: dir6 },
+  ],
+  "HOẠT ĐỘNG SỞ, NGÀNH, ĐỊA PHƯƠNG": [
+    { title: "Sở Nông nghiệp & Môi trường tổ chức hội nghị tổng kết quý I/2026", date: "20/04/2026", image: dir1 },
+    { title: "Triển khai chương trình đào tạo nghề cho lao động nông thôn đến năm 2030", date: "20/04/2026", image: dir2 },
+    { title: "Phát triển nguồn nhân lực Khánh Hòa theo hướng hiện đại, bền vững", date: "19/04/2026", image: dir3 },
+    { title: "Khánh Hòa phấn đấu đưa chất lượng giáo dục phổ thông vào tốp đầu cả nước", date: "19/04/2026", image: dir4 },
+    { title: "UBND tỉnh tiếp công dân định kỳ tháng 4/2026", date: "18/04/2026", image: dir5 },
+    { title: "Hội nghị xúc tiến đầu tư các xã ven biển", date: "18/04/2026", image: dir6 },
+  ],
+} as const;
+type DirectiveTab = keyof typeof DIRECTIVES_TABS;
 
 const POLICY_NEWS = [
   { date: "17/04/2026", title: "SẮP XẾP TRƯỜNG HỌC: Chỉ sáp nhập trường, điểm trường trong phạm vi 1 đơn vị hành chính cấp xã" },
@@ -86,6 +104,8 @@ const DEPARTMENTS = [
 ];
 
 function HomePage() {
+  const tabKeys = Object.keys(DIRECTIVES_TABS) as DirectiveTab[];
+  const [activeTab, setActiveTab] = useState<DirectiveTab>(tabKeys[0]);
   return (
     <SiteLayout>
       {/* ============ CẤP 1 — CHÍNH QUYỀN ============ */}
@@ -179,19 +199,49 @@ function HomePage() {
       {/* Directives + (Govt directives + Map) */}
       <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 rounded-xl bg-card p-5 shadow-sm">
-          <div className="flex items-center justify-between mb-4 border-b pb-2">
-            <h4 className="font-bold text-gov-blue-dark flex items-center gap-2"><Megaphone className="h-4 w-4 text-gov-red" /> THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH</h4>
-            <span className="text-xs text-muted-foreground">— Hoạt động xã, ngành, địa phương</span>
+          <div className="flex items-center gap-1 border-b mb-4">
+            {tabKeys.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                  activeTab === tab
+                    ? "text-gov-blue-dark"
+                    : "text-muted-foreground hover:text-gov-blue-dark"
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <Megaphone className={`h-4 w-4 ${activeTab === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                  {tab}
+                </span>
+                {activeTab === tab && (
+                  <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                )}
+              </button>
+            ))}
           </div>
-          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
-            {DIRECTIVES.map((d, i) => (
-              <a key={i} href="#" className="flex gap-2 group border-l-2 border-gov-yellow pl-3 py-1">
-                <div>
-                  <p className="text-sm text-foreground group-hover:text-gov-red leading-snug">{d}</p>
-                  <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> 20/04/2026</p>
+          <div className="grid sm:grid-cols-2 gap-x-5 gap-y-4">
+            {DIRECTIVES_TABS[activeTab].map((d, i) => (
+              <a key={i} href="#" className="flex gap-3 group">
+                <img
+                  src={d.image}
+                  alt={d.title}
+                  width={512}
+                  height={512}
+                  loading="lazy"
+                  className="h-20 w-28 shrink-0 rounded object-cover"
+                />
+                <div className="flex flex-col justify-center min-w-0">
+                  <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.title}</p>
+                  <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
                 </div>
               </a>
             ))}
+          </div>
+          <div className="mt-4 flex justify-end">
+            <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline">
+              Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
 
