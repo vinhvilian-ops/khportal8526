@@ -173,6 +173,7 @@ function HomePage() {
             <h3 className="text-2xl md:text-3xl font-extrabold tracking-wide drop-shadow">GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG</h3>
             <p className="mt-2 text-gov-yellow font-semibold drop-shadow">VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026</p>
           </div>
+        </div>
       </div>
 
       {/* Directives + (Govt directives + Map) */}
