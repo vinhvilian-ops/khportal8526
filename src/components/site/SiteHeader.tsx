@@ -1,0 +1,100 @@
+import { Link } from "@tanstack/react-router";
+import { Search, Mail, Globe, Map } from "lucide-react";
+
+const NAV = [
+  { to: "/", label: "TRANG CHỦ" },
+  { to: "/gioi-thieu", label: "GIỚI THIỆU" },
+  { to: "/chinh-quyen", label: "CHÍNH QUYỀN" },
+  { to: "/cong-dan", label: "CÔNG DÂN" },
+  { to: "/doanh-nghiep", label: "DOANH NGHIỆP" },
+  { to: "/du-khach", label: "DU KHÁCH" },
+] as const;
+
+const TICKER = [
+  "Khánh Hòa lập kỷ lục tiếp đón Quảng Trị",
+  "Khai mạc Lễ hội Am Chúa năm 2026",
+  "Bí thư Tỉnh ủy Trần Phong làm việc với Ban Thường vụ Đảng ủy các xã Trường Sa",
+  "Phát triển kinh tế biển bền vững",
+];
+
+export function SiteHeader() {
+  return (
+    <header className="w-full bg-gov-surface border-b border-border">
+      {/* Top utility bar */}
+      <div className="bg-muted/40 text-xs text-muted-foreground">
+        <div className="container mx-auto flex h-9 items-center justify-end gap-4 px-4">
+          <a href="#" className="hover:text-gov-red flex items-center gap-1"><Map className="h-3 w-3" /> Sơ đồ website</a>
+          <span className="text-border">|</span>
+          <a href="#" className="hover:text-gov-red">Русский</a>
+          <a href="#" className="hover:text-gov-red font-medium text-gov-red">English</a>
+          <span className="text-border">|</span>
+          <a href="#" className="hover:text-gov-red flex items-center gap-1"><Mail className="h-3 w-3" /> Hộp thư</a>
+        </div>
+      </div>
+
+      {/* Brand */}
+      <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4">
+        <div className="flex items-center gap-4">
+          <div className="h-16 w-16 shrink-0 rounded-full bg-gov-red flex items-center justify-center text-gov-yellow text-3xl font-bold shadow-sm">
+            ★
+          </div>
+          <div>
+            <p className="text-xs text-gov-red font-semibold tracking-wider">CỔNG THÔNG TIN ĐIỆN TỬ</p>
+            <h1 className="text-3xl font-extrabold text-gov-red leading-tight">TỈNH KHÁNH HÒA</h1>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Thứ Ba, 21/04/2026 10:11 &nbsp;|&nbsp; <a className="hover:underline" href="#">English</a> &nbsp;|&nbsp; <a className="hover:underline" href="#">Français</a>
+            </p>
+          </div>
+        </div>
+        <div className="hidden md:flex h-20 w-32 rounded bg-gradient-to-br from-gov-red/10 to-gov-yellow/20 items-center justify-center text-gov-red-dark text-xs font-medium">
+          🏛️ Trụ sở UBND
+        </div>
+      </div>
+
+      {/* Main nav */}
+      <nav className="border-y border-border bg-gov-surface">
+        <div className="container mx-auto flex items-center justify-between px-4">
+          <ul className="flex">
+            {NAV.map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  activeOptions={{ exact: item.to === "/" }}
+                  className="block px-5 py-3 text-sm font-bold text-gov-blue-dark hover:text-gov-red transition-colors data-[status=active]:text-gov-red data-[status=active]:border-b-2 data-[status=active]:border-gov-red"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground bg-muted/30">
+            <Search className="h-4 w-4" />
+            <input
+              placeholder="Tìm kiếm..."
+              className="bg-transparent outline-none w-48 placeholder:text-muted-foreground"
+            />
+          </div>
+        </div>
+      </nav>
+
+      {/* Ticker */}
+      <div className="bg-gov-red text-primary-foreground">
+        <div className="container mx-auto flex items-center gap-4 px-4 py-2 overflow-hidden">
+          <span className="shrink-0 bg-gov-red-dark px-3 py-1 text-xs font-bold rounded">📢 THÔNG BÁO</span>
+          <div className="flex gap-8 animate-[marquee_40s_linear_infinite] whitespace-nowrap text-sm">
+            {[...TICKER, ...TICKER].map((t, i) => (
+              <span key={i}>★ {t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+    </header>
+  );
+}

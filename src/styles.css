@@ -59,6 +59,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gov-red: var(--gov-red);
+  --color-gov-red-dark: var(--gov-red-dark);
+  --color-gov-blue: var(--gov-blue);
+  --color-gov-blue-dark: var(--gov-blue-dark);
+  --color-gov-yellow: var(--gov-yellow);
+  --color-gov-orange: var(--gov-orange);
+  --color-gov-cyan: var(--gov-cyan);
+  --color-gov-green: var(--gov-green);
+  --color-gov-page: var(--gov-page);
+  --color-gov-surface: var(--gov-surface);
 }
 
 :root {
@@ -95,6 +105,21 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Government portal palette */
+  --gov-red: oklch(0.55 0.22 27);
+  --gov-red-dark: oklch(0.42 0.2 25);
+  --gov-blue: oklch(0.45 0.18 255);
+  --gov-blue-dark: oklch(0.28 0.12 260);
+  --gov-yellow: oklch(0.85 0.17 90);
+  --gov-orange: oklch(0.7 0.2 45);
+  --gov-cyan: oklch(0.7 0.13 215);
+  --gov-green: oklch(0.65 0.16 155);
+  --gov-page: oklch(0.97 0.015 240);
+  --gov-surface: oklch(1 0 0);
+
+  --primary: oklch(0.55 0.22 27);
+  --primary-foreground: oklch(0.99 0 0);
 }
 
 .dark {
