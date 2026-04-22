@@ -357,23 +357,41 @@ function HomePage() {
       {/* News tabs CD/DN */}
       <div className="container mx-auto px-4 mt-6 rounded-xl bg-card shadow-sm overflow-hidden">
         <div className="flex border-b">
-          <button className="px-5 py-3 text-sm font-bold text-gov-red border-b-2 border-gov-red">TIN NỔI BẬT DÀNH CHO CÔNG DÂN</button>
-          <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN NỔI BẬT DÀNH CHO DOANH NGHIỆP</button>
+          {(Object.keys(CITIZEN_BUSINESS_TABS) as Array<keyof typeof CITIZEN_BUSINESS_TABS>).map((k) => {
+            const active = activeNewsTab === k;
+            return (
+              <button
+                key={k}
+                onClick={() => setActiveNewsTab(k)}
+                className={`px-5 py-3 text-sm font-bold transition border-b-2 ${active ? "text-gov-blue border-gov-blue" : "text-muted-foreground border-transparent hover:text-foreground"}`}
+              >
+                {k}
+              </button>
+            );
+          })}
         </div>
-        <div className="grid gap-5 md:grid-cols-2 p-5">
-          {[
-            { title: "Xác thực thông tin thuê bao: Để xây dựng môi trường viễn thông an toàn", date: "17/04/2026" },
-            { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026" },
-            { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026" },
-          ].map((n, i) => (
+        <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 p-5">
+          {CITIZEN_BUSINESS_TABS[activeNewsTab].map((n, i) => (
             <a key={i} href="#" className="flex gap-3 group">
-              <div className={`h-16 w-24 shrink-0 rounded bg-gradient-to-br ${["from-gov-blue to-gov-cyan","from-gov-orange to-gov-red","from-gov-green to-gov-blue"][i]}`} />
-              <div>
-                <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug">{n.title}</p>
-                <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+              <img
+                src={n.image}
+                alt={n.title}
+                width={512}
+                height={512}
+                loading="lazy"
+                className="h-20 w-28 shrink-0 rounded object-cover"
+              />
+              <div className="flex flex-col justify-center min-w-0">
+                <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
               </div>
             </a>
           ))}
+        </div>
+        <div className="px-5 pb-4 flex justify-end">
+          <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
+            Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
         </div>
       </div>
 
