@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Search, Mail, Map } from "lucide-react";
 import quocHuy from "@/assets/quoc-huy.png";
-import ubndSketch from "@/assets/ubnd-sketch.png";
+import ubndSketch from "@/assets/ubnd-sketch-2.png";
 
 const NAV = [
   { to: "/", label: "TRANG CHỦ" },
