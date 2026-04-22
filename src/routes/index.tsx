@@ -236,8 +236,8 @@ function HomePage() {
       </div>
 
       {/* Directives + (Govt directives + Map) */}
-      <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-6">
+      <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-1">
+        <div className="space-y-6">
           <div className="rounded-xl bg-card p-5 shadow-sm">
             <div className="flex items-end justify-between gap-4 border-b mb-4">
               <div className="flex items-center gap-1 flex-wrap">
