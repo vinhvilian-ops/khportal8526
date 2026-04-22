@@ -501,9 +501,9 @@ function HomePage() {
       {/* ============ CẤP 3 — ĐA DẠNG NỘI DUNG ============ */}
       <PageHero level="CẤP 3" topic="ĐA DẠNG NỘI DUNG" title="Du khách, Chuyên trang & " highlight="Truyền thông" />
 
-      <div className="container mx-auto px-4 grid gap-6 lg:grid-cols-12">
+      <div className="container mx-auto px-4">
         {/* Tourism block */}
-        <div className="lg:col-span-9 rounded-xl bg-card shadow-sm overflow-hidden">
+        <div className="rounded-xl bg-card shadow-sm overflow-hidden">
           <div className="flex border-b">
             <button className="px-5 py-3 text-sm font-bold text-gov-red border-b-2 border-gov-red">GIỚI THIỆU ĐẾN DU KHÁCH</button>
             <button className="px-5 py-3 text-sm font-medium text-muted-foreground">📷 TIN ẢNH</button>
