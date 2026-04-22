@@ -28,6 +28,10 @@ import policyFeatured from "@/assets/policy-featured.jpg";
 import policyThumb1 from "@/assets/policy-thumb-1.jpg";
 import policyThumb2 from "@/assets/policy-thumb-2.jpg";
 import policyThumb3 from "@/assets/policy-thumb-3.jpg";
+import tourismFeatured from "@/assets/tourism-featured.jpg";
+import tourismThumb1 from "@/assets/tourism-thumb-1.jpg";
+import tourismThumb2 from "@/assets/tourism-thumb-2.jpg";
+import tourismThumb3 from "@/assets/tourism-thumb-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -579,29 +583,52 @@ function HomePage() {
         {/* Tourism block */}
         <div className="rounded-xl bg-card shadow-sm overflow-hidden">
           <div className="flex border-b">
-            <button className="px-5 py-3 text-sm font-bold text-gov-red border-b-2 border-gov-red">GIỚI THIỆU ĐẾN DU KHÁCH</button>
-            <button className="px-5 py-3 text-sm font-medium text-muted-foreground">📷 TIN ẢNH</button>
+            <button className="px-5 py-3 text-sm font-bold text-gov-blue border-b-2 border-gov-blue">GIỚI THIỆU ĐẾN DU KHÁCH</button>
+            <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN ẢNH</button>
           </div>
           <div className="grid md:grid-cols-2 gap-5 p-5">
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-gov-cyan to-gov-blue-dark flex items-end p-4">
-              <span className="absolute top-3 left-3 bg-gov-yellow text-gov-blue-dark text-xs font-bold px-2 py-1 rounded">Lễ hội</span>
-              <p className="text-white font-bold text-lg leading-snug relative">Khai mạc lễ hội Am Chúa năm 2026</p>
-            </div>
-            <ul className="space-y-3">
+            <a href="#" className="group relative aspect-[4/3] rounded-lg overflow-hidden block">
+              <img
+                src={tourismFeatured}
+                alt="Khai mạc Lễ hội Am Chúa năm 2026"
+                width={800}
+                height={600}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gov-blue/90 px-4 py-3">
+                <p className="text-white font-bold text-base leading-snug">Khai mạc Lễ hội Am Chúa năm 2026</p>
+              </div>
+            </a>
+            <ul className="divide-y">
               {[
-                { title: "Tiềm năng để lịch đại đường và sức khỏe", date: "20/04/2026" },
-                { title: "Tour Vietcom vẽ đạp 160.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "19/04/2026" },
-                { title: "Du thuyền sao Voyager về điểm Nha Trang trong chuyên hai trình mưa hè", date: "18/04/2026" },
+                { title: "Tiềm năng du lịch nghỉ dưỡng và chăm sóc sức khỏe", date: "10/04/2026", image: tourismThumb1 },
+                { title: "Anex Tour Vietnam sẽ đưa 180.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "07/04/2026", image: tourismThumb2 },
+                { title: "Du thuyền Star Voyager sẽ đến Nha Trang trong chuyến hải trình mùa hè", date: "05/04/2026", image: tourismThumb3 },
               ].map((n, i) => (
-                <li key={i} className="flex gap-3 group">
-                  <div className={`h-14 w-20 shrink-0 rounded bg-gradient-to-br ${["from-gov-cyan to-gov-blue","from-gov-yellow to-gov-orange","from-gov-blue to-gov-blue-dark"][i]}`} />
-                  <div>
-                    <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug">{n.title}</p>
-                    <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                  </div>
+                <li key={i} className="py-3 first:pt-0 last:pb-0">
+                  <a href="#" className="flex gap-3 group">
+                    <img
+                      src={n.image}
+                      alt={n.title}
+                      width={512}
+                      height={512}
+                      loading="lazy"
+                      className="h-20 w-28 shrink-0 rounded object-cover"
+                    />
+                    <div className="flex flex-col justify-center min-w-0">
+                      <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                      <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                    </div>
+                  </a>
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="px-5 pb-4 flex justify-end">
+            <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:text-gov-red">
+              Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
 
           {/* Charts */}
