@@ -24,6 +24,10 @@ import newsCd3 from "@/assets/news-cd-3.jpg";
 import newsDn1 from "@/assets/news-dn-1.jpg";
 import newsDn2 from "@/assets/news-dn-2.jpg";
 import newsDn3 from "@/assets/news-dn-3.jpg";
+import policyFeatured from "@/assets/policy-featured.jpg";
+import policyThumb1 from "@/assets/policy-thumb-1.jpg";
+import policyThumb2 from "@/assets/policy-thumb-2.jpg";
+import policyThumb3 from "@/assets/policy-thumb-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -347,27 +351,48 @@ function HomePage() {
               <button className="px-5 py-3 text-sm font-medium text-muted-foreground hover:text-foreground">THAM VẤN VÀ LẤY Ý KIẾN</button>
             </div>
             <div className="grid gap-5 md:grid-cols-2 p-5">
-              <div className="relative aspect-video rounded-lg bg-gradient-to-br from-gov-blue-dark to-[oklch(0.15_0.08_265)] overflow-hidden flex items-center justify-center">
-                <div className="flex gap-3">
-                  <div className="h-20 w-14 rounded border-2 border-gov-yellow" />
-                  <div className="h-20 w-14 rounded border-2 border-gov-cyan" />
-                  <div className="h-20 w-14 rounded border-2 border-gov-yellow" />
+              <a href="#" className="group relative aspect-[4/3] rounded-lg overflow-hidden block">
+                <img
+                  src={policyFeatured}
+                  alt="Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 11-17/4/2026"
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gov-blue/90 text-white p-3">
+                  <p className="text-sm font-semibold leading-snug">Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 11-17/4/2026</p>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gov-blue-dark/90 text-white text-xs p-2 font-medium">
-                  Sách giáo khoa điện tử không được chèn quảng cáo, nội dung kinh doanh
-                </div>
-              </div>
-              <ul className="space-y-3">
-                {POLICY_NEWS.map((p, i) => (
-                  <li key={i} className="flex gap-3 group">
-                    <div className={`h-14 w-20 shrink-0 rounded bg-gradient-to-br ${["from-gov-orange to-gov-red","from-gov-blue to-gov-cyan","from-gov-yellow to-gov-orange"][i]}`} />
-                    <div>
-                      <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug">{p.title}</p>
-                      <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {p.date}</p>
-                    </div>
+              </a>
+              <ul className="flex flex-col divide-y">
+                {[
+                  { title: "Sách giáo khoa điện tử không được chèn quảng cáo, nội dung kinh doanh", date: "17/04/2026", image: policyThumb1 },
+                  { title: "SẮP XẾP TRƯỜNG HỌC: Chỉ sáp nhập trường, điểm trường trong phạm vi 1 đơn vị hành chính cấp xã", date: "17/04/2026", image: policyThumb2 },
+                  { title: "Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 4-10/4/2026", date: "14/04/2026", image: policyThumb3 },
+                ].map((p, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex gap-3 group py-3 first:pt-0 last:pb-0 items-center">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        loading="lazy"
+                        width={512}
+                        height={512}
+                        className="h-20 w-28 shrink-0 rounded object-cover"
+                      />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug line-clamp-3">{p.title}</p>
+                        <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {p.date}</p>
+                      </div>
+                    </a>
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="px-5 pb-4 flex justify-end">
+              <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
+                Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
             </div>
           </div>
 
