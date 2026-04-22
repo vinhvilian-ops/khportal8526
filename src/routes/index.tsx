@@ -239,46 +239,74 @@ function HomePage() {
       <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-6">
           <div className="rounded-xl bg-card p-5 shadow-sm">
-            <div className="flex items-center gap-1 border-b mb-4">
-            {tabKeys.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
-                  activeTab === tab
-                    ? "text-gov-blue-dark"
-                    : "text-muted-foreground hover:text-gov-blue-dark"
-                }`}
-              >
-                <span className="flex items-center gap-2">
-                  <Megaphone className={`h-4 w-4 ${activeTab === tab ? "text-gov-red" : "text-muted-foreground"}`} />
-                  {tab}
-                </span>
-                {activeTab === tab && (
-                  <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
-                )}
-              </button>
-            ))}
-          </div>
-          <div className="grid sm:grid-cols-2 gap-x-5 gap-y-4">
-            {DIRECTIVES_TABS[activeTab].map((d, i) => (
-              <a key={i} href="#" className="flex gap-3 group">
-                <img
-                  src={d.image}
-                  alt={d.title}
-                  width={512}
-                  height={512}
-                  loading="lazy"
-                  className="h-20 w-28 shrink-0 rounded object-cover"
-                />
-                <div className="flex flex-col justify-center min-w-0">
-                  <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.title}</p>
-                  <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
-                </div>
+            <div className="flex items-end justify-between gap-4 border-b mb-4">
+              <div className="flex items-center gap-1 flex-wrap">
+                {tabKeys.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                      activeTab === tab
+                        ? "text-gov-blue-dark"
+                        : "text-muted-foreground hover:text-gov-blue-dark"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Megaphone className={`h-4 w-4 ${activeTab === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                      {tab}
+                    </span>
+                    {activeTab === tab && (
+                      <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                    )}
+                  </button>
+                ))}
+              </div>
+              <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-2.5 shrink-0">
+                Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-            ))}
-          </div>
-            <div className="mt-4 flex justify-end">
+            </div>
+            {(() => {
+              const items = DIRECTIVES_TABS[activeTab];
+              const featured = items[0];
+              const rest = items.slice(1, 4);
+              return (
+                <div className="grid gap-5 md:grid-cols-2">
+                  {featured && (
+                    <a href="#" className="group flex flex-col">
+                      <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                        <img
+                          src={featured.image}
+                          alt={featured.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <p className="mt-3 text-base font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{featured.title}</p>
+                      <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {featured.date}</p>
+                    </a>
+                  )}
+                  <div className="flex flex-col divide-y">
+                    {rest.map((d, i) => (
+                      <a key={i} href="#" className="flex gap-3 group py-3 first:pt-0 last:pb-0">
+                        <img
+                          src={d.image}
+                          alt={d.title}
+                          width={512}
+                          height={512}
+                          loading="lazy"
+                          className="h-20 w-28 shrink-0 rounded object-cover"
+                        />
+                        <div className="flex flex-col justify-center min-w-0">
+                          <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.title}</p>
+                          <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+            <div className="mt-4 flex sm:hidden justify-end">
               <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline">
                 Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
