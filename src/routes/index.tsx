@@ -344,57 +344,30 @@ function HomePage() {
             </a>
           </div>
 
-          {/* Policy news with tabs */}
-          <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-            <div className="flex border-b">
-              <button className="px-5 py-3 text-sm font-bold text-gov-red border-b-2 border-gov-red">CHÍNH SÁCH MỚI</button>
-              <button className="px-5 py-3 text-sm font-medium text-muted-foreground hover:text-foreground">THAM VẤN VÀ LẤY Ý KIẾN</button>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2 p-5">
-              <a href="#" className="group relative aspect-[4/3] rounded-lg overflow-hidden block">
-                <img
-                  src={policyFeatured}
-                  alt="Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 11-17/4/2026"
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gov-blue/90 text-white p-3">
-                  <p className="text-sm font-semibold leading-snug">Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 11-17/4/2026</p>
-                </div>
-              </a>
-              <ul className="flex flex-col divide-y">
-                {[
+          {/* Policy news with tabs - synced with directives layout */}
+          {(() => {
+            const POLICY_TABS = {
+              "CHÍNH SÁCH MỚI": {
+                featured: { title: "Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 11-17/4/2026", date: "17/04/2026", image: policyFeatured },
+                rest: [
                   { title: "Sách giáo khoa điện tử không được chèn quảng cáo, nội dung kinh doanh", date: "17/04/2026", image: policyThumb1 },
                   { title: "SẮP XẾP TRƯỜNG HỌC: Chỉ sáp nhập trường, điểm trường trong phạm vi 1 đơn vị hành chính cấp xã", date: "17/04/2026", image: policyThumb2 },
                   { title: "Chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ nổi bật tuần từ 4-10/4/2026", date: "14/04/2026", image: policyThumb3 },
-                ].map((p, i) => (
-                  <li key={i}>
-                    <a href="#" className="flex gap-3 group py-3 first:pt-0 last:pb-0 items-center">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        loading="lazy"
-                        width={512}
-                        height={512}
-                        className="h-20 w-28 shrink-0 rounded object-cover"
-                      />
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug line-clamp-3">{p.title}</p>
-                        <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {p.date}</p>
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="px-5 pb-4 flex justify-end">
-              <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
-                Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </div>
+                ],
+              },
+              "THAM VẤN VÀ LẤY Ý KIẾN": {
+                featured: { title: "Lấy ý kiến dự thảo Nghị quyết về phát triển kinh tế - xã hội tỉnh Khánh Hòa", date: "16/04/2026", image: policyThumb2 },
+                rest: [
+                  { title: "Tham vấn dự thảo Quy chế quản lý kiến trúc đô thị thành phố Nha Trang", date: "15/04/2026", image: policyFeatured },
+                  { title: "Lấy ý kiến nhân dân về Đề án phát triển du lịch bền vững giai đoạn 2026-2030", date: "12/04/2026", image: policyThumb1 },
+                  { title: "Dự thảo Quy định về quản lý hoạt động khoáng sản trên địa bàn tỉnh", date: "10/04/2026", image: policyThumb3 },
+                ],
+              },
+            } as const;
+            type PolicyTab = keyof typeof POLICY_TABS;
+            const policyKeys = Object.keys(POLICY_TABS) as PolicyTab[];
+            return <PolicyBlock tabs={POLICY_TABS} keys={policyKeys} />;
+          })()}
 
           {/* Investment + Legal */}
           <div className="grid gap-4 md:grid-cols-2">
