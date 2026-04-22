@@ -18,6 +18,12 @@ import dir3 from "@/assets/dir-3.jpg";
 import dir4 from "@/assets/dir-4.jpg";
 import dir5 from "@/assets/dir-5.jpg";
 import dir6 from "@/assets/dir-6.jpg";
+import newsCd1 from "@/assets/news-cd-1.jpg";
+import newsCd2 from "@/assets/news-cd-2.jpg";
+import newsCd3 from "@/assets/news-cd-3.jpg";
+import newsDn1 from "@/assets/news-dn-1.jpg";
+import newsDn2 from "@/assets/news-dn-2.jpg";
+import newsDn3 from "@/assets/news-dn-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,6 +72,26 @@ const DIRECTIVES_TABS = {
   ],
 } as const;
 type DirectiveTab = keyof typeof DIRECTIVES_TABS;
+
+const CITIZEN_BUSINESS_TABS = {
+  "TIN NỔI BẬT DÀNH CHO CÔNG DÂN": [
+    { title: "Hướng dẫn tuyển sinh lớp 1 năm học 2026 - 2027", date: "21/04/2026", image: newsCd1 },
+    { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026", image: newsDn1 },
+    { title: "Khôi phục những công trình dân sinh", date: "21/04/2026", image: newsCd2 },
+    { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026", image: newsDn2 },
+    { title: "Xác thực thông tin thuê bao: Để xây dựng môi trường viễn thông an toàn", date: "17/04/2026", image: newsCd3 },
+    { title: "Bán, cung cấp rượu, bia cho người chưa đủ 18 tuổi sẽ bị phạt bao nhiêu tiền?", date: "09/04/2026", image: newsDn3 },
+  ],
+  "TIN NỔI BẬT DÀNH CHO DOANH NGHIỆP": [
+    { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026", image: newsDn1 },
+    { title: "Hỗ trợ doanh nghiệp nhỏ và vừa tiếp cận nguồn vốn ưu đãi", date: "14/04/2026", image: newsCd3 },
+    { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026", image: newsDn2 },
+    { title: "Khôi phục những công trình dân sinh phục vụ sản xuất kinh doanh", date: "12/04/2026", image: newsCd2 },
+    { title: "Bán, cung cấp rượu, bia cho người chưa đủ 18 tuổi sẽ bị phạt bao nhiêu tiền?", date: "09/04/2026", image: newsDn3 },
+    { title: "Hướng dẫn doanh nghiệp đăng ký kinh doanh trực tuyến", date: "08/04/2026", image: newsCd1 },
+  ],
+} as const;
+type NewsTab = keyof typeof CITIZEN_BUSINESS_TABS;
 
 const POLICY_NEWS = [
   { date: "17/04/2026", title: "SẮP XẾP TRƯỜNG HỌC: Chỉ sáp nhập trường, điểm trường trong phạm vi 1 đơn vị hành chính cấp xã" },
