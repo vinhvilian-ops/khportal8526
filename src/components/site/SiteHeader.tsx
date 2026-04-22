@@ -57,12 +57,12 @@ export function SiteHeader() {
             src={ubndSketch}
             alt="Trụ sở UBND tỉnh Khánh Hòa"
             loading="lazy"
-            className="h-full w-full object-contain scale-90 origin-center opacity-90"
+            className="h-full w-full object-contain scale-150 origin-center opacity-95"
             style={{
               WebkitMaskImage:
-                "radial-gradient(ellipse at center, black 25%, transparent 70%)",
+                "radial-gradient(ellipse at center, black 45%, transparent 85%)",
               maskImage:
-                "radial-gradient(ellipse at center, black 25%, transparent 70%)",
+                "radial-gradient(ellipse at center, black 45%, transparent 85%)",
             }}
           />
         </div>
