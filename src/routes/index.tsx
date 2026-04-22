@@ -132,6 +132,8 @@ const DEPARTMENTS = [
 function HomePage() {
   const tabKeys = Object.keys(DIRECTIVES_TABS) as DirectiveTab[];
   const [activeTab, setActiveTab] = useState<DirectiveTab>(tabKeys[0]);
+  const newsTabKeys = Object.keys(CITIZEN_BUSINESS_TABS) as NewsTab[];
+  const [activeNewsTab, setActiveNewsTab] = useState<NewsTab>(newsTabKeys[0]);
   return (
     <SiteLayout>
       {/* ============ CẤP 1 — CHÍNH QUYỀN ============ */}
