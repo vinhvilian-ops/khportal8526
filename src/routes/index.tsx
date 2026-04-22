@@ -226,8 +226,9 @@ function HomePage() {
 
       {/* Directives + (Govt directives + Map) */}
       <div className="container mx-auto px-4 mt-8 grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 rounded-xl bg-card p-5 shadow-sm">
-          <div className="flex items-center gap-1 border-b mb-4">
+        <div className="lg:col-span-2 space-y-6">
+          <div className="rounded-xl bg-card p-5 shadow-sm">
+            <div className="flex items-center gap-1 border-b mb-4">
             {tabKeys.map((tab) => (
               <button
                 key={tab}
