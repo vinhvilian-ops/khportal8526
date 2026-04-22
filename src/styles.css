@@ -115,7 +115,7 @@
   --gov-orange: oklch(0.55 0.18 250);
   --gov-cyan: oklch(0.7 0.13 230);
   --gov-green: oklch(0.55 0.15 240);
-  --gov-page: oklch(0.98 0.01 240);
+  --gov-page: oklch(1 0 0);
   --gov-surface: oklch(1 0 0);
 
   --primary: oklch(0.45 0.18 255);
