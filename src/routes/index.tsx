@@ -460,19 +460,24 @@ function HomePage() {
 
           {/* News tabs CD/DN */}
           <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-            <div className="flex border-b">
-              {(Object.keys(CITIZEN_BUSINESS_TABS) as Array<keyof typeof CITIZEN_BUSINESS_TABS>).map((k) => {
-                const active = activeNewsTab === k;
-                return (
-                  <button
-                    key={k}
-                    onClick={() => setActiveNewsTab(k)}
-                    className={`px-5 py-3 text-sm font-bold transition border-b-2 ${active ? "text-gov-blue border-gov-blue" : "text-muted-foreground border-transparent hover:text-foreground"}`}
-                  >
-                    {k}
-                  </button>
-                );
-              })}
+            <div className="flex border-b items-stretch justify-between">
+              <div className="flex">
+                {(Object.keys(CITIZEN_BUSINESS_TABS) as Array<keyof typeof CITIZEN_BUSINESS_TABS>).map((k) => {
+                  const active = activeNewsTab === k;
+                  return (
+                    <button
+                      key={k}
+                      onClick={() => setActiveNewsTab(k)}
+                      className={`px-5 py-3 text-sm font-bold transition border-b-2 ${active ? "text-gov-blue border-gov-blue" : "text-muted-foreground border-transparent hover:text-foreground"}`}
+                    >
+                      {k}
+                    </button>
+                  );
+                })}
+              </div>
+              <a href="#" className="group hidden sm:inline-flex items-center gap-1 px-5 text-sm font-semibold text-gov-blue hover:underline">
+                Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
             </div>
             <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 p-5">
               {CITIZEN_BUSINESS_TABS[activeNewsTab].map((n, i) => (
@@ -492,7 +497,7 @@ function HomePage() {
                 </a>
               ))}
             </div>
-            <div className="px-5 pb-4 flex justify-end">
+            <div className="px-5 pb-4 flex sm:hidden justify-end">
               <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
                 Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
