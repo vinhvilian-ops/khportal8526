@@ -270,7 +270,7 @@ function HomePage() {
               const featured = items[0];
               const rest = items.slice(1, 4);
               return (
-                <div className="grid gap-5 md:grid-cols-2">
+                <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
                   {featured && (
                     <a href="#" className="group flex flex-col">
                       <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
@@ -281,24 +281,24 @@ function HomePage() {
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <p className="mt-3 text-base font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{featured.title}</p>
-                      <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {featured.date}</p>
+                      <p className="mt-3 text-lg font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{featured.title}</p>
+                      <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {featured.date}</p>
                     </a>
                   )}
-                  <div className="flex flex-col divide-y">
+                  <div className="flex flex-col divide-y h-full">
                     {rest.map((d, i) => (
-                      <a key={i} href="#" className="flex gap-3 group py-3 first:pt-0 last:pb-0">
+                      <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
                         <img
                           src={d.image}
                           alt={d.title}
                           width={512}
                           height={512}
                           loading="lazy"
-                          className="h-20 w-28 shrink-0 rounded object-cover"
+                          className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover"
                         />
                         <div className="flex flex-col justify-center min-w-0">
-                          <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.title}</p>
-                          <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
+                          <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.title}</p>
+                          <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
                         </div>
                       </a>
                     ))}
