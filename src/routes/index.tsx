@@ -154,38 +154,38 @@ function HomePage() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid gap-6 lg:grid-cols-12">
-          {/* Featured leader news */}
-          <article className="lg:col-span-7 relative rounded-xl overflow-hidden shadow-lg min-h-[360px] flex flex-col justify-end">
+        <div className="flex flex-col gap-6">
+          {/* Featured leader news - full width */}
+          <article className="relative rounded-xl overflow-hidden shadow-lg min-h-[420px] md:min-h-[520px] flex flex-col justify-end">
             <img
               src={LEADER_NEWS[0].image}
               alt={LEADER_NEWS[0].title}
-              width={1024}
-              height={640}
+              width={1600}
+              height={900}
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-            <div className="relative p-6 text-white">
+            <div className="relative p-6 md:p-8 text-white max-w-4xl">
               <span className="inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
               <p className="text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
-              <h3 className="text-xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
             </div>
           </article>
 
-          {/* Side news list */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+          {/* Side news list - 3 columns below */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {LEADER_NEWS.slice(1).map((n, i) => (
-              <a key={i} href="#" className="flex-1 flex gap-4 p-4 rounded-lg bg-card hover:shadow-md transition group">
+              <a key={i} href="#" className="flex gap-4 p-4 rounded-lg bg-card hover:shadow-md transition group">
                 <img
                   src={n.image}
                   alt={n.title}
                   width={512}
                   height={512}
                   loading="lazy"
-                  className="h-24 w-32 lg:h-28 lg:w-36 shrink-0 rounded object-cover"
+                  className="h-24 w-28 shrink-0 rounded object-cover"
                 />
-                <div className="flex flex-col justify-center">
-                  <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                <div className="flex flex-col justify-center min-w-0">
+                  <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
                   <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
                 </div>
               </a>
