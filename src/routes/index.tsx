@@ -42,6 +42,7 @@ const LEADER_NEWS = [
   { date: "20/04/2026", title: "Rà soát, đánh giá thực trạng đội ngũ chuyên trách công nghệ thông tin cấp xã, phường", image: leaderThumb1 },
   { date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Lê Huyền thăm, tặng quà gia đình người có công tại xã Đồng Khánh Sơn", image: leaderThumb2 },
   { date: "20/04/2026", title: "Rà soát toàn bộ hồ sơ Dự án đầu tư hỗ trợ phát triển vùng dược liệu quý", image: leaderThumb3 },
+  { date: "19/04/2026", title: "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số trong năm 2026", image: dir6 },
 ];
 
 const QUICK_LINKS = [
