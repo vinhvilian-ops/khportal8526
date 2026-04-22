@@ -154,43 +154,38 @@ function HomePage() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-6">
-          {/* Featured leader news - full width */}
-          <article className="relative rounded-xl overflow-hidden shadow-lg min-h-[420px] md:min-h-[520px] flex flex-col justify-end">
-            <img
-              src={LEADER_NEWS[0].image}
-              alt={LEADER_NEWS[0].title}
-              width={1600}
-              height={900}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-            <div className="relative p-6 md:p-8 text-white max-w-4xl">
-              <span className="inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
-              <p className="text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
-              <h3 className="text-2xl md:text-3xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
-            </div>
-          </article>
-
-          {/* Side news list - 3 columns below */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {LEADER_NEWS.slice(1).map((n, i) => (
-              <a key={i} href="#" className="flex gap-4 p-4 rounded-lg bg-card hover:shadow-md transition group">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {LEADER_NEWS.map((n, i) => (
+            <a
+              key={i}
+              href="#"
+              className="group flex flex-col rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-lg transition"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={n.image}
                   alt={n.title}
-                  width={512}
-                  height={512}
-                  loading="lazy"
-                  className="h-24 w-28 shrink-0 rounded object-cover"
+                  width={800}
+                  height={600}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="flex flex-col justify-center min-w-0">
-                  <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
-                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                </div>
-              </a>
-            ))}
-          </div>
+                {n.main && (
+                  <span className="absolute top-3 left-3 rounded bg-gov-red px-2 py-1 text-xs font-bold text-white">
+                    TIN NỔI BẬT
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2 p-4">
+                <h3 className="text-sm md:text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
+                  {n.title}
+                </h3>
+                <p className="text-xs text-muted-foreground flex items-center gap-1">
+                  <Calendar className="h-3 w-3" /> {n.date}
+                </p>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
 
