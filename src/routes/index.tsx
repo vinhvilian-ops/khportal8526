@@ -24,6 +24,10 @@ import newsCd3 from "@/assets/news-cd-3.jpg";
 import newsDn1 from "@/assets/news-dn-1.jpg";
 import newsDn2 from "@/assets/news-dn-2.jpg";
 import newsDn3 from "@/assets/news-dn-3.jpg";
+import policyFeatured from "@/assets/policy-featured.jpg";
+import policyThumb1 from "@/assets/policy-thumb-1.jpg";
+import policyThumb2 from "@/assets/policy-thumb-2.jpg";
+import policyThumb3 from "@/assets/policy-thumb-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
