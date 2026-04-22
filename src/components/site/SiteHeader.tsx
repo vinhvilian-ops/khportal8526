@@ -52,17 +52,17 @@ export function SiteHeader() {
             </p>
           </div>
         </div>
-        <div className="hidden md:block h-24 lg:h-28 w-72 lg:w-96 overflow-hidden shrink-0">
+        <div className="hidden md:block h-28 lg:h-32 w-80 lg:w-[28rem] overflow-hidden shrink-0">
           <img
             src={ubndSketch}
             alt="Trụ sở UBND tỉnh Khánh Hòa"
             loading="lazy"
-            className="h-full w-full object-cover scale-150 origin-center opacity-80"
+            className="h-full w-full object-contain scale-90 origin-center opacity-90"
             style={{
               WebkitMaskImage:
-                "radial-gradient(ellipse at center, black 35%, transparent 80%)",
+                "radial-gradient(ellipse at center, black 25%, transparent 70%)",
               maskImage:
-                "radial-gradient(ellipse at center, black 35%, transparent 80%)",
+                "radial-gradient(ellipse at center, black 25%, transparent 70%)",
             }}
           />
         </div>
