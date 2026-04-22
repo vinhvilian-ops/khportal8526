@@ -431,8 +431,6 @@ function HomePage() {
         </div>
       </div>
 
-      {/* ============ CẤP 2 — TƯƠNG TÁC ============ */}
-      <PageHero level="CẤP 2" topic="TƯƠNG TÁC" title="Chính sách & " highlight="Tin tức chuyên đề" />
 
       <div className="container mx-auto px-4 grid gap-4 md:grid-cols-2">
         <a href="#" className="rounded-xl bg-gradient-to-r from-gov-red to-[oklch(0.6_0.22_30)] text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
