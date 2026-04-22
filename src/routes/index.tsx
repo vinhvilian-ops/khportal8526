@@ -42,6 +42,7 @@ const LEADER_NEWS = [
   { date: "20/04/2026", title: "Rà soát, đánh giá thực trạng đội ngũ chuyên trách công nghệ thông tin cấp xã, phường", image: leaderThumb1 },
   { date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Lê Huyền thăm, tặng quà gia đình người có công tại xã Đồng Khánh Sơn", image: leaderThumb2 },
   { date: "20/04/2026", title: "Rà soát toàn bộ hồ sơ Dự án đầu tư hỗ trợ phát triển vùng dược liệu quý", image: leaderThumb3 },
+  { date: "19/04/2026", title: "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng hai con số trong năm 2026", image: dir6 },
 ];
 
 const QUICK_LINKS = [
@@ -154,38 +155,53 @@ function HomePage() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {LEADER_NEWS.map((n, i) => (
-            <a
-              key={i}
-              href="#"
-              className="group flex flex-col rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-lg transition"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={n.image}
-                  alt={n.title}
-                  width={800}
-                  height={600}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                {n.main && (
-                  <span className="absolute top-3 left-3 rounded bg-gov-red px-2 py-1 text-xs font-bold text-white">
-                    TIN NỔI BẬT
-                  </span>
-                )}
-              </div>
-              <div className="flex flex-col gap-2 p-4">
-                <h3 className="text-sm md:text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
-                  {n.title}
-                </h3>
-                <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  <Calendar className="h-3 w-3" /> {n.date}
-                </p>
-              </div>
-            </a>
-          ))}
+        <div className="flex flex-col gap-6">
+          {/* Featured leader news - full width */}
+          <article className="relative rounded-xl overflow-hidden shadow-lg min-h-[420px] md:min-h-[520px] flex flex-col justify-end">
+            <img
+              src={LEADER_NEWS[0].image}
+              alt={LEADER_NEWS[0].title}
+              width={1600}
+              height={900}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+            <div className="relative p-6 md:p-8 text-white max-w-4xl">
+              <span className="inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">TIN NỔI BẬT</span>
+              <p className="text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_NEWS[0].date}</p>
+              <h3 className="text-2xl md:text-3xl font-bold leading-snug">{LEADER_NEWS[0].title}</h3>
+            </div>
+          </article>
+
+          {/* 4 vertical cards below */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {LEADER_NEWS.slice(1).map((n, i) => (
+              <a
+                key={i}
+                href="#"
+                className="group flex flex-col rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-lg transition"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={n.image}
+                    alt={n.title}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-col gap-2 p-4">
+                  <h3 className="text-sm md:text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
+                    {n.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Calendar className="h-3 w-3" /> {n.date}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
