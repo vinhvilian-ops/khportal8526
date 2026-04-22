@@ -431,8 +431,8 @@ function HomePage() {
           </div>
         </div>
 
-        {/* Cột phải: chỉ đạo TW + bản đồ */}
-        <div className="space-y-6">
+        {/* Cột phải: chỉ đạo TW + bản đồ — full width, chia 3 cột nội bộ */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <aside className="rounded-xl bg-gov-blue-dark text-white p-5">
             <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
               <Megaphone className="h-4 w-4 text-gov-yellow" />
