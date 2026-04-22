@@ -273,7 +273,7 @@ function HomePage() {
           </div>
         </div>
 
-        {/* Cột phải: chỉ đạo TW + bản đồ + (gộp) Chính sách & Tin tức chuyên đề */}
+        {/* Cột phải: chỉ đạo TW + bản đồ */}
         <div className="space-y-6">
           <aside className="rounded-xl bg-gov-blue-dark text-white p-5">
             <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
