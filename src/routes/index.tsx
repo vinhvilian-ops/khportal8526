@@ -562,9 +562,14 @@ function HomePage() {
       <div className="container mx-auto px-4">
         {/* Tourism block */}
         <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-          <div className="flex border-b">
-            <button className="px-5 py-3 text-sm font-bold text-gov-blue border-b-2 border-gov-blue">GIỚI THIỆU ĐẾN DU KHÁCH</button>
-            <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN ẢNH</button>
+          <div className="flex items-end justify-between gap-4 border-b px-1">
+            <div className="flex">
+              <button className="px-5 py-3 text-sm font-bold text-gov-blue border-b-2 border-gov-blue">GIỚI THIỆU ĐẾN DU KHÁCH</button>
+              <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN ẢNH</button>
+            </div>
+            <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-3 pr-4 shrink-0">
+              Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5">
             {[
@@ -591,11 +596,7 @@ function HomePage() {
               </a>
             ))}
           </div>
-          <div className="px-5 pb-4 flex justify-end">
-            <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:text-gov-red">
-              Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
+
 
           {/* Charts */}
           <div className="border-t p-5">
