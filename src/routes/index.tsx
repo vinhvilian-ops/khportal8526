@@ -32,6 +32,10 @@ import tourismFeatured from "@/assets/tourism-featured.jpg";
 import tourismThumb1 from "@/assets/tourism-thumb-1.jpg";
 import tourismThumb2 from "@/assets/tourism-thumb-2.jpg";
 import tourismThumb3 from "@/assets/tourism-thumb-3.jpg";
+import info1 from "@/assets/info-1.jpg";
+import info2 from "@/assets/info-2.jpg";
+import info3 from "@/assets/info-3.jpg";
+import info4 from "@/assets/info-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -120,10 +124,10 @@ const SIDE_BANNERS = [
 ];
 
 const CHARTS = [
-  { title: "Các thiết chế giao quan trọng và xếp hạng tỉnh", color: "from-gov-blue to-gov-blue-dark" },
-  { title: "Bộ trưởng giáo nghiệp THCS, hiệu trường và sĩ số", color: "from-gov-green to-[oklch(0.4_0.16_155)]" },
-  { title: "Chiến lược phát triển nghiệp công thức Khánh Hòa giai đoạn…", color: "from-gov-orange to-gov-red" },
-  { title: "Năng suất tổng quát của thủy sản theo mô hình bền vững nuôi trồng", color: "from-gov-yellow to-gov-orange" },
+  { title: "Tăng cường truyền thông về năng lượng nguyên tử và…", image: info1 },
+  { title: "Chiến lược dữ liệu tỉnh Khánh Hòa đến năm 2030", image: info2 },
+  { title: "Các mốc thời gian quan trọng trong kỳ thi tốt nghiệp THP…", image: info3 },
+  { title: "Bỏ bằng tốt nghiệp THCS, hiệu trưởng xác nhận việc…", image: info4 },
 ];
 
 const CHUYEN_TRANG = [
@@ -600,12 +604,26 @@ function HomePage() {
 
           {/* Charts */}
           <div className="border-t p-5">
-            <h4 className="font-bold text-gov-blue-dark mb-4 flex items-center gap-2"><BarChart3 className="h-4 w-4 text-gov-red" /> ĐỒ HỌA TRỰC QUAN</h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="flex items-center gap-2 border-b-2 border-gov-blue/20 pb-2 mb-4">
+              <BarChart3 className="h-5 w-5 text-gov-blue-dark" />
+              <h4 className="font-bold text-gov-blue-dark tracking-wide">ĐỒ HỌA TRỰC QUAN</h4>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {CHARTS.map((c, i) => (
-                <a key={i} href="#" className={`rounded-lg p-3 bg-gradient-to-br ${c.color} text-white aspect-square flex flex-col justify-between hover:scale-105 transition`}>
-                  <BarChart3 className="h-5 w-5 text-gov-yellow" />
-                  <p className="text-[11px] font-semibold leading-tight">{c.title}</p>
+                <a key={i} href="#" className="group rounded-md overflow-hidden bg-card border border-border hover:shadow-md transition flex flex-col">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      width={512}
+                      height={384}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="px-3 py-2.5 bg-gov-blue/10 flex-1 flex items-start">
+                    <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{c.title}</p>
+                  </div>
                 </a>
               ))}
             </div>
