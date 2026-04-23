@@ -566,49 +566,30 @@ function HomePage() {
             <button className="px-5 py-3 text-sm font-bold text-gov-blue border-b-2 border-gov-blue">GIỚI THIỆU ĐẾN DU KHÁCH</button>
             <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN ẢNH</button>
           </div>
-          <div className="grid md:grid-cols-2 gap-5 p-5">
-            <a href="#" className="group relative aspect-[4/3] rounded-lg overflow-hidden block">
-              <img
-                src={tourismFeatured}
-                alt="Khai mạc Lễ hội Am Chúa năm 2026"
-                width={800}
-                height={600}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gov-blue/90 px-4 py-3">
-                <p className="text-white font-bold text-base leading-snug">Khai mạc Lễ hội Am Chúa năm 2026</p>
-              </div>
-            </a>
-            <ul className="divide-y">
-              {[
-                { title: "Tiềm năng du lịch nghỉ dưỡng và chăm sóc sức khỏe", date: "10/04/2026", image: tourismThumb1 },
-                { title: "Anex Tour Vietnam sẽ đưa 180.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "07/04/2026", image: tourismThumb2 },
-                { title: "Du thuyền Star Voyager sẽ đến Nha Trang trong chuyến hải trình mùa hè", date: "05/04/2026", image: tourismThumb3 },
-              ].map((n, i) => (
-                <li key={i} className="py-3 first:pt-0 last:pb-0">
-                  <a href="#" className="flex gap-3 group">
-                    <img
-                      src={n.image}
-                      alt={n.title}
-                      width={512}
-                      height={512}
-                      loading="lazy"
-                      className="h-20 w-28 shrink-0 rounded object-cover"
-                    />
-                    <div className="flex flex-col justify-center min-w-0">
-                      <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
-                      <p className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="px-5 pb-4 flex justify-end">
-            <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:text-gov-red">
-              Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5">
+            {[
+              { title: "Khai mạc Lễ hội Am Chúa năm 2026", date: "12/04/2026", image: tourismFeatured },
+              { title: "Tiềm năng du lịch nghỉ dưỡng và chăm sóc sức khỏe", date: "10/04/2026", image: tourismThumb1 },
+              { title: "Anex Tour Vietnam sẽ đưa 180.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "07/04/2026", image: tourismThumb2 },
+              { title: "Du thuyền Star Voyager sẽ đến Nha Trang trong chuyến hải trình mùa hè", date: "05/04/2026", image: tourismThumb3 },
+            ].map((n, i) => (
+              <a key={i} href="#" className="group block rounded-lg overflow-hidden bg-card border hover:shadow-md transition">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={n.image}
+                    alt={n.title}
+                    width={600}
+                    height={450}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-3">
+                  <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3 min-h-[3.75rem]">{n.title}</p>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                </div>
+              </a>
+            ))}
           </div>
 
           {/* Charts */}
