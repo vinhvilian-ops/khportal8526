@@ -83,22 +83,22 @@ const DIRECTIVES_TABS = {
 type DirectiveTab = keyof typeof DIRECTIVES_TABS;
 
 const CITIZEN_BUSINESS_TABS = {
-  "TIN NỔI BẬT DÀNH CHO CÔNG DÂN": [
-    { title: "Hướng dẫn tuyển sinh lớp 1 năm học 2026 - 2027", date: "21/04/2026", image: newsCd1 },
-    { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026", image: newsDn1 },
-    { title: "Khôi phục những công trình dân sinh", date: "21/04/2026", image: newsCd2 },
-    { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026", image: newsDn2 },
-    { title: "Xác thực thông tin thuê bao: Để xây dựng môi trường viễn thông an toàn", date: "17/04/2026", image: newsCd3 },
-    { title: "Bán, cung cấp rượu, bia cho người chưa đủ 18 tuổi sẽ bị phạt bao nhiêu tiền?", date: "09/04/2026", image: newsDn3 },
-  ],
-  "TIN NỔI BẬT DÀNH CHO DOANH NGHIỆP": [
-    { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026", image: newsDn1 },
-    { title: "Hỗ trợ doanh nghiệp nhỏ và vừa tiếp cận nguồn vốn ưu đãi", date: "14/04/2026", image: newsCd3 },
-    { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026", image: newsDn2 },
-    { title: "Khôi phục những công trình dân sinh phục vụ sản xuất kinh doanh", date: "12/04/2026", image: newsCd2 },
-    { title: "Bán, cung cấp rượu, bia cho người chưa đủ 18 tuổi sẽ bị phạt bao nhiêu tiền?", date: "09/04/2026", image: newsDn3 },
-    { title: "Hướng dẫn doanh nghiệp đăng ký kinh doanh trực tuyến", date: "08/04/2026", image: newsCd1 },
-  ],
+  "TIN NỔI BẬT DÀNH CHO CÔNG DÂN": {
+    featured: { title: "Hướng dẫn tuyển sinh lớp 1 năm học 2026 - 2027", date: "21/04/2026", image: newsCd1 },
+    rest: [
+      { title: "Khôi phục những công trình dân sinh", date: "21/04/2026", image: newsCd2 },
+      { title: "Xác thực thông tin thuê bao: Để xây dựng môi trường viễn thông an toàn", date: "17/04/2026", image: newsCd3 },
+      { title: "Bán, cung cấp rượu, bia cho người chưa đủ 18 tuổi sẽ bị phạt bao nhiêu tiền?", date: "09/04/2026", image: newsDn3 },
+    ],
+  },
+  "TIN NỔI BẬT DÀNH CHO DOANH NGHIỆP": {
+    featured: { title: "Phát triển đồng bộ thị trường lao động", date: "15/04/2026", image: newsDn1 },
+    rest: [
+      { title: "Hỗ trợ doanh nghiệp nhỏ và vừa tiếp cận nguồn vốn ưu đãi", date: "14/04/2026", image: newsCd3 },
+      { title: "Hành vi sử dụng người chưa đủ 18 tuổi mua thuốc lá sẽ bị phạt bao nhiêu tiền?", date: "13/04/2026", image: newsDn2 },
+      { title: "Hướng dẫn doanh nghiệp đăng ký kinh doanh trực tuyến", date: "08/04/2026", image: newsCd1 },
+    ],
+  },
 } as const;
 type NewsTab = keyof typeof CITIZEN_BUSINESS_TABS;
 
@@ -463,50 +463,7 @@ function HomePage() {
           </div>
 
           {/* News tabs CD/DN */}
-          <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-            <div className="flex border-b items-stretch justify-between">
-              <div className="flex">
-                {(Object.keys(CITIZEN_BUSINESS_TABS) as Array<keyof typeof CITIZEN_BUSINESS_TABS>).map((k) => {
-                  const active = activeNewsTab === k;
-                  return (
-                    <button
-                      key={k}
-                      onClick={() => setActiveNewsTab(k)}
-                      className={`px-5 py-3 text-sm font-bold transition border-b-2 ${active ? "text-gov-blue border-gov-blue" : "text-muted-foreground border-transparent hover:text-foreground"}`}
-                    >
-                      {k}
-                    </button>
-                  );
-                })}
-              </div>
-              <a href="#" className="group hidden sm:inline-flex items-center gap-1 px-5 text-sm font-semibold text-gov-blue hover:underline">
-                Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-            <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 p-5">
-              {CITIZEN_BUSINESS_TABS[activeNewsTab].map((n, i) => (
-                <a key={i} href="#" className="flex gap-3 group">
-                  <img
-                    src={n.image}
-                    alt={n.title}
-                    width={512}
-                    height={512}
-                    loading="lazy"
-                    className="h-20 w-28 shrink-0 rounded object-cover"
-                  />
-                  <div className="flex flex-col justify-center min-w-0">
-                    <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
-                    <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <div className="px-5 pb-4 flex sm:hidden justify-end">
-              <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
-                Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </div>
+          <PolicyBlock tabs={CITIZEN_BUSINESS_TABS} keys={newsTabKeys} />
         </div>
 
         {/* Cột phải: chỉ đạo TW + bản đồ */}
