@@ -528,6 +528,29 @@ function HomePage() {
                 <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
+
+            {/* Quick info tabs (moved from below) */}
+            <a href="#" className="rounded-lg bg-gov-green/15 px-3 py-2 text-gov-green font-semibold flex items-center gap-2 text-xs hover:bg-gov-green/25 transition">
+              <Scale className="h-4 w-4 shrink-0" />
+              <span>AI Pháp luật <span className="text-[10px] text-muted-foreground font-normal">Cổng pháp luật quốc gia</span></span>
+            </a>
+            <a href="#" className="rounded-lg bg-gov-red/15 px-3 py-2 text-gov-red font-semibold flex items-center gap-2 text-xs hover:bg-gov-red/25 transition">
+              <FileText className="h-4 w-4 shrink-0" /> Thông tin BHXH Khánh Hòa
+            </a>
+            <a href="#" className="rounded-lg bg-gov-blue/15 px-3 py-2 text-gov-blue font-semibold flex items-center gap-2 text-xs hover:bg-gov-blue/25 transition">
+              <BarChart3 className="h-4 w-4 shrink-0" /> Bản đồ số 65 xã, phường, đặc khu
+            </a>
+            <a href="#" className="rounded-lg bg-gov-cyan/15 px-3 py-2 text-gov-cyan font-semibold flex items-center gap-2 text-xs hover:bg-gov-cyan/25 transition">
+              <Search className="h-4 w-4 shrink-0" /> Tra cứu giá đất
+            </a>
+            <a href="#" className="rounded-lg bg-gov-orange/15 px-3 py-2 text-gov-orange font-semibold flex items-center gap-2 text-xs hover:bg-gov-orange/25 transition">
+              <BookOpen className="h-4 w-4 shrink-0" /> Công khai ngân sách
+            </a>
+            <div className="rounded-lg bg-card border p-3 text-center">
+              <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
+              <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
+              <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
+            </div>
           </div>
         </div>
       </div>
@@ -644,36 +667,22 @@ function HomePage() {
 
       </div>
 
-      {/* National service banners + side widgets */}
-      <div className="container mx-auto px-4 mt-8 grid gap-4 lg:grid-cols-12">
-        <div className="lg:col-span-9 grid md:grid-cols-2 gap-4">
-          <a href="#" className="rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
-            <Star className="h-10 w-10 text-gov-yellow" />
-            <div>
-              <p className="font-extrabold uppercase">Cổng dịch vụ công Quốc gia</p>
-              <p className="text-xs text-white/80">Kết nối cộng đồng người dân và doanh nghiệp</p>
-            </div>
-          </a>
-          <a href="#" className="rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
-            <Sparkles className="h-10 w-10" />
-            <div>
-              <p className="font-extrabold uppercase">Cải cách hành chính tỉnh Khánh Hòa</p>
-              <p className="text-xs text-white/80">Hệ thống đánh giá đăng nhập, kết nối tổ chức người dân</p>
-            </div>
-          </a>
-        </div>
-        <aside className="lg:col-span-3 space-y-2 text-xs">
-          <div className="rounded-lg bg-gov-green/15 px-3 py-2 text-gov-green font-semibold flex items-center gap-2"><Scale className="h-4 w-4" /> AI Pháp luật <span className="text-[10px] text-muted-foreground font-normal block">Cổng pháp luật quốc gia</span></div>
-          <div className="rounded-lg bg-gov-red/15 px-3 py-2 text-gov-red font-semibold flex items-center gap-2"><FileText className="h-4 w-4" /> Thông tin BHXH Khánh Hòa</div>
-          <div className="rounded-lg bg-gov-blue/15 px-3 py-2 text-gov-blue font-semibold flex items-center gap-2"><BarChart3 className="h-4 w-4" /> Bản đồ số 65 xã, phường, đặc khu</div>
-          <div className="rounded-lg bg-gov-cyan/15 px-3 py-2 text-gov-cyan font-semibold flex items-center gap-2"><Search className="h-4 w-4" /> Tra cứu giá đất</div>
-          <div className="rounded-lg bg-gov-orange/15 px-3 py-2 text-gov-orange font-semibold flex items-center gap-2"><BookOpen className="h-4 w-4" /> Công khai ngân sách</div>
-          <div className="rounded-lg bg-card border p-3 text-center">
-            <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
-            <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
-            <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
+      {/* National service banners */}
+      <div className="container mx-auto px-4 mt-8 grid md:grid-cols-2 gap-4">
+        <a href="#" className="rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
+          <Star className="h-10 w-10 text-gov-yellow" />
+          <div>
+            <p className="font-extrabold uppercase">Cổng dịch vụ công Quốc gia</p>
+            <p className="text-xs text-white/80">Kết nối cộng đồng người dân và doanh nghiệp</p>
           </div>
-        </aside>
+        </a>
+        <a href="#" className="rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
+          <Sparkles className="h-10 w-10" />
+          <div>
+            <p className="font-extrabold uppercase">Cải cách hành chính tỉnh Khánh Hòa</p>
+            <p className="text-xs text-white/80">Hệ thống đánh giá đăng nhập, kết nối tổ chức người dân</p>
+          </div>
+        </a>
       </div>
 
       {/* Departments */}
