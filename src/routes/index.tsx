@@ -463,50 +463,7 @@ function HomePage() {
           </div>
 
           {/* News tabs CD/DN */}
-          <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-            <div className="flex border-b items-stretch justify-between">
-              <div className="flex">
-                {(Object.keys(CITIZEN_BUSINESS_TABS) as Array<keyof typeof CITIZEN_BUSINESS_TABS>).map((k) => {
-                  const active = activeNewsTab === k;
-                  return (
-                    <button
-                      key={k}
-                      onClick={() => setActiveNewsTab(k)}
-                      className={`px-5 py-3 text-sm font-bold transition border-b-2 ${active ? "text-gov-blue border-gov-blue" : "text-muted-foreground border-transparent hover:text-foreground"}`}
-                    >
-                      {k}
-                    </button>
-                  );
-                })}
-              </div>
-              <a href="#" className="group hidden sm:inline-flex items-center gap-1 px-5 text-sm font-semibold text-gov-blue hover:underline">
-                Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-            <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 p-5">
-              {CITIZEN_BUSINESS_TABS[activeNewsTab].map((n, i) => (
-                <a key={i} href="#" className="flex gap-3 group">
-                  <img
-                    src={n.image}
-                    alt={n.title}
-                    width={512}
-                    height={512}
-                    loading="lazy"
-                    className="h-20 w-28 shrink-0 rounded object-cover"
-                  />
-                  <div className="flex flex-col justify-center min-w-0">
-                    <p className="text-sm font-medium text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
-                    <p className="mt-1.5 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <div className="px-5 pb-4 flex sm:hidden justify-end">
-              <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:underline">
-                Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </div>
+          <PolicyBlock tabs={CITIZEN_BUSINESS_TABS} keys={newsTabKeys} />
         </div>
 
         {/* Cột phải: chỉ đạo TW + bản đồ */}
