@@ -528,6 +528,29 @@ function HomePage() {
                 <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
+
+            {/* Quick info tabs (moved from below) */}
+            <a href="#" className="rounded-lg bg-gov-green/15 px-3 py-2 text-gov-green font-semibold flex items-center gap-2 text-xs hover:bg-gov-green/25 transition">
+              <Scale className="h-4 w-4 shrink-0" />
+              <span>AI Pháp luật <span className="text-[10px] text-muted-foreground font-normal">Cổng pháp luật quốc gia</span></span>
+            </a>
+            <a href="#" className="rounded-lg bg-gov-red/15 px-3 py-2 text-gov-red font-semibold flex items-center gap-2 text-xs hover:bg-gov-red/25 transition">
+              <FileText className="h-4 w-4 shrink-0" /> Thông tin BHXH Khánh Hòa
+            </a>
+            <a href="#" className="rounded-lg bg-gov-blue/15 px-3 py-2 text-gov-blue font-semibold flex items-center gap-2 text-xs hover:bg-gov-blue/25 transition">
+              <BarChart3 className="h-4 w-4 shrink-0" /> Bản đồ số 65 xã, phường, đặc khu
+            </a>
+            <a href="#" className="rounded-lg bg-gov-cyan/15 px-3 py-2 text-gov-cyan font-semibold flex items-center gap-2 text-xs hover:bg-gov-cyan/25 transition">
+              <Search className="h-4 w-4 shrink-0" /> Tra cứu giá đất
+            </a>
+            <a href="#" className="rounded-lg bg-gov-orange/15 px-3 py-2 text-gov-orange font-semibold flex items-center gap-2 text-xs hover:bg-gov-orange/25 transition">
+              <BookOpen className="h-4 w-4 shrink-0" /> Công khai ngân sách
+            </a>
+            <div className="rounded-lg bg-card border p-3 text-center">
+              <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
+              <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
+              <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
+            </div>
           </div>
         </div>
       </div>
