@@ -591,6 +591,11 @@ function HomePage() {
               </a>
             ))}
           </div>
+          <div className="px-5 pb-4 flex justify-end">
+            <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue hover:text-gov-red">
+              Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
 
           {/* Charts */}
           <div className="border-t p-5">
