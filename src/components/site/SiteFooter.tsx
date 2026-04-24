@@ -7,20 +7,20 @@ export function SiteFooter() {
         <h3 className="text-center text-xl font-bold tracking-wide mb-8">
           CỔNG THÔNG TIN ĐIỆN TỬ TỈNH KHÁNH HÒA
         </h3>
-        <div className="grid gap-8 md:grid-cols-3 text-sm">
-          <div>
+        <div className="grid gap-8 md:grid-cols-12 text-sm">
+          <div className="md:col-span-6">
             <h4 className="font-bold text-gov-yellow mb-3">THÔNG TIN LIÊN HỆ</h4>
             <p className="text-white/80 mb-2">
-              Giấy phép số: 25/GP-TTĐT do Sở Văn hóa, Thể thao và Du lịch tỉnh Khánh Hòa cấp ngày 13/5/2025
+              Giấy phép số: 05/GP-TTĐT do Sở Văn hóa, Thể thao và Du lịch tỉnh Khánh Hòa cấp ngày 12/5/2025.
             </p>
             <p className="text-white/80 mb-2">
-              Trưởng Ban biên tập: Nguyễn Phương Huy — Phó Chánh Văn phòng UBND tỉnh Khánh Hòa
+              Trưởng Ban biên tập: Nguyễn Phương Huy — Phó Chánh Văn phòng UBND tỉnh Khánh Hòa.
             </p>
-            <p className="flex items-center gap-2 mb-1"><MapPin className="h-4 w-4" /> 04 đường Hoàng Hoa Thám, phường Nha Trang</p>
-            <p className="flex items-center gap-2 mb-1"><Phone className="h-4 w-4" /> 0258.3812434</p>
-            <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> banbientap@khanhhoa.gov.vn</p>
+            <p className="flex items-center gap-2 mb-1"><MapPin className="h-4 w-4" /> Địa chỉ: 84 đường Hoàng Hoa Thám, phường Nha Trang.</p>
+            <p className="flex items-center gap-2 mb-1"><Phone className="h-4 w-4" /> Điện thoại: 0258.3812434.</p>
+            <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> Email: banbientap@khanhhoa.gov.vn.</p>
           </div>
-          <div>
+          <div className="md:col-span-2">
             <h4 className="font-bold text-gov-yellow mb-3">TIỆN ÍCH</h4>
             <ul className="space-y-1.5 text-white/80">
               <li><a className="hover:text-gov-yellow" href="#">English</a></li>
@@ -30,13 +30,13 @@ export function SiteFooter() {
               <li><a className="hover:text-gov-yellow" href="#">Sơ đồ website</a></li>
             </ul>
           </div>
-          <div>
+          <div className="md:col-span-4">
             <h4 className="font-bold text-gov-yellow mb-3">THỐNG KÊ TRUY CẬP</h4>
             <ul className="space-y-1.5">
-              <li className="flex justify-between"><span className="text-white/80">Tổng truy cập:</span><span className="text-gov-yellow font-semibold">99,453,414</span></li>
-              <li className="flex justify-between"><span className="text-white/80">Truy cập trong tuần:</span><span className="text-gov-yellow font-semibold">242,815</span></li>
-              <li className="flex justify-between"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold">128,876</span></li>
-              <li className="flex justify-between"><span className="text-white/80">Đang online:</span><span className="text-gov-yellow font-semibold">297</span></li>
+              <li className="flex justify-between gap-3"><span className="text-white/80">Tổng truy cập:</span><span className="text-gov-yellow font-semibold">99,453,414</span></li>
+              <li className="flex justify-between gap-3"><span className="text-white/80">Truy cập trong tuần:</span><span className="text-gov-yellow font-semibold">242,815</span></li>
+              <li className="flex justify-between gap-3"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold">128,876</span></li>
+              <li className="flex justify-between gap-3"><span className="text-white/80">Đang online:</span><span className="text-gov-yellow font-semibold">297</span></li>
             </ul>
             <div className="mt-3 flex gap-2">
               <span className="rounded bg-white/10 px-2 py-1 text-xs">IPv6 Ready</span>
