@@ -753,16 +753,10 @@ function HomePage() {
         </a>
       </div>
 
-      {/* Departments */}
-      <div className="container mx-auto px-4 mt-8 rounded-xl bg-card p-5 shadow-sm">
-        <h4 className="font-bold text-gov-blue-dark mb-4 text-sm border-b pb-2">CÁC SỞ, BAN, UBND CÁC XÃ, PHƯỜNG, ĐẶC KHU</h4>
-        <div className="grid md:grid-cols-3 gap-x-6 gap-y-2">
-          {DEPARTMENTS.flat().map((d, i) => (
-            <a key={i} href="#" className="text-sm text-foreground hover:text-gov-red flex items-center gap-2 py-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-gov-orange" /> {d}
-            </a>
-          ))}
-        </div>
+      {/* Departments + Website Links */}
+      <div className="container mx-auto px-4 mt-8 grid lg:grid-cols-[1fr_320px] gap-6 items-start">
+        <DepartmentsBlock />
+        <WebsiteLinksBlock />
       </div>
     </SiteLayout>
   );
