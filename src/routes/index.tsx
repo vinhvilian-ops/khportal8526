@@ -652,9 +652,9 @@ function HomePage() {
             <h4 className="font-bold text-gov-blue border-b-2 border-gov-blue/30 pb-2 mb-5 inline-flex items-center gap-2 uppercase text-sm tracking-wide">
               <Play className="h-4 w-4 fill-gov-blue" /> Video clip
             </h4>
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-12 gap-5">
               {/* Featured video */}
-              <a href="#" className="group block">
+              <a href="#" className="group block md:col-span-7">
                 <div className="relative aspect-video rounded-lg overflow-hidden">
                   <img src={videoMain} alt="Giải pháp giúp hộ kinh doanh kê khai thuế đúng" loading="lazy" width={1024} height={576} className="absolute inset-0 h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition flex items-center justify-center">
@@ -669,7 +669,7 @@ function HomePage() {
               </a>
 
               {/* Video list */}
-              <ul className="space-y-3">
+              <ul className="md:col-span-5 flex flex-col justify-between gap-3">
                 {[
                   { img: video1, title: "Nhiều điểm mới trong công tác tuyển sinh lớp 1...", date: "16/03/2026 - 08:34 AM" },
                   { img: video2, title: "Đồng bào Chăm với ngày hội non sông", date: "13/03/2026 - 03:34 PM" },
@@ -677,10 +677,10 @@ function HomePage() {
                   { img: video4, title: "Tết ấm trong những ngôi nhà Quang Trung", date: "16/02/2026 - 03:13 PM" },
                   { img: video5, title: "Hướng về Đại hội đại biểu toàn quốc lần thứ XIV của...", date: "19/01/2026 - 07:52 AM" },
                 ].map((v, i) => (
-                  <li key={i}>
-                    <a href="#" className="flex gap-3 group">
-                      <div className="relative h-14 w-20 shrink-0 rounded overflow-hidden">
-                        <img src={v.img} alt={v.title} loading="lazy" width={80} height={56} className="absolute inset-0 h-full w-full object-cover" />
+                  <li key={i} className="flex-1">
+                    <a href="#" className="flex gap-3 group items-center h-full">
+                      <div className="relative h-16 w-24 shrink-0 rounded overflow-hidden">
+                        <img src={v.img} alt={v.title} loading="lazy" width={96} height={64} className="absolute inset-0 h-full w-full object-cover" />
                         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                           <Play className="h-4 w-4 text-white fill-white" />
                         </div>
