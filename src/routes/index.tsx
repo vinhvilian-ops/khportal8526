@@ -138,9 +138,15 @@ const CHARTS = [
 ];
 
 const CHUYEN_TRANG = [
-  "Tin tuyển dương", "An toàn giao thông", "Nông nghiệp · Tài nguyên · Môi trường",
-  "Khoa học và Công nghệ", "Phòng chống thiên tai", "Chuyển đổi số",
-  "Phổ biến giáo dục pháp luật", "Ứng phó sự cố, thiên tai và tìm kiếm cứu nạn", "Chương trình mục tiêu quốc gia",
+  { label: "Tin tuyên dương", icon: Award },
+  { label: "An toàn giao thông", icon: TrafficCone },
+  { label: "Nông nghiệp · Tài nguyên · Môi trường", icon: Leaf },
+  { label: "Khoa học và Công nghệ", icon: FlaskConical },
+  { label: "Phòng chống thiên tai", icon: CloudRain },
+  { label: "Chuyển đổi số", icon: Cpu },
+  { label: "Phổ biến giáo dục pháp luật", icon: Gavel },
+  { label: "Ứng phó sự cố, thiên tai và tìm kiếm cứu nạn", icon: LifeBuoy },
+  { label: "Chương trình mục tiêu quốc gia", icon: Target },
 ];
 
 const SO_BAN = [
