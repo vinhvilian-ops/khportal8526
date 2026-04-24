@@ -6,6 +6,7 @@ import {
   HelpCircle, Database, Briefcase, Scale, Star, BookOpen, Sparkles,
   AlertCircle, Newspaper, Megaphone, Bell, BarChart3, Play, MapPin, QrCode,
   ChevronRight, Building2, Landmark, Globe,
+  Award, TrafficCone, Leaf, FlaskConical, CloudRain, Cpu, Gavel, LifeBuoy, Target,
 } from "lucide-react";
 import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
@@ -137,9 +138,15 @@ const CHARTS = [
 ];
 
 const CHUYEN_TRANG = [
-  "Tin tuyển dương", "An toàn giao thông", "Nông nghiệp · Tài nguyên · Môi trường",
-  "Khoa học và Công nghệ", "Phòng chống thiên tai", "Chuyển đổi số",
-  "Phổ biến giáo dục pháp luật", "Ứng phó sự cố, thiên tai và tìm kiếm cứu nạn", "Chương trình mục tiêu quốc gia",
+  { label: "Tin tuyên dương", icon: Award },
+  { label: "An toàn giao thông", icon: TrafficCone },
+  { label: "Nông nghiệp · Tài nguyên · Môi trường", icon: Leaf },
+  { label: "Khoa học và Công nghệ", icon: FlaskConical },
+  { label: "Phòng chống thiên tai", icon: CloudRain },
+  { label: "Chuyển đổi số", icon: Cpu },
+  { label: "Phổ biến giáo dục pháp luật", icon: Gavel },
+  { label: "Ứng phó sự cố, thiên tai và tìm kiếm cứu nạn", icon: LifeBuoy },
+  { label: "Chương trình mục tiêu quốc gia", icon: Target },
 ];
 
 const SO_BAN = [
@@ -796,10 +803,12 @@ function HomePage() {
                 <a
                   key={i}
                   href="#"
-                  className="group flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark transition-colors"
+                  className="group flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark hover:shadow-sm transition-all"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-gov-blue shrink-0 group-hover:scale-125 transition-transform" />
-                  <span className="leading-snug">{c}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue group-hover:bg-gov-blue group-hover:text-white transition-colors">
+                    <c.icon className="h-4 w-4" />
+                  </span>
+                  <span className="leading-snug">{c.label}</span>
                 </a>
               ))}
             </div>
