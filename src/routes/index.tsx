@@ -5,7 +5,7 @@ import {
   Calendar, FileText, FileCheck, MessageSquare, FilePlus, Search,
   HelpCircle, Database, Briefcase, Scale, Star, BookOpen, Sparkles,
   AlertCircle, Newspaper, Megaphone, Bell, BarChart3, Play, MapPin, QrCode,
-  ChevronRight,
+  ChevronRight, Building2, Landmark, Globe,
 } from "lucide-react";
 import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
