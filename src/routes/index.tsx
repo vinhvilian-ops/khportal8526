@@ -28,6 +28,12 @@ import policyFeatured from "@/assets/policy-featured.jpg";
 import policyThumb1 from "@/assets/policy-thumb-1.jpg";
 import policyThumb2 from "@/assets/policy-thumb-2.jpg";
 import policyThumb3 from "@/assets/policy-thumb-3.jpg";
+import videoMain from "@/assets/video-main.jpg";
+import video1 from "@/assets/video-1.jpg";
+import video2 from "@/assets/video-2.jpg";
+import video3 from "@/assets/video-3.jpg";
+import video4 from "@/assets/video-4.jpg";
+import video5 from "@/assets/video-5.jpg";
 import tourismFeatured from "@/assets/tourism-featured.jpg";
 import tourismThumb1 from "@/assets/tourism-thumb-1.jpg";
 import tourismThumb2 from "@/assets/tourism-thumb-2.jpg";
@@ -643,26 +649,47 @@ function HomePage() {
 
           {/* Video clip */}
           <div className="border-t p-5">
-            <h4 className="font-bold text-gov-red mb-4 flex items-center gap-2"><Play className="h-4 w-4" /> VIDEO CLIP</h4>
+            <h4 className="font-bold text-gov-blue border-b-2 border-gov-blue/30 pb-2 mb-5 inline-flex items-center gap-2 uppercase text-sm tracking-wide">
+              <Play className="h-4 w-4 fill-gov-blue" /> Video clip
+            </h4>
             <div className="grid md:grid-cols-2 gap-5">
-              <div className="relative aspect-video rounded-lg bg-gradient-to-br from-gov-blue-dark to-[oklch(0.15_0.1_260)] flex items-center justify-center overflow-hidden">
-                <Play className="h-14 w-14 text-gov-yellow" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gov-blue-dark/90 text-white text-xs p-2">
-                  <p className="font-semibold">Ngân hàng</p>
-                  <p>Giải pháp giúp hộ kinh doanh kê khai thuế đúng, an toàn tuân thủ, triển khai bền vững</p>
+              {/* Featured video */}
+              <a href="#" className="group block">
+                <div className="relative aspect-video rounded-lg overflow-hidden">
+                  <img src={videoMain} alt="Giải pháp giúp hộ kinh doanh kê khai thuế đúng" loading="lazy" width={1024} height={576} className="absolute inset-0 h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition flex items-center justify-center">
+                    <div className="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                      <Play className="h-7 w-7 text-gov-red fill-gov-red ml-1" />
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <h5 className="mt-3 font-serif text-lg leading-snug text-foreground group-hover:text-gov-red">
+                  Giải pháp giúp hộ kinh doanh kê khai thuế đúng, an tâm tuân thủ, phát triển bền vững
+                </h5>
+              </a>
+
+              {/* Video list */}
               <ul className="space-y-3">
                 {[
-                  "Nhiều điểm mới trong công tác tuyển sinh lớp 1...",
-                  "Đồng bào Chăm vui ngày hội toàn dân",
-                  "Bí thư Tỉnh ủy Khánh Hòa Nguyễn Tuấn Thanh chỉ đạo...",
-                  "Tin liên trang nhánh nghệ Quang Trung",
-                  "Hướng về tổ Đại đại nhân kim Quân ở khu BS NThuan-PB,...",
-                ].map((t, i) => (
-                  <li key={i} className="flex gap-3 group">
-                    <div className="h-12 w-16 shrink-0 rounded bg-muted flex items-center justify-center"><Play className="h-4 w-4 text-muted-foreground" /></div>
-                    <p className="text-sm text-foreground group-hover:text-gov-red leading-snug">{t}</p>
+                  { img: video1, title: "Nhiều điểm mới trong công tác tuyển sinh lớp 1...", date: "16/03/2026 - 08:34 AM" },
+                  { img: video2, title: "Đồng bào Chăm với ngày hội non sông", date: "13/03/2026 - 03:34 PM" },
+                  { img: video3, title: "Bí thư Tỉnh ủy Khánh Hòa Nghiêm Xuân Thành chú...", date: "17/02/2026 - 12:04 PM" },
+                  { img: video4, title: "Tết ấm trong những ngôi nhà Quang Trung", date: "16/02/2026 - 03:13 PM" },
+                  { img: video5, title: "Hướng về Đại hội đại biểu toàn quốc lần thứ XIV của...", date: "19/01/2026 - 07:52 AM" },
+                ].map((v, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex gap-3 group">
+                      <div className="relative h-14 w-20 shrink-0 rounded overflow-hidden">
+                        <img src={v.img} alt={v.title} loading="lazy" width={80} height={56} className="absolute inset-0 h-full w-full object-cover" />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                          <Play className="h-4 w-4 text-white fill-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-serif text-foreground group-hover:text-gov-red leading-snug line-clamp-2">{v.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{v.date}</p>
+                      </div>
+                    </a>
                   </li>
                 ))}
               </ul>
