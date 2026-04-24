@@ -142,11 +142,47 @@ const CHUYEN_TRANG = [
   "Phổ biến giáo dục pháp luật", "Ứng phó sự cố, thiên tai và tìm kiếm cứu nạn", "Chương trình mục tiêu quốc gia",
 ];
 
-const DEPARTMENTS = [
-  ["Sở Nội vụ", "Sở Nông nghiệp & MT", "Thanh tra tỉnh", "Sở Xây dựng", "Sở Giao thông vận tải", "Ban QL Vịnh Quốc gia Núi Chúa – Phước Bình"],
-  ["Sở Tài chính", "Sở Văn hóa & Thể thao", "Sở Khoa học & Công nghệ", "Văn phòng UBND tỉnh", "Ban Quản lý các KCN", "Ban QL Sự án đầu tư xây dựng"],
-  ["Sở Công Thương", "Sở Tư pháp", "Sở Y tế", "Sở Giáo dục", "Ban Quản lý đầu tư xây dựng", "Ban QL Sự án sử dụng vốn nước ngoài"],
+const SO_BAN = [
+  "Sở Nội vụ", "Sở Tư pháp", "Văn phòng UBND tỉnh",
+  "Sở Tài chính", "Thanh tra tỉnh", "Sở Xây dựng",
+  "Sở Công Thương", "Sở Khoa học và Công nghệ", "Sở Giáo dục và Đào tạo",
+  "Sở Nông nghiệp và Môi trường", "Sở Văn hóa, Thể thao và Du lịch", "Sở Y tế",
+  "Sở Dân tộc và Tôn giáo", "Ban quản lý dự án phát triển tỉnh", "Ban Quản lý Khu kinh tế và Khu công nghiệp",
+  "Ban Quản lý Vườn Quốc gia Núi Chúa – Phước Bình", "Ban Quản lý dự án đầu tư xây dựng", "Ban QLDA đầu tư xây dựng các công trình Nông nghiệp và Giao thông",
 ];
+
+const UBND_XA = [
+  "UBND xã Nam Cam Ranh", "UBND xã Bắc Ninh Hòa", "UBND xã Tân Định",
+  "UBND xã Nam Ninh Hòa", "UBND xã Tây Ninh Hòa", "UBND xã Hòa Trí",
+  "UBND xã Đại Lãnh", "UBND xã Tu Bông", "UBND xã Vạn Thắng",
+  "UBND xã Vạn Ninh", "UBND xã Vạn Hưng", "UBND xã Diên Khánh",
+  "UBND xã Diên Lạc", "UBND xã Diên Điền", "UBND xã Diên Lâm",
+  "UBND xã Diên Thọ", "UBND xã Suối Hiệp", "UBND xã Cam Lâm",
+  "UBND xã Suối Dầu", "UBND xã Cam Hiệp", "UBND xã Cam An",
+  "UBND xã Bắc Khánh Vĩnh", "UBND xã Trung Khánh Vĩnh", "UBND xã Tây Khánh Vĩnh",
+  "UBND xã Nam Khánh Vĩnh", "UBND xã Khánh Vĩnh", "UBND xã Khánh Sơn",
+  "UBND xã Tây Khánh Sơn", "UBND xã Đông Khánh Sơn", "UBND xã Ninh Phước",
+  "UBND xã Bác Ái Tây", "UBND xã Bác Ái", "UBND xã Bác Ái Đông",
+  "UBND xã Mỹ Sơn", "UBND xã Anh Dũng", "UBND xã Lâm Sơn",
+  "UBND xã Ninh Sơn", "UBND xã Công Hải", "UBND xã Thuận Bắc",
+  "UBND xã Vĩnh Hải", "UBND xã Xuân Hải", "UBND xã Ninh Hải",
+  "UBND xã Phước Dinh", "UBND xã Phước Hà", "UBND xã Cà Ná",
+  "UBND xã Thuận Nam", "UBND xã Phước Hậu", "UBND xã Phước Hữu",
+  "UBND phường Đô Vinh", "UBND phường Bảo An", "UBND phường Ninh Chử",
+  "UBND phường Đông Hải", "UBND phường Phan Rang", "UBND phường Hòa Thắng",
+  "UBND phường Đông Ninh Hòa", "UBND phường Ninh Hòa", "UBND phường Ba Ngòi",
+  "UBND phường Cam Linh", "UBND phường Cam Ranh", "UBND phường Bắc Cam Ranh",
+  "UBND phường Nam Nha Trang", "UBND phường Tây Nha Trang", "UBND phường Bắc Nha Trang",
+  "UBND phường Nha Trang", "UBND Đặc khu Trường Sa",
+];
+
+const WEBSITE_LINKS: Record<string, string[]> = {
+  "-- Chính phủ, bộ ngành --": ["Cổng TTĐT Chính phủ", "Bộ Nội vụ", "Bộ Tài chính", "Bộ Công Thương", "Bộ Y tế", "Bộ Giáo dục và Đào tạo"],
+  "-- Các tỉnh, thành phố --": ["TP. Hà Nội", "TP. Hồ Chí Minh", "TP. Đà Nẵng", "Tỉnh Ninh Thuận", "Tỉnh Phú Yên", "Tỉnh Bình Thuận"],
+  "-- Tổ chức chính trị --": ["Đảng Cộng sản Việt Nam", "Mặt trận Tổ quốc", "Đoàn TNCS Hồ Chí Minh", "Hội Liên hiệp Phụ nữ", "Tổng Liên đoàn Lao động"],
+  "-- Đơn vị sự nghiệp --": ["Đại học Nha Trang", "Bệnh viện Đa khoa tỉnh", "Đài PT-TH Khánh Hòa", "Báo Khánh Hòa"],
+  "-- Website khác --": ["Cổng Dịch vụ công Quốc gia", "Hệ thống văn bản QPPL", "Bảo hiểm xã hội Việt Nam", "Tổng cục Thuế"],
+};
 
 type PolicyItem = { title: string; date: string; image: string };
 type PolicyTabData = { featured: PolicyItem; rest: readonly PolicyItem[] };
