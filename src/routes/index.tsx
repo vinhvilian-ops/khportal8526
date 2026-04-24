@@ -453,13 +453,17 @@ function HomePage() {
       </div>
 
       {/* Quick links */}
-      <div className="container mx-auto px-4 mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div className="container mx-auto px-4 mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {QUICK_LINKS.map((q, i) => (
-          <a key={i} href="#" className="rounded-xl bg-card p-4 text-center hover:shadow-md transition group">
-            <div className={`mx-auto h-10 w-10 rounded-lg ${q.color} flex items-center justify-center mb-2 group-hover:scale-110 transition`}>
-              <q.icon className="h-5 w-5" />
+          <a
+            key={i}
+            href="#"
+            className="group flex flex-col items-center justify-start gap-3 rounded-xl border border-border bg-card p-4 text-center shadow-sm hover:border-gov-blue hover:shadow-md hover:-translate-y-0.5 transition-all"
+          >
+            <div className={`h-12 w-12 rounded-xl ${q.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm`}>
+              <q.icon className="h-6 w-6" />
             </div>
-            <p className="text-xs font-medium text-foreground leading-tight">{q.label}</p>
+            <p className="text-xs font-semibold text-gov-blue-dark group-hover:text-gov-blue leading-snug">{q.label}</p>
           </a>
         ))}
       </div>
