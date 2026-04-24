@@ -255,6 +255,121 @@ function PolicyBlock<K extends string>({ tabs, keys }: { tabs: Record<K, PolicyT
   );
 }
 
+function DepartmentsBlock() {
+  const tabs = [
+    { key: "so-ban" as const, label: "CÁC SỞ, BAN", icon: Building2, data: SO_BAN },
+    { key: "ubnd" as const, label: "UBND CÁC XÃ, PHƯỜNG, ĐẶC KHU", icon: Landmark, data: UBND_XA },
+  ];
+  const [active, setActive] = useState<"so-ban" | "ubnd">("so-ban");
+  const [query, setQuery] = useState("");
+  const current = tabs.find((t) => t.key === active)!;
+  const filtered = current.data.filter((d) =>
+    d.toLowerCase().includes(query.toLowerCase().trim()),
+  );
+  return (
+    <div className="rounded-xl bg-card p-5 shadow-sm">
+      <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
+        {tabs.map((t) => {
+          const isActive = active === t.key;
+          return (
+            <button
+              key={t.key}
+              onClick={() => { setActive(t.key); setQuery(""); }}
+              className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors flex items-center gap-2 ${
+                isActive ? "text-gov-blue-dark" : "text-muted-foreground hover:text-gov-blue-dark"
+              }`}
+            >
+              <t.icon className={`h-4 w-4 ${isActive ? "text-gov-red" : ""}`} />
+              {t.label}
+              {isActive && <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />}
+            </button>
+          );
+        })}
+      </div>
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={`Tìm kiếm trong ${current.label.toLowerCase()}...`}
+          className="w-full rounded-lg border border-input bg-background pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue/40 transition"
+        />
+      </div>
+      <div
+        key={active}
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 max-h-[420px] overflow-y-auto pr-1 animate-in fade-in slide-in-from-bottom-2 duration-300"
+      >
+        {filtered.length === 0 ? (
+          <p className="col-span-full text-sm text-muted-foreground py-6 text-center">
+            Không tìm thấy kết quả phù hợp.
+          </p>
+        ) : (
+          filtered.map((d, i) => (
+            <a
+              key={i}
+              href="#"
+              className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2 py-1.5 transition-colors"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-gov-orange shrink-0 group-hover:bg-gov-red transition-colors" />
+              <span className="truncate">{d}</span>
+            </a>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+function WebsiteLinksBlock() {
+  const [open, setOpen] = useState<string | null>(null);
+  return (
+    <div className="rounded-xl bg-card p-5 shadow-sm">
+      <h4 className="flex items-center gap-2 font-bold text-gov-blue-dark mb-4 text-sm uppercase border-b-2 border-gov-red/40 pb-2">
+        <Sparkles className="h-4 w-4 text-gov-red" />
+        Liên kết Website
+      </h4>
+      <div className="flex flex-col gap-2">
+        {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
+          const isOpen = open === category;
+          return (
+            <div key={category} className="rounded-lg border border-border overflow-hidden">
+              <button
+                onClick={() => setOpen(isOpen ? null : category)}
+                className="w-full flex items-center justify-between px-3 py-2.5 text-sm text-foreground hover:bg-muted transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <Globe className="h-4 w-4 text-gov-blue" />
+                  {category}
+                </span>
+                <ChevronRight
+                  className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                    isOpen ? "rotate-90" : ""
+                  }`}
+                />
+              </button>
+              {isOpen && (
+                <div className="bg-muted/30 px-3 py-2 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
+                  {links.map((l, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="text-xs text-foreground hover:text-gov-red flex items-center gap-2 py-1"
+                    >
+                      <span className="h-1 w-1 rounded-full bg-gov-orange shrink-0" />
+                      {l}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function HomePage() {
   const tabKeys = Object.keys(DIRECTIVES_TABS) as DirectiveTab[];
   const [activeTab, setActiveTab] = useState<DirectiveTab>(tabKeys[0]);
