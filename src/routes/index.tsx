@@ -788,11 +788,18 @@ function HomePage() {
 
           {/* Chuyên trang */}
           <div className="border-t p-5">
-            <h4 className="font-bold text-gov-blue-dark mb-3 text-sm">CHUYÊN TRANG, CHUYÊN MỤC</h4>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+            <h4 className="font-bold text-gov-blue-dark mb-4 text-sm uppercase tracking-wide border-b-2 border-gov-blue/30 pb-2 inline-flex items-center gap-2">
+              <BookOpen className="h-4 w-4 text-gov-blue" /> Chuyên trang, chuyên mục
+            </h4>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
               {CHUYEN_TRANG.map((c, i) => (
-                <a key={i} href="#" className="text-sm text-gov-orange hover:text-gov-red flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gov-orange" /> {c}
+                <a
+                  key={i}
+                  href="#"
+                  className="group flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark transition-colors"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-gov-blue shrink-0 group-hover:scale-125 transition-transform" />
+                  <span className="leading-snug">{c}</span>
                 </a>
               ))}
             </div>
