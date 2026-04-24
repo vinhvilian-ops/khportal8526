@@ -803,10 +803,12 @@ function HomePage() {
                 <a
                   key={i}
                   href="#"
-                  className="group flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark transition-colors"
+                  className="group flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark hover:shadow-sm transition-all"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-gov-blue shrink-0 group-hover:scale-125 transition-transform" />
-                  <span className="leading-snug">{c}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue group-hover:bg-gov-blue group-hover:text-white transition-colors">
+                    <c.icon className="h-4 w-4" />
+                  </span>
+                  <span className="leading-snug">{c.label}</span>
                 </a>
               ))}
             </div>
