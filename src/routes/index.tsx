@@ -767,42 +767,7 @@ function HomePage() {
 
       <div className="container mx-auto px-4">
         {/* Tourism block */}
-        <div className="rounded-xl bg-card shadow-sm overflow-hidden">
-          <div className="flex items-end justify-between gap-4 border-b px-1">
-            <div className="flex">
-              <button className="px-5 py-3 text-sm font-bold text-gov-blue border-b-2 border-gov-blue">GIỚI THIỆU ĐẾN DU KHÁCH</button>
-              <button className="px-5 py-3 text-sm font-medium text-muted-foreground">TIN ẢNH</button>
-            </div>
-            <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-3 pr-4 shrink-0">
-              Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5">
-            {[
-              { title: "Khai mạc Lễ hội Am Chúa năm 2026", date: "12/04/2026", image: tourismFeatured },
-              { title: "Tiềm năng du lịch nghỉ dưỡng và chăm sóc sức khỏe", date: "10/04/2026", image: tourismThumb1 },
-              { title: "Anex Tour Vietnam sẽ đưa 180.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "07/04/2026", image: tourismThumb2 },
-              { title: "Du thuyền Star Voyager sẽ đến Nha Trang trong chuyến hải trình mùa hè", date: "05/04/2026", image: tourismThumb3 },
-            ].map((n, i) => (
-              <a key={i} href="#" className="group block rounded-lg overflow-hidden bg-card border hover:shadow-md transition">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={n.image}
-                    alt={n.title}
-                    width={600}
-                    height={450}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-3">
-                  <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3 min-h-[3.75rem]">{n.title}</p>
-                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-
+        <TourismBlock />
 
           {/* Charts */}
           <div className="border-t p-5">
