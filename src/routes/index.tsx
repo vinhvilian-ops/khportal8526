@@ -341,16 +341,21 @@ function DepartmentsBlock() {
             Không tìm thấy kết quả phù hợp.
           </p>
         ) : (
-          filtered.map((d, i) => (
-            <a
-              key={i}
-              href="#"
-              className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2 py-1.5 transition-colors"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-gov-orange shrink-0 group-hover:bg-gov-red transition-colors" />
-              <span className="truncate">{d}</span>
-            </a>
-          ))
+          filtered.map((d, i) => {
+            const Icon = getDeptIcon(d);
+            return (
+              <a
+                key={i}
+                href="#"
+                className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2.5 py-1.5 transition-colors"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue transition-colors group-hover:bg-gov-blue group-hover:text-white">
+                  <Icon className="h-3.5 w-3.5" />
+                </span>
+                <span className="truncate">{d}</span>
+              </a>
+            );
+          })
         )}
       </div>
     </div>
