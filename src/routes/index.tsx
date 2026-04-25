@@ -370,7 +370,7 @@ function WebsiteLinksBlock() {
         <Sparkles className="h-4 w-4 text-gov-red" />
         Liên kết Website
       </h4>
-      <div className="flex flex-col gap-2 flex-1">
+      <div className="flex flex-col gap-2 flex-1 justify-between">
         {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
           const isOpen = open === category;
           return (
