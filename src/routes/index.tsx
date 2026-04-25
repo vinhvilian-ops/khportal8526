@@ -7,6 +7,8 @@ import {
   AlertCircle, Newspaper, Megaphone, Bell, BarChart3, Play, MapPin, QrCode,
   ChevronRight, Building2, Landmark, Globe,
   Award, TrafficCone, Leaf, FlaskConical, CloudRain, Cpu, Gavel, LifeBuoy, Target,
+  Users, Coins, Hammer, Factory, GraduationCap, Sprout, Music, HeartPulse,
+  Handshake, FolderKanban, TreePine, Wrench, Truck, ShieldCheck, Mountain, Waves, Home as HomeIcon, type LucideIcon,
 } from "lucide-react";
 import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
@@ -262,6 +264,33 @@ function PolicyBlock<K extends string>({ tabs, keys }: { tabs: Record<K, PolicyT
   );
 }
 
+function getDeptIcon(name: string): LucideIcon {
+  const n = name.toLowerCase();
+  if (n.includes("nội vụ")) return Users;
+  if (n.includes("tư pháp")) return Scale;
+  if (n.includes("văn phòng ubnd")) return Building2;
+  if (n.includes("tài chính")) return Coins;
+  if (n.includes("thanh tra")) return ShieldCheck;
+  if (n.includes("xây dựng") && !n.includes("đầu tư")) return Hammer;
+  if (n.includes("công thương")) return Factory;
+  if (n.includes("khoa học")) return FlaskConical;
+  if (n.includes("giáo dục")) return GraduationCap;
+  if (n.includes("nông nghiệp") && n.includes("môi trường")) return Sprout;
+  if (n.includes("nông nghiệp")) return Sprout;
+  if (n.includes("văn hóa")) return Music;
+  if (n.includes("y tế")) return HeartPulse;
+  if (n.includes("dân tộc") || n.includes("tôn giáo")) return Handshake;
+  if (n.includes("vườn quốc gia") || n.includes("núi chúa")) return TreePine;
+  if (n.includes("khu kinh tế") || n.includes("khu công nghiệp")) return Factory;
+  if (n.includes("giao thông")) return Truck;
+  if (n.includes("đầu tư xây dựng") || n.includes("dự án")) return FolderKanban;
+  if (n.includes("ban quản lý") || n.includes("ban ")) return Briefcase;
+  if (n.includes("đặc khu") || n.includes("trường sa")) return Waves;
+  if (n.includes("phường")) return Building2;
+  if (n.includes("xã")) return HomeIcon;
+  return Landmark;
+}
+
 function DepartmentsBlock() {
   const tabs = [
     { key: "so-ban" as const, label: "CÁC SỞ, BAN", icon: Building2, data: SO_BAN },
@@ -312,16 +341,21 @@ function DepartmentsBlock() {
             Không tìm thấy kết quả phù hợp.
           </p>
         ) : (
-          filtered.map((d, i) => (
-            <a
-              key={i}
-              href="#"
-              className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2 py-1.5 transition-colors"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-gov-orange shrink-0 group-hover:bg-gov-red transition-colors" />
-              <span className="truncate">{d}</span>
-            </a>
-          ))
+          filtered.map((d, i) => {
+            const Icon = getDeptIcon(d);
+            return (
+              <a
+                key={i}
+                href="#"
+                className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2.5 py-1.5 transition-colors"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue transition-colors group-hover:bg-gov-blue group-hover:text-white">
+                  <Icon className="h-3.5 w-3.5" />
+                </span>
+                <span className="truncate">{d}</span>
+              </a>
+            );
+          })
         )}
       </div>
     </div>
