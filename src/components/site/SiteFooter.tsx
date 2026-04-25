@@ -7,8 +7,8 @@ export function SiteFooter() {
         <h3 className="text-center text-xl font-bold tracking-wide mb-8">
           CỔNG THÔNG TIN ĐIỆN TỬ TỈNH KHÁNH HÒA
         </h3>
-        <div className="grid gap-8 md:grid-cols-12 text-sm">
-          <div className="md:col-span-6">
+        <div className="grid gap-10 md:grid-cols-3 text-sm">
+          <div>
             <h4 className="font-bold text-gov-yellow mb-3">THÔNG TIN LIÊN HỆ</h4>
             <p className="text-white/80 mb-2">
               Giấy phép số: 05/GP-TTĐT do Sở Văn hóa, Thể thao và Du lịch tỉnh Khánh Hòa cấp ngày 12/5/2025.
@@ -20,7 +20,7 @@ export function SiteFooter() {
             <p className="flex items-center gap-2 mb-1"><Phone className="h-4 w-4" /> Điện thoại: 0258.3812434.</p>
             <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> Email: banbientap@khanhhoa.gov.vn.</p>
           </div>
-          <div className="md:col-span-2">
+          <div>
             <h4 className="font-bold text-gov-yellow mb-3">TIỆN ÍCH</h4>
             <ul className="space-y-1.5 text-white/80">
               <li><a className="hover:text-gov-yellow" href="#">English</a></li>
@@ -30,9 +30,9 @@ export function SiteFooter() {
               <li><a className="hover:text-gov-yellow" href="#">Sơ đồ website</a></li>
             </ul>
           </div>
-          <div className="md:col-span-4">
+          <div>
             <h4 className="font-bold text-gov-yellow mb-3">THỐNG KÊ TRUY CẬP</h4>
-            <ul className="space-y-1.5 max-w-[260px]">
+            <ul className="space-y-1.5 max-w-[280px]">
               <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Tổng truy cập:</span><span className="text-gov-yellow font-semibold tabular-nums">99,453,414</span></li>
               <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Truy cập trong tuần:</span><span className="text-gov-yellow font-semibold tabular-nums">242,815</span></li>
               <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold tabular-nums">128,876</span></li>
