@@ -334,7 +334,7 @@ function DepartmentsBlock() {
       </div>
       <div
         key={active}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 max-h-[420px] overflow-y-auto pr-1 animate-in fade-in slide-in-from-bottom-2 duration-300"
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 flex-1 min-h-0 overflow-y-auto pr-1 animate-in fade-in slide-in-from-bottom-2 duration-300"
       >
         {filtered.length === 0 ? (
           <p className="col-span-full text-sm text-muted-foreground py-6 text-center">
