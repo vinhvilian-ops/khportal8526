@@ -929,3 +929,87 @@ function HomePage() {
     </SiteLayout>
   );
 }
+
+const TOURISM_INTRO = [
+  { title: "Khai mạc Lễ hội Am Chúa năm 2026", date: "12/04/2026", image: tourismFeatured },
+  { title: "Tiềm năng du lịch nghỉ dưỡng và chăm sóc sức khỏe", date: "10/04/2026", image: tourismThumb1 },
+  { title: "Anex Tour Vietnam sẽ đưa 180.000 khách quốc tế đến Khánh Hòa trong mùa du lịch hè 2026", date: "07/04/2026", image: tourismThumb2 },
+  { title: "Du thuyền Star Voyager sẽ đến Nha Trang trong chuyến hải trình mùa hè", date: "05/04/2026", image: tourismThumb3 },
+];
+
+const TIN_ANH = {
+  featured: { title: "3.000 phụ nữ Khánh Hòa rực rỡ trong màn diễu hành tôn vinh áo dài", date: "08/03/2026", image: tourismFeatured },
+  rest: [
+    { title: "Nô nức bầu cử sớm tại Lữ đoàn Đặc công nước 5", date: "05/03/2026", image: tourismThumb1 },
+    { title: "Ngày hội tòng quân tại điểm giao, nhận quân ở xã Diên Khánh", date: "04/03/2026", image: tourismThumb2 },
+    { title: "Du xuân trên cung đường biển đẹp nhất Khánh Hòa", date: "17/02/2026", image: tourismThumb3 },
+  ],
+};
+
+function TourismTabs() {
+  const [tab, setTab] = useState<"intro" | "photo">("intro");
+  return (
+    <>
+      <div className="flex items-end justify-between gap-4 border-b px-1">
+        <div className="flex">
+          {[
+            { key: "intro" as const, label: "GIỚI THIỆU ĐẾN DU KHÁCH" },
+            { key: "photo" as const, label: "TIN ẢNH" },
+          ].map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              className={`px-5 py-3 text-sm font-bold transition-colors ${
+                tab === t.key
+                  ? "text-gov-blue border-b-2 border-gov-blue"
+                  : "text-muted-foreground hover:text-gov-blue-dark"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-3 pr-4 shrink-0">
+          Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+      {tab === "intro" ? (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 animate-in fade-in duration-300">
+          {TOURISM_INTRO.map((n, i) => (
+            <a key={i} href="#" className="group block rounded-lg overflow-hidden bg-card border hover:shadow-md transition">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={n.image} alt={n.title} width={600} height={450} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div className="p-3">
+                <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3 min-h-[3.75rem]">{n.title}</p>
+                <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div className="grid gap-5 md:grid-cols-2 p-5 animate-in fade-in duration-300">
+          <a href="#" className="group flex flex-col">
+            <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+              <img src={TIN_ANH.featured.image} alt={TIN_ANH.featured.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gov-blue-dark/90 to-transparent p-4">
+                <p className="text-white font-semibold leading-snug line-clamp-2">{TIN_ANH.featured.title}</p>
+              </div>
+            </div>
+          </a>
+          <div className="flex flex-col divide-y h-full">
+            {TIN_ANH.rest.map((p, i) => (
+              <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                <img src={p.image} alt={p.title} width={512} height={512} loading="lazy" className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                <div className="flex flex-col justify-center min-w-0">
+                  <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{p.title}</p>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {p.date}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
