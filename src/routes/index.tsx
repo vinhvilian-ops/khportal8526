@@ -365,12 +365,12 @@ function DepartmentsBlock() {
 function WebsiteLinksBlock() {
   const [open, setOpen] = useState<string | null>(null);
   return (
-    <div className="rounded-xl bg-card p-5 shadow-sm">
+    <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
       <h4 className="flex items-center gap-2 font-bold text-gov-blue-dark mb-4 text-sm uppercase border-b-2 border-gov-red/40 pb-2">
         <Sparkles className="h-4 w-4 text-gov-red" />
         Liên kết Website
       </h4>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 flex-1">
         {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
           const isOpen = open === category;
           return (
