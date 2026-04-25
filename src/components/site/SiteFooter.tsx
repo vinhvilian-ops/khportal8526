@@ -32,11 +32,11 @@ export function SiteFooter() {
           </div>
           <div className="md:col-span-4">
             <h4 className="font-bold text-gov-yellow mb-3">THỐNG KÊ TRUY CẬP</h4>
-            <ul className="space-y-1.5">
-              <li className="flex justify-between gap-3"><span className="text-white/80">Tổng truy cập:</span><span className="text-gov-yellow font-semibold">99,453,414</span></li>
-              <li className="flex justify-between gap-3"><span className="text-white/80">Truy cập trong tuần:</span><span className="text-gov-yellow font-semibold">242,815</span></li>
-              <li className="flex justify-between gap-3"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold">128,876</span></li>
-              <li className="flex justify-between gap-3"><span className="text-white/80">Đang online:</span><span className="text-gov-yellow font-semibold">297</span></li>
+            <ul className="space-y-1.5 max-w-[260px]">
+              <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Tổng truy cập:</span><span className="text-gov-yellow font-semibold tabular-nums">99,453,414</span></li>
+              <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Truy cập trong tuần:</span><span className="text-gov-yellow font-semibold tabular-nums">242,815</span></li>
+              <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold tabular-nums">128,876</span></li>
+              <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Đang online:</span><span className="text-gov-yellow font-semibold tabular-nums">297</span></li>
             </ul>
             <div className="mt-3 flex gap-2">
               <span className="rounded bg-white/10 px-2 py-1 text-xs">IPv6 Ready</span>
