@@ -303,7 +303,7 @@ function DepartmentsBlock() {
     d.toLowerCase().includes(query.toLowerCase().trim()),
   );
   return (
-    <div className="rounded-xl bg-card p-5 shadow-sm">
+    <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
         {tabs.map((t) => {
           const isActive = active === t.key;
@@ -334,7 +334,7 @@ function DepartmentsBlock() {
       </div>
       <div
         key={active}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 max-h-[420px] overflow-y-auto pr-1 animate-in fade-in slide-in-from-bottom-2 duration-300"
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 flex-1 min-h-0 overflow-y-auto pr-1 animate-in fade-in slide-in-from-bottom-2 duration-300"
       >
         {filtered.length === 0 ? (
           <p className="col-span-full text-sm text-muted-foreground py-6 text-center">
@@ -365,12 +365,12 @@ function DepartmentsBlock() {
 function WebsiteLinksBlock() {
   const [open, setOpen] = useState<string | null>(null);
   return (
-    <div className="rounded-xl bg-card p-5 shadow-sm">
+    <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
       <h4 className="flex items-center gap-2 font-bold text-gov-blue-dark mb-4 text-sm uppercase border-b-2 border-gov-red/40 pb-2">
         <Sparkles className="h-4 w-4 text-gov-red" />
         Liên kết Website
       </h4>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 flex-1">
         {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
           const isOpen = open === category;
           return (
@@ -957,7 +957,7 @@ function HomePage() {
       </div>
 
       {/* Departments + Website Links */}
-      <div className="container mx-auto px-4 mt-8 grid lg:grid-cols-[1fr_320px] gap-6 items-start">
+      <div className="container mx-auto px-4 mt-8 grid lg:grid-cols-[1fr_320px] gap-6 items-stretch">
         <DepartmentsBlock />
         <WebsiteLinksBlock />
       </div>
