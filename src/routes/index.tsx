@@ -264,6 +264,33 @@ function PolicyBlock<K extends string>({ tabs, keys }: { tabs: Record<K, PolicyT
   );
 }
 
+function getDeptIcon(name: string): LucideIcon {
+  const n = name.toLowerCase();
+  if (n.includes("nội vụ")) return Users;
+  if (n.includes("tư pháp")) return Scale;
+  if (n.includes("văn phòng ubnd")) return Building2;
+  if (n.includes("tài chính")) return Coins;
+  if (n.includes("thanh tra")) return ShieldCheck;
+  if (n.includes("xây dựng") && !n.includes("đầu tư")) return Hammer;
+  if (n.includes("công thương")) return Factory;
+  if (n.includes("khoa học")) return FlaskConical;
+  if (n.includes("giáo dục")) return GraduationCap;
+  if (n.includes("nông nghiệp") && n.includes("môi trường")) return Sprout;
+  if (n.includes("nông nghiệp")) return Sprout;
+  if (n.includes("văn hóa")) return Music;
+  if (n.includes("y tế")) return HeartPulse;
+  if (n.includes("dân tộc") || n.includes("tôn giáo")) return Handshake;
+  if (n.includes("vườn quốc gia") || n.includes("núi chúa")) return TreePine;
+  if (n.includes("khu kinh tế") || n.includes("khu công nghiệp")) return Factory;
+  if (n.includes("giao thông")) return Truck;
+  if (n.includes("đầu tư xây dựng") || n.includes("dự án")) return FolderKanban;
+  if (n.includes("ban quản lý") || n.includes("ban ")) return Briefcase;
+  if (n.includes("đặc khu") || n.includes("trường sa")) return Waves;
+  if (n.includes("phường")) return Building2;
+  if (n.includes("xã")) return HomeIcon;
+  return Landmark;
+}
+
 function DepartmentsBlock() {
   const tabs = [
     { key: "so-ban" as const, label: "CÁC SỞ, BAN", icon: Building2, data: SO_BAN },
