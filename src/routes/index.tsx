@@ -370,14 +370,14 @@ function WebsiteLinksBlock() {
         <Sparkles className="h-4 w-4 text-gov-red" />
         Liên kết Website
       </h4>
-      <div className="flex flex-col gap-2 flex-1">
+      <div className="flex flex-col gap-2 flex-1 justify-between">
         {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
           const isOpen = open === category;
           return (
-            <div key={category} className="rounded-lg border border-border overflow-hidden">
+            <div key={category} className="rounded-lg border border-border overflow-hidden flex-1 flex flex-col min-h-[44px]">
               <button
                 onClick={() => setOpen(isOpen ? null : category)}
-                className="w-full flex items-center justify-between px-3 py-2.5 text-sm text-foreground hover:bg-muted transition-colors"
+                className="w-full flex flex-1 items-center justify-between px-3 py-2.5 text-sm text-foreground hover:bg-muted transition-colors"
               >
                 <span className="flex items-center gap-2">
                   <Globe className="h-4 w-4 text-gov-blue" />
