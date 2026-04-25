@@ -905,21 +905,55 @@ function HomePage() {
       </div>
 
       {/* National service banners */}
-      <div className="container mx-auto px-4 mt-8 grid md:grid-cols-2 gap-4">
-        <a href="#" className="rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
-          <Star className="h-10 w-10 text-gov-yellow" />
-          <div>
-            <p className="font-extrabold uppercase">Cổng dịch vụ công Quốc gia</p>
-            <p className="text-xs text-white/80">Kết nối cộng đồng người dân và doanh nghiệp</p>
-          </div>
-        </a>
-        <a href="#" className="rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white p-5 flex items-center gap-4 hover:shadow-lg transition">
-          <Sparkles className="h-10 w-10" />
-          <div>
-            <p className="font-extrabold uppercase">Cải cách hành chính tỉnh Khánh Hòa</p>
-            <p className="text-xs text-white/80">Hệ thống đánh giá đăng nhập, kết nối tổ chức người dân</p>
-          </div>
-        </a>
+      <div className="container mx-auto px-4 mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            icon: Star,
+            title: "Cổng dịch vụ công Quốc gia",
+            desc: "Kết nối, cung cấp thông tin và dịch vụ công mọi lúc, mọi nơi",
+            gradient: "from-gov-red to-gov-red-dark",
+          },
+          {
+            icon: Sparkles,
+            title: "Cải cách hành chính tỉnh Khánh Hòa",
+            desc: "Hệ thống đánh giá, kết nối tổ chức và người dân",
+            gradient: "from-gov-blue to-gov-cyan",
+          },
+          {
+            icon: Megaphone,
+            title: "Hệ thống phản ánh, kiến nghị về kinh tế - xã hội",
+            desc: "Tiếp nhận phản ánh của người dân, doanh nghiệp tỉnh Khánh Hòa",
+            gradient: "from-gov-orange to-gov-red",
+          },
+          {
+            icon: FileText,
+            title: "Phản ánh kiến nghị về thủ tục hành chính",
+            desc: "Kênh tiếp nhận và xử lý phản ánh thủ tục hành chính",
+            gradient: "from-gov-blue-dark to-gov-blue",
+          },
+        ].map((b, i) => {
+          const Icon = b.icon;
+          return (
+            <a
+              key={i}
+              href="#"
+              className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${b.gradient} text-white p-5 flex items-center gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all`}
+            >
+              <Icon
+                className="absolute -right-4 -bottom-4 h-32 w-32 text-white/10 pointer-events-none"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              <div className="relative shrink-0 flex h-12 w-12 items-center justify-center rounded-lg bg-white/15 backdrop-blur-sm">
+                <Icon className="h-6 w-6 text-gov-yellow" />
+              </div>
+              <div className="relative min-w-0">
+                <p className="font-extrabold uppercase text-sm leading-tight">{b.title}</p>
+                <p className="text-xs text-white/80 mt-1 line-clamp-2">{b.desc}</p>
+              </div>
+            </a>
+          );
+        })}
       </div>
 
       {/* Departments + Website Links */}
