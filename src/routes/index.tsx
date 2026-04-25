@@ -957,7 +957,7 @@ function HomePage() {
       </div>
 
       {/* Departments + Website Links */}
-      <div className="container mx-auto px-4 mt-8 grid lg:grid-cols-[1fr_320px] gap-6 items-start">
+      <div className="container mx-auto px-4 mt-8 grid lg:grid-cols-[1fr_320px] gap-6 items-stretch">
         <DepartmentsBlock />
         <WebsiteLinksBlock />
       </div>
