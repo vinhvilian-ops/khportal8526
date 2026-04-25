@@ -303,7 +303,7 @@ function DepartmentsBlock() {
     d.toLowerCase().includes(query.toLowerCase().trim()),
   );
   return (
-    <div className="rounded-xl bg-card p-5 shadow-sm">
+    <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
       <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
         {tabs.map((t) => {
           const isActive = active === t.key;
