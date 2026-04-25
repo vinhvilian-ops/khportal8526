@@ -7,6 +7,8 @@ import {
   AlertCircle, Newspaper, Megaphone, Bell, BarChart3, Play, MapPin, QrCode,
   ChevronRight, Building2, Landmark, Globe,
   Award, TrafficCone, Leaf, FlaskConical, CloudRain, Cpu, Gavel, LifeBuoy, Target,
+  Users, Coins, Hammer, Factory, GraduationCap, Sprout, Music, HeartPulse,
+  Handshake, FolderKanban, TreePine, Wrench, Truck, ShieldCheck, Mountain, Waves, Home as HomeIcon, type LucideIcon,
 } from "lucide-react";
 import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
