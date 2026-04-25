@@ -767,7 +767,8 @@ function HomePage() {
 
       <div className="container mx-auto px-4">
         {/* Tourism block */}
-        <TourismBlock />
+        <div className="rounded-xl bg-card shadow-sm overflow-hidden">
+          <TourismTabs />
 
           {/* Charts */}
           <div className="border-t p-5">
