@@ -69,7 +69,7 @@ export function SiteHeader() {
       </div>
 
       {/* Main nav */}
-      <nav className="sticky top-0 z-50 border-y border-border bg-gov-surface/95 backdrop-blur supports-[backdrop-filter]:bg-gov-surface/80 shadow-sm">
+      <nav className="sticky top-0 z-50 border-y border-border bg-gov-surface/95 backdrop-blur supports-[backdrop-filter]:bg-gov-surface/80 shadow-sm" style={{ position: "sticky", top: 0 }}>
         <div className="container mx-auto flex items-center justify-between px-4">
           <ul className="flex">
             {NAV.map((item) => (
