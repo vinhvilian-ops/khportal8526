@@ -737,11 +737,11 @@ function HomePage() {
 
             {/* Quick info tabs — moved up here, styled same size as side banners with faded background icon */}
             {[
-              { label: "AI Pháp luật", sub: "Cổng pháp luật quốc gia", icon: Scale, theme: "from-gov-green to-gov-green/80" },
-              { label: "Thông tin BHXH Khánh Hòa", icon: FileText, theme: "from-gov-red to-gov-red/80" },
-              { label: "Bản đồ số 65 xã, phường, đặc khu", icon: BarChart3, theme: "from-gov-blue to-gov-blue-dark" },
-              { label: "Tra cứu giá đất", icon: Search, theme: "from-gov-cyan to-gov-cyan/80" },
-              { label: "Công khai ngân sách", icon: BookOpen, theme: "from-gov-orange to-gov-orange/80" },
+              { label: "AI Pháp luật", sub: "Cổng pháp luật quốc gia", icon: Scale, theme: "from-indigo-600 via-blue-600 to-sky-500" },
+              { label: "Thông tin BHXH Khánh Hòa", icon: FileText, theme: "from-sky-500 via-cyan-500 to-blue-600" },
+              { label: "Bản đồ số 65 xã, phường, đặc khu", icon: BarChart3, theme: "from-blue-700 via-indigo-700 to-purple-700" },
+              { label: "Tra cứu giá đất", icon: Search, theme: "from-cyan-400 via-teal-400 to-sky-500" },
+              { label: "Công khai ngân sách", icon: BookOpen, theme: "from-slate-800 via-blue-900 to-indigo-900" },
             ].map((t, i) => {
               const Icon = t.icon;
               return (
