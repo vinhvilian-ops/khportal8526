@@ -68,31 +68,8 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Main nav */}
-      <nav className="sticky top-0 z-50 border-y border-border bg-gov-surface/95 backdrop-blur supports-[backdrop-filter]:bg-gov-surface/80 shadow-sm" style={{ position: "sticky", top: 0 }}>
-        <div className="container mx-auto flex items-center justify-between px-4">
-          <ul className="flex">
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  activeOptions={{ exact: item.to === "/" }}
-                  className="block px-5 py-3 text-sm font-bold text-gov-blue-dark hover:text-gov-red transition-colors data-[status=active]:text-gov-red data-[status=active]:border-b-2 data-[status=active]:border-gov-red"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="hidden md:flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground bg-muted/30">
-            <Search className="h-4 w-4" />
-            <input
-              placeholder="Tìm kiếm..."
-              className="bg-transparent outline-none w-48 placeholder:text-muted-foreground"
-            />
-          </div>
-        </div>
-      </nav>
+      {/* Main nav rendered separately in SiteLayout for proper sticky behavior */}
+      <SiteNav />
 
       {/* Ticker */}
       <div className="bg-gov-red text-primary-foreground">
