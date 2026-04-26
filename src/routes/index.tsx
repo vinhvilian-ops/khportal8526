@@ -122,14 +122,14 @@ const POLICY_NEWS = [
 ];
 
 const SIDE_BANNERS = [
-  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", color: "bg-gov-yellow text-gov-blue-dark" },
-  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", color: "bg-gov-blue text-white" },
-  { label: "TRƯỜNG SA THÂN YÊU", color: "bg-gov-cyan text-white" },
-  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", color: "bg-gov-red text-white" },
-  { label: "BỘ PHÁP ĐIỂN", color: "bg-gov-orange text-white" },
-  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", color: "bg-gov-yellow text-gov-blue-dark" },
-  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", color: "bg-gov-blue text-white" },
-  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", color: "bg-gov-yellow text-gov-blue-dark" },
+  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star" },
+  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag" },
+  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave" },
+  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem" },
+  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale" },
+  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem" },
+  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave" },
+  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book" },
 ];
 
 const CHARTS = [
@@ -710,10 +710,28 @@ function HomePage() {
           </div>
 
           {/* Side banners moved directly below map */}
-          <div className="space-y-2">
+          <div className="space-y-3">
             {SIDE_BANNERS.map((b, i) => (
-              <a key={i} href="#" className={`block rounded-lg ${b.color} px-4 py-3 text-xs font-bold leading-tight hover:opacity-90 transition`}>
-                {b.label}
+              <a
+                key={i}
+                href="#"
+                className="group relative block overflow-hidden rounded-xl bg-gradient-to-br from-gov-blue to-gov-blue-dark px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+              >
+                {/* Hình mờ làm nền */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-2 -bottom-3 text-[88px] leading-none opacity-15 group-hover:opacity-25 group-hover:scale-110 transition-all duration-500 select-none"
+                >
+                  {b.emoji}
+                </span>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_60%)]"
+                />
+                {/* Nội dung text */}
+                <span className="relative z-10 block text-[13px] font-bold leading-tight tracking-wide drop-shadow-sm">
+                  {b.label}
+                </span>
               </a>
             ))}
             <div className="rounded-lg bg-card p-3 shadow-sm border-l-4 border-gov-blue">
