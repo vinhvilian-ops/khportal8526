@@ -715,7 +715,7 @@ function HomePage() {
               <a
                 key={i}
                 href="#"
-                className="group relative block overflow-hidden rounded-xl bg-gradient-to-br from-gov-blue to-gov-blue-dark px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+                className={`group relative block overflow-hidden rounded-xl bg-gradient-to-br ${b.theme} px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
               >
                 {/* Hình mờ làm nền */}
                 <span
