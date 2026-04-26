@@ -737,6 +737,7 @@ function HomePage() {
 
             {/* Quick info tabs — moved up here, styled same size as side banners with faded background icon */}
             {[
+              { label: "Cơ sở dữ liệu quốc gia", sub: "về văn bản pháp luật", icon: BookOpen, theme: "from-amber-600 via-orange-600 to-red-600" },
               { label: "AI Pháp luật", sub: "Cổng pháp luật quốc gia", icon: Scale, theme: "from-indigo-600 via-blue-600 to-sky-500" },
               { label: "Thông tin BHXH Khánh Hòa", icon: FileText, theme: "from-sky-500 via-cyan-500 to-blue-600" },
               { label: "Bản đồ số 65 xã, phường, đặc khu", icon: BarChart3, theme: "from-blue-700 via-indigo-700 to-purple-700" },
