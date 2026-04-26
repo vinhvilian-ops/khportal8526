@@ -122,14 +122,14 @@ const POLICY_NEWS = [
 ];
 
 const SIDE_BANNERS = [
-  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star" },
-  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag" },
-  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave" },
-  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem" },
-  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale" },
-  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem" },
-  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave" },
-  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book" },
+  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star", theme: "from-blue-700 via-blue-600 to-sky-500" },
+  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag", theme: "from-indigo-700 via-blue-700 to-blue-500" },
+  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave", theme: "from-sky-600 via-cyan-500 to-teal-400" },
+  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem", theme: "from-blue-800 via-indigo-700 to-purple-600" },
+  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale", theme: "from-slate-800 via-blue-800 to-indigo-700" },
+  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem", theme: "from-blue-900 via-blue-700 to-sky-600" },
+  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave", theme: "from-cyan-600 via-sky-500 to-blue-500" },
+  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book", theme: "from-indigo-800 via-blue-700 to-cyan-500" },
 ];
 
 const CHARTS = [
@@ -715,7 +715,7 @@ function HomePage() {
               <a
                 key={i}
                 href="#"
-                className="group relative block overflow-hidden rounded-xl bg-gradient-to-br from-gov-blue to-gov-blue-dark px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+                className={`group relative block overflow-hidden rounded-xl bg-gradient-to-br ${b.theme} px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
               >
                 {/* Hình mờ làm nền */}
                 <span
