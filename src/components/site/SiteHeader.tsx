@@ -98,22 +98,22 @@ export function SiteHeader() {
 
 export function SiteNav() {
   return (
-    <nav className="sticky top-0 z-50 border-y border-border bg-gov-surface/95 backdrop-blur supports-[backdrop-filter]:bg-gov-surface/80 shadow-sm">
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <ul className="flex">
+    <nav className="sticky top-0 z-50 border-y border-border bg-gov-surface/95 backdrop-blur supports-[backdrop-filter]:bg-gov-surface/80 shadow-md">
+      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-1.5">
+        <ul className="flex items-center">
           {NAV.map((item) => (
             <li key={item.to}>
               <Link
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
-                className="block px-5 py-3 text-sm font-bold text-gov-blue-dark hover:text-gov-red transition-colors data-[status=active]:text-gov-red data-[status=active]:border-b-2 data-[status=active]:border-gov-red"
+                className="block px-6 py-4 text-[15px] font-bold tracking-wide text-gov-blue-dark hover:text-gov-red transition-colors data-[status=active]:text-gov-red data-[status=active]:border-b-2 data-[status=active]:border-gov-red"
               >
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="hidden md:flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground bg-muted/30">
+        <div className="hidden md:flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground bg-muted/30">
           <Search className="h-4 w-4" />
           <input
             placeholder="Tìm kiếm..."
