@@ -734,6 +734,43 @@ function HomePage() {
                 </span>
               </a>
             ))}
+
+            {/* Quick info tabs — moved up here, styled same size as side banners with faded background icon */}
+            {[
+              { label: "AI Pháp luật", sub: "Cổng pháp luật quốc gia", icon: Scale, theme: "from-gov-green to-gov-green/80" },
+              { label: "Thông tin BHXH Khánh Hòa", icon: FileText, theme: "from-gov-red to-gov-red/80" },
+              { label: "Bản đồ số 65 xã, phường, đặc khu", icon: BarChart3, theme: "from-gov-blue to-gov-blue-dark" },
+              { label: "Tra cứu giá đất", icon: Search, theme: "from-gov-cyan to-gov-cyan/80" },
+              { label: "Công khai ngân sách", icon: BookOpen, theme: "from-gov-orange to-gov-orange/80" },
+            ].map((t, i) => {
+              const Icon = t.icon;
+              return (
+                <a
+                  key={i}
+                  href="#"
+                  className={`group relative block overflow-hidden rounded-xl bg-gradient-to-br ${t.theme} px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
+                >
+                  {/* Icon mờ làm nền */}
+                  <Icon
+                    aria-hidden
+                    className="pointer-events-none absolute -right-3 -bottom-3 h-24 w-24 opacity-15 group-hover:opacity-25 group-hover:scale-110 transition-all duration-500"
+                    strokeWidth={1.5}
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_60%)]"
+                  />
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon className="h-5 w-5 shrink-0 drop-shadow-sm" />
+                    <span className="block text-[13px] font-bold leading-tight tracking-wide drop-shadow-sm">
+                      {t.label}
+                      {t.sub && <span className="block text-[10px] font-normal opacity-90 mt-0.5">{t.sub}</span>}
+                    </span>
+                  </span>
+                </a>
+              );
+            })}
+
             <div className="rounded-lg bg-card p-3 shadow-sm border-l-4 border-gov-blue">
               <p className="text-xs font-bold text-gov-blue-dark mb-2 flex items-center gap-1"><Bell className="h-3 w-3" /> THÔNG BÁO MỚI NHẤT</p>
               <ul className="text-xs space-y-1.5 text-muted-foreground">
@@ -752,24 +789,6 @@ function HomePage() {
                 <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
-
-            {/* Quick info tabs (moved from below) */}
-            <a href="#" className="rounded-lg bg-gov-green/15 px-3 py-2 text-gov-green font-semibold flex items-center gap-2 text-xs hover:bg-gov-green/25 transition">
-              <Scale className="h-4 w-4 shrink-0" />
-              <span>AI Pháp luật <span className="text-[10px] text-muted-foreground font-normal">Cổng pháp luật quốc gia</span></span>
-            </a>
-            <a href="#" className="rounded-lg bg-gov-red/15 px-3 py-2 text-gov-red font-semibold flex items-center gap-2 text-xs hover:bg-gov-red/25 transition">
-              <FileText className="h-4 w-4 shrink-0" /> Thông tin BHXH Khánh Hòa
-            </a>
-            <a href="#" className="rounded-lg bg-gov-blue/15 px-3 py-2 text-gov-blue font-semibold flex items-center gap-2 text-xs hover:bg-gov-blue/25 transition">
-              <BarChart3 className="h-4 w-4 shrink-0" /> Bản đồ số 65 xã, phường, đặc khu
-            </a>
-            <a href="#" className="rounded-lg bg-gov-cyan/15 px-3 py-2 text-gov-cyan font-semibold flex items-center gap-2 text-xs hover:bg-gov-cyan/25 transition">
-              <Search className="h-4 w-4 shrink-0" /> Tra cứu giá đất
-            </a>
-            <a href="#" className="rounded-lg bg-gov-orange/15 px-3 py-2 text-gov-orange font-semibold flex items-center gap-2 text-xs hover:bg-gov-orange/25 transition">
-              <BookOpen className="h-4 w-4 shrink-0" /> Công khai ngân sách
-            </a>
             <div className="rounded-lg bg-card border p-3 text-center">
               <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
               <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
