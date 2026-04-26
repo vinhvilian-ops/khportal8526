@@ -122,14 +122,14 @@ const POLICY_NEWS = [
 ];
 
 const SIDE_BANNERS = [
-  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", color: "bg-gov-yellow text-gov-blue-dark" },
-  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", color: "bg-gov-blue text-white" },
-  { label: "TRƯỜNG SA THÂN YÊU", color: "bg-gov-cyan text-white" },
-  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", color: "bg-gov-red text-white" },
-  { label: "BỘ PHÁP ĐIỂN", color: "bg-gov-orange text-white" },
-  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", color: "bg-gov-yellow text-gov-blue-dark" },
-  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", color: "bg-gov-blue text-white" },
-  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", color: "bg-gov-yellow text-gov-blue-dark" },
+  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star" },
+  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag" },
+  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave" },
+  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem" },
+  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale" },
+  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem" },
+  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave" },
+  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book" },
 ];
 
 const CHARTS = [
