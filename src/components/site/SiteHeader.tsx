@@ -68,8 +68,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Main nav rendered separately in SiteLayout for proper sticky behavior */}
-      <SiteNav />
+      {/* Nav moved to SiteLayout as sibling so sticky works across whole page */}
 
       {/* Ticker */}
       <div className="bg-gov-red text-primary-foreground">
