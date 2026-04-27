@@ -795,6 +795,26 @@ function HomePage() {
               <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
               <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
             </div>
+            <div className="rounded-lg bg-card border p-3 text-center">
+              <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
+              <p className="text-xs font-bold text-gov-blue-dark mt-1">Fanpage</p>
+              <p className="text-[10px] text-muted-foreground">Cổng TTĐT tỉnh Khánh Hòa</p>
+            </div>
+            <div className="rounded-lg overflow-hidden border shadow-sm">
+              <div className="bg-gradient-to-r from-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between">
+                <div className="flex items-center gap-1.5">
+                  <div className="bg-white rounded-sm px-1.5 py-0.5 text-[9px] font-bold text-gov-blue-dark leading-tight">
+                    NCSC<span className="text-gov-red">★</span>
+                    <div className="text-[7px] text-muted-foreground font-normal">VN</div>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-white tracking-wider">CƠ BẢN</span>
+              </div>
+              <div className="bg-card p-3 text-center">
+                <p className="text-[11px] font-semibold text-gov-blue-dark leading-tight">Website đạt chứng nhận</p>
+                <p className="text-sm font-extrabold text-gov-red tracking-wide">TÍN NHIỆM MẠNG</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
