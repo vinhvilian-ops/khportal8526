@@ -790,34 +790,6 @@ function HomePage() {
                 <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
-            {/* Zalo OA */}
-            <div className="group relative rounded-xl bg-gradient-to-br from-sky-100 via-blue-100 to-blue-200 border border-blue-300 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
-              <div className="absolute -top-8 -right-8 w-20 h-20 rounded-full bg-blue-300/60 blur-2xl" />
-              <div className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-sky-300/50 blur-2xl" />
-              <div className="absolute top-2 right-2 flex items-center gap-1 bg-blue-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow z-10">
-                <span className="w-1 h-1 rounded-full bg-white animate-pulse" /> ZALO
-              </div>
-              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-md ring-1 ring-blue-200">
-                <QrCode className="h-14 w-14 text-gov-blue-dark" strokeWidth={1.5} />
-              </div>
-              <p className="relative text-xs font-bold text-gov-blue-dark mt-2">Zalo OA</p>
-              <p className="relative text-[10px] text-blue-900/70 font-medium">Cổng TTĐT Khánh Hòa</p>
-            </div>
-
-            {/* Fanpage */}
-            <div className="group relative rounded-xl bg-gradient-to-br from-indigo-100 via-blue-100 to-cyan-100 border border-indigo-300 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
-              <div className="absolute -top-8 -right-8 w-20 h-20 rounded-full bg-indigo-300/60 blur-2xl" />
-              <div className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-cyan-300/50 blur-2xl" />
-              <div className="absolute top-2 right-2 flex items-center gap-1 bg-[#1877F2] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow z-10">
-                <span className="font-black">f</span> FB
-              </div>
-              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-md ring-1 ring-indigo-200">
-                <QrCode className="h-14 w-14 text-[#1877F2]" strokeWidth={1.5} />
-              </div>
-              <p className="relative text-xs font-bold text-gov-blue-dark mt-2">Fanpage</p>
-              <p className="relative text-[10px] text-indigo-900/70 font-medium">Cổng TTĐT tỉnh Khánh Hòa</p>
-            </div>
-
             {/* NCSC — Tín nhiệm mạng */}
             <div className="group relative rounded-xl overflow-hidden border border-blue-300 shadow-sm hover:shadow-lg transition-all">
               <div className="relative bg-gradient-to-r from-[#0a2a6b] via-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between overflow-hidden">

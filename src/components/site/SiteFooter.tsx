@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, QrCode, Facebook } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -7,7 +7,7 @@ export function SiteFooter() {
         <h3 className="text-center text-xl font-bold tracking-wide mb-8">
           CỔNG THÔNG TIN ĐIỆN TỬ TỈNH KHÁNH HÒA
         </h3>
-        <div className="grid gap-10 md:grid-cols-3 text-sm">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-sm">
           <div>
             <h4 className="font-bold text-gov-yellow mb-3">THÔNG TIN LIÊN HỆ</h4>
             <p className="text-white/80 mb-2">
@@ -41,6 +41,36 @@ export function SiteFooter() {
             <div className="mt-3 flex gap-2">
               <span className="rounded bg-white/10 px-2 py-1 text-xs">IPv6 Ready</span>
               <span className="rounded bg-white/10 px-2 py-1 text-xs">DMCA</span>
+            </div>
+          </div>
+          {/* QR Code block */}
+          <div>
+            <h4 className="font-bold text-gov-yellow mb-3">QR CODE</h4>
+            <div className="rounded-xl bg-white/95 p-4 shadow-lg">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="relative rounded-lg bg-white p-2 ring-1 ring-gov-blue/10 shadow-sm">
+                    <QrCode className="h-20 w-20 text-gov-blue-dark" strokeWidth={1.4} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-[#1877F2] rounded-full p-1.5 shadow-md ring-2 ring-white">
+                        <Facebook className="h-3.5 w-3.5 text-white fill-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm font-semibold text-gov-blue-dark">Fanpage</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="relative rounded-lg bg-white p-2 ring-1 ring-gov-blue/10 shadow-sm">
+                    <QrCode className="h-20 w-20 text-gov-blue-dark" strokeWidth={1.4} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-gov-blue rounded-md px-1.5 py-0.5 shadow-md ring-2 ring-white">
+                        <span className="text-[8px] font-extrabold text-white tracking-tight">Zalo</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm font-semibold text-gov-blue-dark">Zalo</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
