@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, QrCode, Facebook } from "lucide-react";
 
 export function SiteFooter() {
   return (
