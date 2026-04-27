@@ -791,33 +791,35 @@ function HomePage() {
               </ul>
             </div>
             {/* Zalo OA */}
-            <div className="group relative rounded-xl bg-gradient-to-br from-white to-blue-50/60 border border-blue-100 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
-              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-blue-100/50 blur-xl" />
-              <div className="absolute top-2 right-2 flex items-center gap-1 bg-blue-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow">
+            <div className="group relative rounded-xl bg-gradient-to-br from-sky-100 via-blue-100 to-blue-200 border border-blue-300 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-20 h-20 rounded-full bg-blue-300/60 blur-2xl" />
+              <div className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-sky-300/50 blur-2xl" />
+              <div className="absolute top-2 right-2 flex items-center gap-1 bg-blue-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow z-10">
                 <span className="w-1 h-1 rounded-full bg-white animate-pulse" /> ZALO
               </div>
-              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-inner ring-1 ring-blue-100">
+              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-md ring-1 ring-blue-200">
                 <QrCode className="h-14 w-14 text-gov-blue-dark" strokeWidth={1.5} />
               </div>
-              <p className="text-xs font-bold text-gov-blue-dark mt-2">Zalo OA</p>
-              <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
+              <p className="relative text-xs font-bold text-gov-blue-dark mt-2">Zalo OA</p>
+              <p className="relative text-[10px] text-blue-900/70 font-medium">Cổng TTĐT Khánh Hòa</p>
             </div>
 
             {/* Fanpage */}
-            <div className="group relative rounded-xl bg-gradient-to-br from-white to-indigo-50/60 border border-indigo-100 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
-              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-indigo-100/50 blur-xl" />
-              <div className="absolute top-2 right-2 flex items-center gap-1 bg-[#1877F2] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow">
+            <div className="group relative rounded-xl bg-gradient-to-br from-indigo-100 via-blue-100 to-cyan-100 border border-indigo-300 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-20 h-20 rounded-full bg-indigo-300/60 blur-2xl" />
+              <div className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-cyan-300/50 blur-2xl" />
+              <div className="absolute top-2 right-2 flex items-center gap-1 bg-[#1877F2] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow z-10">
                 <span className="font-black">f</span> FB
               </div>
-              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-inner ring-1 ring-indigo-100">
+              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-md ring-1 ring-indigo-200">
                 <QrCode className="h-14 w-14 text-[#1877F2]" strokeWidth={1.5} />
               </div>
-              <p className="text-xs font-bold text-gov-blue-dark mt-2">Fanpage</p>
-              <p className="text-[10px] text-muted-foreground">Cổng TTĐT tỉnh Khánh Hòa</p>
+              <p className="relative text-xs font-bold text-gov-blue-dark mt-2">Fanpage</p>
+              <p className="relative text-[10px] text-indigo-900/70 font-medium">Cổng TTĐT tỉnh Khánh Hòa</p>
             </div>
 
             {/* NCSC — Tín nhiệm mạng */}
-            <div className="group relative rounded-xl overflow-hidden border border-blue-200 shadow-sm hover:shadow-lg transition-all">
+            <div className="group relative rounded-xl overflow-hidden border border-blue-300 shadow-sm hover:shadow-lg transition-all">
               <div className="relative bg-gradient-to-r from-[#0a2a6b] via-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between overflow-hidden">
                 <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%)" }} />
                 <div className="relative flex items-center gap-1.5">
@@ -828,10 +830,11 @@ function HomePage() {
                 </div>
                 <span className="relative text-[10px] font-bold text-white tracking-wider bg-white/15 backdrop-blur px-2 py-0.5 rounded-full ring-1 ring-white/20">CƠ BẢN</span>
               </div>
-              <div className="bg-gradient-to-b from-white to-blue-50/40 p-3 text-center relative">
-                <ShieldCheck className="absolute right-2 top-2 h-4 w-4 text-gov-blue/30" />
-                <p className="text-[11px] font-semibold text-gov-blue-dark leading-tight">Website đạt chứng nhận</p>
-                <p className="text-sm font-extrabold bg-gradient-to-r from-gov-red to-red-500 bg-clip-text text-transparent tracking-wide mt-0.5">TÍN NHIỆM MẠNG</p>
+              <div className="bg-gradient-to-br from-blue-100 via-sky-100 to-indigo-100 p-3 text-center relative overflow-hidden">
+                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-blue-300/40 blur-2xl" />
+                <ShieldCheck className="absolute right-2 top-2 h-4 w-4 text-gov-blue/40" />
+                <p className="relative text-[11px] font-semibold text-gov-blue-dark leading-tight">Website đạt chứng nhận</p>
+                <p className="relative text-sm font-extrabold bg-gradient-to-r from-gov-red to-red-500 bg-clip-text text-transparent tracking-wide mt-0.5">TÍN NHIỆM MẠNG</p>
               </div>
             </div>
           </div>
