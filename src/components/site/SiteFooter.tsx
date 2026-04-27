@@ -4,10 +4,10 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 bg-gradient-to-b from-gov-blue-dark to-[oklch(0.2_0.1_260)] text-primary-foreground">
       <div className="container mx-auto px-4 py-10">
-        <h3 className="text-center text-xl font-bold tracking-wide mb-8">
+        <h3 className="text-left text-xl font-bold tracking-wide mb-6">
           CỔNG THÔNG TIN ĐIỆN TỬ TỈNH KHÁNH HÒA
         </h3>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.6fr_0.8fr_1.1fr_1.2fr] text-sm">
+        <div className="border-t border-white/15 pt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-[1.6fr_0.8fr_1.1fr_1.2fr] lg:gap-0 lg:divide-x lg:divide-white/15 text-sm [&>*]:lg:px-6 [&>*:first-child]:lg:pl-0 [&>*:last-child]:lg:pr-0">
           {/* Cột 1: Thông tin liên hệ */}
           <div>
             <h4 className="font-bold text-gov-yellow mb-3">THÔNG TIN LIÊN HỆ</h4>
