@@ -773,21 +773,21 @@ function HomePage() {
             })}
 
             <div className="rounded-lg bg-card p-3 shadow-sm border-l-4 border-gov-blue">
-              <p className="text-xs font-bold text-gov-blue-dark mb-2 flex items-center gap-1"><Bell className="h-3 w-3" /> THÔNG BÁO MỚI NHẤT</p>
-              <ul className="text-xs space-y-1.5 text-muted-foreground">
-                <li className="flex gap-1"><Star className="h-2.5 w-2.5 text-gov-orange shrink-0 mt-1" /> Thông báo về VTKT PHC nhiệt giáp, điều chỉnh giá lưu cư...</li>
-                <li className="flex gap-1"><Star className="h-2.5 w-2.5 text-gov-orange shrink-0 mt-1" /> Thông báo lịch quá chuyển đi cho du lịch Khánh Hòa giai đoạn 2026</li>
-                <li className="flex gap-1"><Star className="h-2.5 w-2.5 text-gov-orange shrink-0 mt-1" /> Quyết định về việc thanh tra trách nhiệm trong hoạt động đầu tư</li>
-                <li className="flex gap-1"><Star className="h-2.5 w-2.5 text-gov-orange shrink-0 mt-1" /> Bí thư Tỉnh ủy Khánh Hòa Nguyễn Tuấn Thanh tiếp xúc cử tri</li>
+              <p className="text-sm font-bold text-gov-blue-dark mb-2 flex items-center gap-1.5"><Bell className="h-4 w-4" /> THÔNG BÁO MỚI NHẤT</p>
+              <ul className="text-sm space-y-2 text-foreground/80 leading-snug">
+                <li className="flex gap-1.5"><Star className="h-3 w-3 text-gov-orange shrink-0 mt-1" /> Thông báo về VTKT PHC nhiệt giáp, điều chỉnh giá lưu cư...</li>
+                <li className="flex gap-1.5"><Star className="h-3 w-3 text-gov-orange shrink-0 mt-1" /> Thông báo lịch quá chuyển đi cho du lịch Khánh Hòa giai đoạn 2026</li>
+                <li className="flex gap-1.5"><Star className="h-3 w-3 text-gov-orange shrink-0 mt-1" /> Quyết định về việc thanh tra trách nhiệm trong hoạt động đầu tư</li>
+                <li className="flex gap-1.5"><Star className="h-3 w-3 text-gov-orange shrink-0 mt-1" /> Bí thư Tỉnh ủy Khánh Hòa Nguyễn Tuấn Thanh tiếp xúc cử tri</li>
               </ul>
             </div>
             <div className="rounded-lg bg-card p-3 shadow-sm border-l-4 border-gov-red">
-              <p className="text-xs font-bold text-gov-red mb-2 flex items-center gap-1"><Newspaper className="h-3 w-3" /> THÔNG TIN BÁO CHÍ</p>
-              <ul className="text-xs space-y-1.5 text-muted-foreground">
-                <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Quyết định về việc thanh tra trách nhiệm trong hoạt động đầu tư XD</li>
-                <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Bí thư Tỉnh ủy Khánh Hòa Nguyễn Tuấn Thanh tiếp xúc cử tri</li>
-                <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Tin Bộ trưởng Nông nghiệp Phạm Quang Trung</li>
-                <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
+              <p className="text-sm font-bold text-gov-red mb-2 flex items-center gap-1.5"><Newspaper className="h-4 w-4" /> THÔNG TIN BÁO CHÍ</p>
+              <ul className="text-sm space-y-2 text-foreground/80 leading-snug">
+                <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Quyết định về việc thanh tra trách nhiệm trong hoạt động đầu tư XD</li>
+                <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Bí thư Tỉnh ủy Khánh Hòa Nguyễn Tuấn Thanh tiếp xúc cử tri</li>
+                <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Tin Bộ trưởng Nông nghiệp Phạm Quang Trung</li>
+                <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
             {/* Zalo OA */}
