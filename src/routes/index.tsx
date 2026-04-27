@@ -790,29 +790,48 @@ function HomePage() {
                 <li className="flex gap-1"><AlertCircle className="h-2.5 w-2.5 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
-            <div className="rounded-lg bg-card border p-3 text-center">
-              <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
-              <p className="text-xs font-bold text-gov-blue-dark mt-1">Zalo OA</p>
+            {/* Zalo OA */}
+            <div className="group relative rounded-xl bg-gradient-to-br from-white to-blue-50/60 border border-blue-100 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-blue-100/50 blur-xl" />
+              <div className="absolute top-2 right-2 flex items-center gap-1 bg-blue-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow">
+                <span className="w-1 h-1 rounded-full bg-white animate-pulse" /> ZALO
+              </div>
+              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-inner ring-1 ring-blue-100">
+                <QrCode className="h-14 w-14 text-gov-blue-dark" strokeWidth={1.5} />
+              </div>
+              <p className="text-xs font-bold text-gov-blue-dark mt-2">Zalo OA</p>
               <p className="text-[10px] text-muted-foreground">Cổng TTĐT Khánh Hòa</p>
             </div>
-            <div className="rounded-lg bg-card border p-3 text-center">
-              <QrCode className="h-16 w-16 mx-auto text-gov-blue-dark" />
-              <p className="text-xs font-bold text-gov-blue-dark mt-1">Fanpage</p>
+
+            {/* Fanpage */}
+            <div className="group relative rounded-xl bg-gradient-to-br from-white to-indigo-50/60 border border-indigo-100 p-3 text-center shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-indigo-100/50 blur-xl" />
+              <div className="absolute top-2 right-2 flex items-center gap-1 bg-[#1877F2] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow">
+                <span className="font-black">f</span> FB
+              </div>
+              <div className="relative inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-inner ring-1 ring-indigo-100">
+                <QrCode className="h-14 w-14 text-[#1877F2]" strokeWidth={1.5} />
+              </div>
+              <p className="text-xs font-bold text-gov-blue-dark mt-2">Fanpage</p>
               <p className="text-[10px] text-muted-foreground">Cổng TTĐT tỉnh Khánh Hòa</p>
             </div>
-            <div className="rounded-lg overflow-hidden border shadow-sm">
-              <div className="bg-gradient-to-r from-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className="bg-white rounded-sm px-1.5 py-0.5 text-[9px] font-bold text-gov-blue-dark leading-tight">
+
+            {/* NCSC — Tín nhiệm mạng */}
+            <div className="group relative rounded-xl overflow-hidden border border-blue-200 shadow-sm hover:shadow-lg transition-all">
+              <div className="relative bg-gradient-to-r from-[#0a2a6b] via-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%)" }} />
+                <div className="relative flex items-center gap-1.5">
+                  <div className="bg-white rounded-md px-1.5 py-0.5 text-[9px] font-bold text-gov-blue-dark leading-tight shadow-sm">
                     NCSC<span className="text-gov-red">★</span>
-                    <div className="text-[7px] text-muted-foreground font-normal">VN</div>
+                    <div className="text-[7px] text-gray-500 font-normal -mt-0.5">VN</div>
                   </div>
                 </div>
-                <span className="text-[10px] font-bold text-white tracking-wider">CƠ BẢN</span>
+                <span className="relative text-[10px] font-bold text-white tracking-wider bg-white/15 backdrop-blur px-2 py-0.5 rounded-full ring-1 ring-white/20">CƠ BẢN</span>
               </div>
-              <div className="bg-card p-3 text-center">
+              <div className="bg-gradient-to-b from-white to-blue-50/40 p-3 text-center relative">
+                <ShieldCheck className="absolute right-2 top-2 h-4 w-4 text-gov-blue/30" />
                 <p className="text-[11px] font-semibold text-gov-blue-dark leading-tight">Website đạt chứng nhận</p>
-                <p className="text-sm font-extrabold text-gov-red tracking-wide">TÍN NHIỆM MẠNG</p>
+                <p className="text-sm font-extrabold bg-gradient-to-r from-gov-red to-red-500 bg-clip-text text-transparent tracking-wide mt-0.5">TÍN NHIỆM MẠNG</p>
               </div>
             </div>
           </div>
