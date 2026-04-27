@@ -72,15 +72,21 @@ export function SiteFooter() {
               <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Truy cập hôm nay:</span><span className="text-gov-yellow font-semibold tabular-nums">128,876</span></li>
               <li className="grid grid-cols-[1fr_auto] gap-4"><span className="text-white/80">Đang online:</span><span className="text-gov-yellow font-semibold tabular-nums">297</span></li>
             </ul>
-            <div className="mt-3 flex gap-2">
-              <span className="rounded bg-white/10 px-2 py-1 text-xs">IPv6 Ready</span>
-              <span className="rounded bg-white/10 px-2 py-1 text-xs">DMCA</span>
-            </div>
           </div>
         </div>
-        <p className="mt-8 border-t border-white/10 pt-4 text-center text-xs text-white/60">
-          © 2026 Cổng Thông tin điện tử tỉnh Khánh Hòa. Mọi hành vi sử dụng lại thông tin trên Cổng phải ghi rõ nguồn "khanhhoa.gov.vn"
-        </p>
+        <div className="mt-8 border-t border-white/10 pt-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-white/60">
+            © 2026 Cổng Thông tin điện tử tỉnh Khánh Hòa. Mọi hành vi sử dụng lại thông tin trên Cổng phải ghi rõ nguồn "khanhhoa.gov.vn"
+          </p>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="inline-flex items-center gap-1 rounded bg-white px-2 py-1 text-[10px] font-bold text-gov-blue-dark shadow-sm">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-gov-blue text-white text-[8px] font-extrabold">!</span>
+              <span className="leading-tight">NCSC<br/><span className="text-[7px] font-medium">TÍN NHIỆM MẠNG</span></span>
+            </span>
+            <span className="inline-flex items-center rounded bg-[#1877F2] px-2 py-1.5 text-xs font-extrabold text-white shadow-sm">IPv6</span>
+            <span className="inline-flex items-center rounded bg-white px-2 py-1.5 text-[10px] font-extrabold text-gov-blue-dark shadow-sm">DMCA</span>
+          </div>
+        </div>
       </div>
     </footer>
   );
