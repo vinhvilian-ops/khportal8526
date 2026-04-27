@@ -7,7 +7,7 @@ export function SiteFooter() {
         <h3 className="text-center text-xl font-bold tracking-wide mb-8">
           CỔNG THÔNG TIN ĐIỆN TỬ TỈNH KHÁNH HÒA
         </h3>
-        <div className="grid gap-10 md:grid-cols-3 text-sm">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-sm">
           <div>
             <h4 className="font-bold text-gov-yellow mb-3">THÔNG TIN LIÊN HỆ</h4>
             <p className="text-white/80 mb-2">
