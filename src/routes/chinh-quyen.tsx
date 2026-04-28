@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import {
   Building2,
@@ -12,7 +13,31 @@ import {
   MapPin,
   ChevronRight,
   User,
+  CalendarDays,
+  FileSignature,
+  FileCheck2,
+  MessageSquare,
+  FilePlus2,
+  Search,
+  Play,
+  Globe,
+  ArrowRight,
 } from "lucide-react";
+
+import leaderFeatured from "@/assets/leader-featured.jpg";
+import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
+import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
+import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
+import infoFeatured from "@/assets/info-1.jpg";
+import info2 from "@/assets/info-2.jpg";
+import info3 from "@/assets/info-3.jpg";
+import info4 from "@/assets/info-4.jpg";
+import gioToHungVuong from "@/assets/gio-to-hung-vuong.jpg";
+import videoMain from "@/assets/video-main.jpg";
+import policyFeatured from "@/assets/policy-featured.jpg";
+import policyThumb1 from "@/assets/policy-thumb-1.jpg";
+import policyThumb2 from "@/assets/policy-thumb-2.jpg";
+import policyThumb3 from "@/assets/policy-thumb-3.jpg";
 
 export const Route = createFileRoute("/chinh-quyen")({
   head: () => ({
@@ -39,85 +64,43 @@ export const Route = createFileRoute("/chinh-quyen")({
    ============================================================ */
 
 const ORGS = [
-  {
-    icon: Landmark,
-    title: "Tỉnh ủy Khánh Hòa",
-    desc: "Cơ quan lãnh đạo của Đảng bộ tỉnh, định hướng các chủ trương, đường lối phát triển toàn diện của tỉnh.",
-  },
-  {
-    icon: Users2,
-    title: "Đoàn ĐBQH & HĐND tỉnh",
-    desc: "Đại diện cho ý chí, nguyện vọng và quyền làm chủ của Nhân dân; quyết định những vấn đề quan trọng của địa phương.",
-  },
-  {
-    icon: Building2,
-    title: "Ủy ban Nhân dân tỉnh",
-    desc: "Cơ quan chấp hành của HĐND, cơ quan hành chính nhà nước cao nhất tại địa phương, tổ chức thực hiện Hiến pháp và pháp luật.",
-  },
-  {
-    icon: Gavel,
-    title: "Ủy ban MTTQ Việt Nam tỉnh",
-    desc: "Tổ chức liên minh chính trị, liên hiệp tự nguyện, tập hợp khối đại đoàn kết toàn dân tộc trên địa bàn tỉnh.",
-  },
-  {
-    icon: Briefcase,
-    title: "Các Sở, Ban, Ngành",
-    desc: "19 cơ quan chuyên môn tham mưu, giúp UBND tỉnh quản lý nhà nước về ngành, lĩnh vực tại địa phương.",
-  },
-  {
-    icon: MapPin,
-    title: "UBND xã, phường, đặc khu",
-    desc: "Chính quyền địa phương cấp xã sau sắp xếp, trực tiếp phục vụ Nhân dân, tổ chức thực hiện nhiệm vụ tại cơ sở.",
-  },
-  {
-    icon: ScrollText,
-    title: "Văn bản chỉ đạo điều hành",
-    desc: "Hệ thống văn bản quy phạm pháp luật, nghị quyết, quyết định, chỉ thị của lãnh đạo tỉnh.",
-  },
-  {
-    icon: FileText,
-    title: "Lịch công tác lãnh đạo tỉnh",
-    desc: "Lịch làm việc hằng tuần của Thường trực Tỉnh ủy, HĐND, lãnh đạo UBND tỉnh.",
-  },
-];
-
-const NEWS = [
-  "Chủ tịch UBND tỉnh chủ trì phiên họp thường kỳ tháng 4/2026",
-  "Phó Chủ tịch UBND tỉnh thăm và tặng quà gia đình chính sách",
-  "Thông qua đề án sắp xếp đơn vị hành chính cấp xã giai đoạn 2026–2030",
-  "Lãnh đạo tỉnh tiếp đoàn doanh nghiệp Nhật Bản tìm hiểu cơ hội đầu tư",
-  "Hội nghị triển khai nhiệm vụ phát triển kinh tế - xã hội năm 2026",
+  { icon: Landmark, title: "Tỉnh ủy Khánh Hòa", desc: "Cơ quan lãnh đạo của Đảng bộ tỉnh, định hướng các chủ trương, đường lối phát triển toàn diện của tỉnh." },
+  { icon: Users2, title: "Đoàn ĐBQH & HĐND tỉnh", desc: "Đại diện cho ý chí, nguyện vọng và quyền làm chủ của Nhân dân; quyết định những vấn đề quan trọng của địa phương." },
+  { icon: Building2, title: "Ủy ban Nhân dân tỉnh", desc: "Cơ quan chấp hành của HĐND, cơ quan hành chính nhà nước cao nhất tại địa phương, tổ chức thực hiện Hiến pháp và pháp luật." },
+  { icon: Gavel, title: "Ủy ban MTTQ Việt Nam tỉnh", desc: "Tổ chức liên minh chính trị, liên hiệp tự nguyện, tập hợp khối đại đoàn kết toàn dân tộc trên địa bàn tỉnh." },
+  { icon: Briefcase, title: "Các Sở, Ban, Ngành", desc: "19 cơ quan chuyên môn tham mưu, giúp UBND tỉnh quản lý nhà nước về ngành, lĩnh vực tại địa phương." },
+  { icon: MapPin, title: "UBND xã, phường, đặc khu", desc: "Chính quyền địa phương cấp xã sau sắp xếp, trực tiếp phục vụ Nhân dân, tổ chức thực hiện nhiệm vụ tại cơ sở." },
+  { icon: ScrollText, title: "Văn bản chỉ đạo điều hành", desc: "Hệ thống văn bản quy phạm pháp luật, nghị quyết, quyết định, chỉ thị của lãnh đạo tỉnh." },
+  { icon: FileText, title: "Lịch công tác lãnh đạo tỉnh", desc: "Lịch làm việc hằng tuần của Thường trực Tỉnh ủy, HĐND, lãnh đạo UBND tỉnh." },
 ];
 
 const SO_BAN_NGANH = [
-  "Sở Nội vụ",
-  "Sở Tư pháp",
-  "Sở Tài chính",
-  "Sở Công Thương",
-  "Sở Nông nghiệp và Môi trường",
-  "Sở Xây dựng",
-  "Sở Khoa học và Công nghệ",
-  "Sở Văn hóa, Thể thao và Du lịch",
-  "Sở Giáo dục và Đào tạo",
-  "Sở Y tế",
-  "Sở Lao động - Thương binh và Xã hội",
-  "Sở Dân tộc và Tôn giáo",
-  "Sở Ngoại vụ",
-  "Thanh tra tỉnh",
-  "Văn phòng UBND tỉnh",
-  "Ban Quản lý Khu kinh tế Vân Phong",
-  "Ban Quản lý các dự án Phát triển tỉnh",
-  "Đài Phát thanh - Truyền hình Khánh Hòa",
-  "Báo Khánh Hòa",
+  "Sở Nội vụ", "Sở Tư pháp", "Văn phòng UBND tỉnh",
+  "Sở Tài chính", "Thanh tra tỉnh", "Sở Xây dựng",
+  "Sở Công Thương", "Sở Khoa học và Công nghệ", "Sở Giáo dục và Đào tạo",
+  "Sở Nông nghiệp và Môi trường", "Sở Văn hóa, Thể thao và Du lịch", "Sở Y tế",
+  "Sở Dân tộc và Tôn giáo", "Sở Ngoại vụ", "Sở Lao động - TB&XH",
+  "Ban Quản lý Khu kinh tế Vân Phong", "Ban Quản lý các dự án phát triển tỉnh", "Ban QLDA đầu tư xây dựng",
+  "Báo Khánh Hòa", "Đài PT-TH Khánh Hòa", "Ban QL Vườn Quốc gia Núi Chúa - Phước Bình",
 ];
 
-/* Lãnh đạo */
-const CHU_TICH = {
-  title: "CHỦ TỊCH UBND TỈNH",
-  name: "NGUYỄN VIỆT HÙNG",
-  role: "Chủ tịch UBND tỉnh Khánh Hòa",
-};
+const UBND_XA = [
+  "Phường Nha Trang", "Phường Cam Ranh", "Phường Phan Rang",
+  "Phường Vĩnh Hải", "Phường Diên Khánh", "Phường Ninh Hòa",
+  "Xã Vạn Ninh", "Xã Khánh Sơn", "Xã Khánh Vĩnh",
+  "Xã Cam Lâm", "Xã Ninh Sơn", "Xã Bác Ái",
+  "Đặc khu Trường Sa", "Đặc khu Vân Phong",
+];
 
+const LIEN_KET_WEB = [
+  "Chính phủ, bộ ngành",
+  "Các tỉnh, thành phố",
+  "Tổ chức chính trị",
+  "Đơn vị sự nghiệp",
+  "Website khác",
+];
+
+const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa" };
 const PHO_CHU_TICH = [
   { role: "Phó Chủ tịch Thường trực", name: "NGUYỄN LONG BIÊN" },
   { role: "Phó Chủ tịch", name: "LÊ HUYỀN" },
@@ -126,17 +109,93 @@ const PHO_CHU_TICH = [
   { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ" },
 ];
 
+/* Hoạt động lãnh đạo tỉnh */
+const LEADER_FEATURED = {
+  img: leaderFeatured,
+  tag: "TIN NỔI BẬT",
+  date: "20/04/2026",
+  title:
+    "Phó Chủ tịch Thường trực UBND tỉnh Nguyễn Long Biên thăm, tặng quà người có công với cách mạng tại phường Phan Rang",
+};
+const LEADER_GRID = [
+  { img: leaderThumb1, date: "20/04/2026", title: "Rà soát, đánh giá thực trạng đội ngũ chuyên trách công nghệ thông tin cấp xã, phường" },
+  { img: leaderThumb2, date: "20/04/2026", title: "Phó Chủ tịch UBND tỉnh Lê Huyền thăm, tặng quà gia đình người có công tại xã Đông Khánh Sơn" },
+  { img: leaderThumb3, date: "20/04/2026", title: "Rà soát toàn bộ hồ sơ Dự án đầu tư hỗ trợ phát triển vùng dược liệu quý" },
+  { img: infoFeatured, date: "19/04/2026", title: "Đẩy mạnh xúc tiến đầu tư, hướng tới tăng trưởng con số trong năm 2026" },
+];
+
+/* Shortcut quick */
+const SHORTCUTS = [
+  { icon: CalendarDays, label: "Lịch làm việc của lãnh đạo UBND tỉnh" },
+  { icon: FileSignature, label: "Văn bản chỉ đạo điều hành" },
+  { icon: FileCheck2, label: "Văn bản sao y" },
+  { icon: MessageSquare, label: "Lấy ý kiến dự thảo văn bản QPPL" },
+  { icon: FilePlus2, label: "Văn bản mới" },
+  { icon: Search, label: "Tra cứu CSDL Thủ tục hành chính" },
+];
+
+/* Tabs Thông tin chỉ đạo điều hành */
+const TAB_INDIEU_HANH = {
+  "Thông tin chỉ đạo điều hành": {
+    main: { img: infoFeatured, title: "Phân cấp quản lý nhà nước về đất đai trên địa bàn tỉnh Khánh Hòa", date: "21/04/2026" },
+    list: [
+      { img: info2, title: "Triển khai cơ chế, chính sách đặc biệt tạo đột phá cho công tác bảo vệ, chăm sóc sức khỏe nhân dân", date: "21/04/2026" },
+      { img: info3, title: "Phát triển ngành thép Khánh Hòa theo hướng hiện đại, bền vững", date: "20/04/2026" },
+      { img: info4, title: "Đẩy mạnh kiểm tra trực tuyến đăng ký kinh doanh, nâng cao hiệu quả quản lý nhà nước", date: "20/04/2026" },
+    ],
+  },
+  "Hoạt động Sở, ngành, địa phương": {
+    main: { img: leaderThumb1, title: "Hội nghị triển khai nhiệm vụ phát triển KT-XH năm 2026 tại các sở ngành", date: "19/04/2026" },
+    list: [
+      { img: leaderThumb2, title: "Sở Nông nghiệp & Môi trường tổ chức tập huấn cho cán bộ cấp xã", date: "18/04/2026" },
+      { img: leaderThumb3, title: "Sở Y tế triển khai chiến dịch tiêm chủng mở rộng đợt II/2026", date: "18/04/2026" },
+      { img: info4, title: "UBND phường Nha Trang ra quân lập lại trật tự đô thị tuyến biển", date: "17/04/2026" },
+    ],
+  },
+};
+
+const CHI_DAO_CP = [
+  "Thành lập Ban Chỉ đạo triển khai Đề án \"Chuyển đổi số trong hoạt động tổ chức...\"",
+  "Phân công soạn thảo 9 dự án luật",
+  "100% CBCC cấp xã chưa đáp ứng yêu cầu chuyên môn vị trí việc làm được cử đi bồi dưỡng",
+  "Kéo dài thời gian giữ chức vụ đối với 2 cán bộ thuộc Bộ Quốc phòng",
+  "Tiêu chí phân bổ vốn đầu tư công từ ngân sách trung ương cho địa phương giai đoạn 2026–2030",
+];
+
+/* Tabs CCHC / Thi đua / Phòng chống tham nhũng */
+const TAB_CCHC = {
+  "Cải cách hành chính": {
+    main: { img: policyFeatured, title: "Cải thiện chất lượng phục vụ, nâng cao mức độ hài lòng của người dân, tổ chức, doanh nghiệp" },
+    list: [
+      { img: policyThumb1, title: "BIDV Chi nhánh Khánh Hòa và Trung tâm Phục vụ hành chính công hợp tác triển khai \"Điểm hỗ trợ thực hiện dịch vụ công\"", date: "16/04/2026" },
+      { img: policyThumb2, title: "Ban hành Bộ khung nhiệm vụ cải thiện, nâng cao Chỉ số PAPI", date: "13/04/2026" },
+      { img: policyThumb3, title: "Từ ngày 1-4-2026, triển khai ký số kết quả giải quyết hồ sơ thủ tục hành chính lĩnh vực đăng ký doanh nghiệp", date: "03/04/2026" },
+    ],
+  },
+  "Thi đua - Khen thưởng": {
+    main: { img: leaderThumb1, title: "Phát động phong trào thi đua yêu nước năm 2026 trong toàn tỉnh" },
+    list: [
+      { img: leaderThumb2, title: "Tuyên dương 50 điển hình tiên tiến trong học tập và làm theo Bác", date: "15/04/2026" },
+      { img: leaderThumb3, title: "Khen thưởng các tập thể, cá nhân xuất sắc trong CCHC năm 2025", date: "10/04/2026" },
+      { img: info2, title: "Hội nghị tổng kết phong trào thi đua \"Vì người nghèo\"", date: "05/04/2026" },
+    ],
+  },
+  "Phòng, chống tham nhũng": {
+    main: { img: info3, title: "Tăng cường công tác phòng, chống tham nhũng, tiêu cực trong các cơ quan hành chính" },
+    list: [
+      { img: info4, title: "Triển khai kê khai tài sản, thu nhập năm 2026 đối với người có nghĩa vụ", date: "12/04/2026" },
+      { img: policyThumb1, title: "Tổ chức tập huấn nghiệp vụ phòng chống tham nhũng cho cán bộ cấp xã", date: "08/04/2026" },
+      { img: policyThumb2, title: "Công bố kết quả thanh tra, kiểm tra đột xuất quý I/2026", date: "02/04/2026" },
+    ],
+  },
+};
+
 /* ============================================================
    COMPONENT PHỤ
    ============================================================ */
 
 function LeaderAvatar({ name }: { name: string }) {
-  // Avatar placeholder dùng initials - đồng bộ với hệ thống design
-  const initials = name
-    .split(" ")
-    .slice(-2)
-    .map((s) => s[0])
-    .join("");
+  const initials = name.split(" ").slice(-2).map((s) => s[0]).join("");
   return (
     <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white font-bold">
       {initials}
@@ -144,13 +203,44 @@ function LeaderAvatar({ name }: { name: string }) {
   );
 }
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
+function SectionTitle({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 mb-4">
-      <div className="h-7 w-1.5 rounded bg-gov-red" />
-      <h2 className="text-lg md:text-xl font-bold text-gov-blue-dark uppercase tracking-wide">
-        {children}
-      </h2>
+    <div className="flex items-end justify-between gap-3 mb-4 border-b-2 border-gov-blue/20 pb-2">
+      <div className="flex items-center gap-3">
+        <div className="h-7 w-1.5 rounded bg-gov-red" />
+        <h2 className="text-lg md:text-xl font-bold text-gov-blue-dark uppercase tracking-wide">
+          {children}
+        </h2>
+      </div>
+      {action}
+    </div>
+  );
+}
+
+function Tabs<T extends string>({
+  tabs,
+  active,
+  onChange,
+}: {
+  tabs: T[];
+  active: T;
+  onChange: (t: T) => void;
+}) {
+  return (
+    <div className="flex flex-wrap gap-1 border-b border-border mb-4">
+      {tabs.map((t) => (
+        <button
+          key={t}
+          onClick={() => onChange(t)}
+          className={`px-4 py-2.5 text-sm font-semibold uppercase tracking-wide transition border-b-2 -mb-px ${
+            active === t
+              ? "text-gov-blue-dark border-gov-blue"
+              : "text-muted-foreground border-transparent hover:text-gov-blue"
+          }`}
+        >
+          {t}
+        </button>
+      ))}
     </div>
   );
 }
@@ -160,6 +250,19 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
    ============================================================ */
 
 function ChinhQuyenPage() {
+  const [tabIndieu, setTabIndieu] =
+    useState<keyof typeof TAB_INDIEU_HANH>("Thông tin chỉ đạo điều hành");
+  const [tabCchc, setTabCchc] =
+    useState<keyof typeof TAB_CCHC>("Cải cách hành chính");
+  const [tabSoBan, setTabSoBan] = useState<"Các Sở, Ban" | "UBND các xã, phường, đặc khu">("Các Sở, Ban");
+  const [searchSo, setSearchSo] = useState("");
+
+  const list = tabSoBan === "Các Sở, Ban" ? SO_BAN_NGANH : UBND_XA;
+  const filtered = list.filter((s) => s.toLowerCase().includes(searchSo.toLowerCase()));
+
+  const indieu = TAB_INDIEU_HANH[tabIndieu];
+  const cchc = TAB_CCHC[tabCchc];
+
   return (
     <SiteLayout>
       <PageHero
@@ -169,142 +272,321 @@ function ChinhQuyenPage() {
         highlight="Tỉnh Khánh Hòa"
       />
 
-      <div className="container mx-auto px-4 pb-12 grid gap-6 lg:grid-cols-3">
-        {/* ============== CỘT TRÁI ============== */}
-        <div className="lg:col-span-2 space-y-8">
-          {/* Cơ cấu tổ chức */}
-          <section>
-            <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {ORGS.map((o, i) => (
-                <article
-                  key={i}
-                  className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition"
-                >
-                  <o.icon className="h-8 w-8 text-gov-blue mb-3" />
-                  <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {o.desc}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </section>
+      <div className="container mx-auto px-4 pb-12 space-y-10">
+        {/* ============== HOẠT ĐỘNG LÃNH ĐẠO TỈNH ============== */}
+        <section>
+          <SectionTitle action={
+            <a href="#" className="text-sm text-gov-blue hover:text-gov-red font-medium flex items-center gap-1">
+              Xem tất cả bài viết <ArrowRight className="h-4 w-4" />
+            </a>
+          }>
+            Hoạt động lãnh đạo tỉnh
+          </SectionTitle>
 
-          {/* Sở ban ngành */}
-          <section>
-            <SectionTitle>Danh sách Sở, Ban, Ngành & đơn vị trực thuộc</SectionTitle>
-            <div className="rounded-xl bg-card p-5 shadow-sm border-t-4 border-gov-yellow">
-              <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
-                {SO_BAN_NGANH.map((s, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-2 py-1.5 border-b border-dashed border-border last:border-0"
-                  >
-                    <ChevronRight className="h-4 w-4 text-gov-red shrink-0" />
-                    <span className="text-foreground hover:text-gov-blue cursor-pointer">
-                      {s}
-                    </span>
+          <div className="grid lg:grid-cols-3 gap-5">
+            {/* Featured */}
+            <article className="lg:col-span-3 relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
+              <img src={LEADER_FEATURED.img} alt={LEADER_FEATURED.title} className="w-full h-[380px] md:h-[440px] object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                <span className="inline-block bg-gov-red px-3 py-1 text-xs font-bold uppercase tracking-wider rounded">
+                  {LEADER_FEATURED.tag}
+                </span>
+                <p className="text-xs text-white/80 mt-3 flex items-center gap-1.5">
+                  <Calendar className="h-3.5 w-3.5" /> {LEADER_FEATURED.date}
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold mt-2 max-w-3xl leading-snug">
+                  {LEADER_FEATURED.title}
+                </h3>
+              </div>
+            </article>
+
+            {/* Grid 4 */}
+            {LEADER_GRID.map((n, i) => (
+              <article key={i} className="lg:col-span-3/4 bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition group cursor-pointer" style={{ gridColumn: 'span 1 / span 1' }}>
+                <div className="overflow-hidden aspect-[16/10]">
+                  <img src={n.img} alt={n.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-3">
+                  <h4 className="text-sm font-semibold text-gov-blue-dark leading-snug line-clamp-3 group-hover:text-gov-red transition">
+                    {n.title}
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
+                    <Calendar className="h-3 w-3" /> {n.date}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ============== SHORTCUTS NHANH ============== */}
+        <section>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {SHORTCUTS.map((s, i) => (
+              <a key={i} href="#" className="bg-card border border-border rounded-xl p-4 flex flex-col items-center text-center gap-2 hover:border-gov-blue hover:shadow-md transition group">
+                <div className="h-10 w-10 rounded-lg bg-gov-blue/10 flex items-center justify-center group-hover:bg-gov-blue group-hover:text-white text-gov-blue transition">
+                  <s.icon className="h-5 w-5" />
+                </div>
+                <span className="text-xs font-medium text-foreground leading-tight">{s.label}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* ============== BANNER GIỖ TỔ ============== */}
+        <section>
+          <a href="#" className="block relative rounded-2xl overflow-hidden shadow-md group">
+            <img src={gioToHungVuong} alt="Giỗ Tổ Hùng Vương" className="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-gov-blue-dark/90 via-gov-blue/70 to-gov-red/40" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+              <h3 className="text-xl md:text-3xl font-extrabold tracking-wide drop-shadow">
+                GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG
+              </h3>
+              <p className="text-sm md:text-base text-gov-yellow font-semibold mt-1">
+                VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026
+              </p>
+            </div>
+          </a>
+        </section>
+
+        {/* ============== TABS THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH ============== */}
+        <section className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <Tabs
+              tabs={Object.keys(TAB_INDIEU_HANH) as (keyof typeof TAB_INDIEU_HANH)[]}
+              active={tabIndieu}
+              onChange={setTabIndieu}
+            />
+            <div className="grid md:grid-cols-2 gap-4">
+              <article className="group cursor-pointer">
+                <div className="overflow-hidden rounded-xl aspect-[4/3]">
+                  <img src={indieu.main.img} alt={indieu.main.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h4 className="font-bold text-gov-blue-dark mt-3 group-hover:text-gov-red leading-snug">
+                  {indieu.main.title}
+                </h4>
+                <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                  <Calendar className="h-3 w-3" /> {indieu.main.date}
+                </p>
+              </article>
+              <ul className="space-y-3">
+                {indieu.list.map((n, i) => (
+                  <li key={i} className="flex gap-3 group cursor-pointer pb-3 border-b border-dashed border-border last:border-0">
+                    <img src={n.img} alt={n.title} className="w-24 h-20 rounded-lg object-cover shrink-0" />
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
+                        {n.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                        <Calendar className="h-3 w-3" /> {n.date}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
-          </section>
+          </div>
 
-          {/* Giới thiệu chung */}
-          <section>
-            <SectionTitle>Giới thiệu khái quát</SectionTitle>
-            <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
-              <p>
-                Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí
-                chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
-                Thực hiện chủ trương sắp xếp đơn vị hành chính, bộ máy chính
-                quyền tỉnh được tổ chức theo mô hình{" "}
-                <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp
-                xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
-              </p>
-              <p>
-                Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND
-                tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã
-                hội. UBND tỉnh có 19 cơ quan chuyên môn (sở, ban, ngành) cùng
-                các đơn vị sự nghiệp trực thuộc, thực hiện chức năng quản lý
-                nhà nước trên địa bàn.
-              </p>
-            </div>
-          </section>
-        </div>
-
-        {/* ============== CỘT PHẢI ============== */}
-        <aside className="space-y-6">
-          {/* Trang tin Chủ tịch UBND tỉnh */}
-          <Link
-            to="/chinh-quyen"
-            className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-red to-gov-red-dark text-white shadow-md hover:shadow-lg transition"
-          >
-            <div className="flex items-center gap-3 p-4">
-              <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/90">
-                  Trang tin
-                </p>
-                <p className="text-sm font-semibold mt-1">{CHU_TICH.title}</p>
-                <p className="text-lg font-extrabold text-gov-yellow mt-1 leading-tight">
-                  {CHU_TICH.name}
-                </p>
-              </div>
-              <div className="h-20 w-20 rounded-full bg-white/15 ring-2 ring-white/40 overflow-hidden shrink-0">
-                <LeaderAvatar name={CHU_TICH.name} />
-              </div>
-            </div>
-          </Link>
-
-          {/* Trang tin Phó Chủ tịch UBND tỉnh */}
-          <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
-            <div className="px-4 pt-4 pb-3 border-b border-border">
-              <p className="text-sm font-semibold text-gov-blue">Trang tin</p>
-              <p className="text-base font-bold text-gov-blue-dark uppercase">
-                Các Phó Chủ tịch UBND tỉnh
-              </p>
-            </div>
-            <ul className="divide-y divide-border">
-              {PHO_CHU_TICH.map((p, i) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40 transition cursor-pointer"
-                >
-                  <div className="h-12 w-12 rounded-full overflow-hidden ring-1 ring-border shrink-0">
-                    <LeaderAvatar name={p.name} />
+          {/* Sidebar Chỉ đạo Chính phủ */}
+          <aside>
+            <div className="rounded-xl bg-gradient-to-br from-gov-blue-dark to-gov-blue text-white p-5 shadow-md">
+              <h4 className="font-bold mb-3 uppercase text-sm tracking-wide border-b border-white/20 pb-2">
+                Chỉ đạo, điều hành của Chính phủ, Thủ tướng
+              </h4>
+              <div className="relative rounded-lg overflow-hidden mb-4 cursor-pointer group">
+                <img src={videoMain} alt="video" className="w-full h-40 object-cover group-hover:scale-105 transition-transform" />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="h-14 w-14 rounded-full bg-white/30 backdrop-blur flex items-center justify-center group-hover:bg-white/50 transition">
+                    <Play className="h-6 w-6 text-white fill-white ml-1" />
                   </div>
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm">
+                {CHI_DAO_CP.map((n, i) => (
+                  <li key={i} className="flex gap-2 items-start text-white/90 hover:text-gov-yellow cursor-pointer leading-snug">
+                    <ChevronRight className="h-4 w-4 text-gov-yellow shrink-0 mt-0.5" />
+                    <span>{n}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[11px] italic text-white/60 mt-3 pt-3 border-t border-white/15">
+                Nguồn: Cổng Thông tin điện tử Chính phủ
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        {/* ============== TABS CCHC / THI ĐUA / PCTN ============== */}
+        <section>
+          <Tabs
+            tabs={Object.keys(TAB_CCHC) as (keyof typeof TAB_CCHC)[]}
+            active={tabCchc}
+            onChange={setTabCchc}
+          />
+          <div className="grid md:grid-cols-2 gap-5">
+            <article className="relative rounded-xl overflow-hidden group cursor-pointer">
+              <img src={cchc.main.img} alt={cchc.main.title} className="w-full h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gov-blue/95 text-white p-4">
+                <h4 className="font-bold leading-snug">{cchc.main.title}</h4>
+              </div>
+            </article>
+            <ul className="space-y-4">
+              {cchc.list.map((n, i) => (
+                <li key={i} className="flex gap-3 group cursor-pointer">
+                  <img src={n.img} alt={n.title} className="w-28 h-24 rounded-lg object-cover shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-xs text-gov-blue font-medium">{p.role}</p>
-                    <p className="text-sm font-bold text-gov-blue-dark truncate">
-                      {p.name}
+                    <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug">
+                      {n.title}
                     </p>
+                    <p className="text-xs text-muted-foreground mt-1">{n.date}</p>
                   </div>
-                  <User className="h-4 w-4 text-muted-foreground ml-auto shrink-0" />
                 </li>
               ))}
+              <li className="text-right">
+                <a href="#" className="text-sm font-semibold text-gov-blue hover:text-gov-red inline-flex items-center gap-1">
+                  Xem tất cả bài viết <ArrowRight className="h-4 w-4" />
+                </a>
+              </li>
             </ul>
+          </div>
+        </section>
+
+        {/* ============== TABS SỞ BAN + LIÊN KẾT WEBSITE ============== */}
+        <section className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="rounded-xl bg-card border border-border shadow-sm p-5">
+              <div className="flex flex-wrap gap-1 border-b border-border mb-4">
+                {(["Các Sở, Ban", "UBND các xã, phường, đặc khu"] as const).map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => { setTabSoBan(t); setSearchSo(""); }}
+                    className={`px-4 py-2.5 text-sm font-semibold uppercase tracking-wide transition border-b-2 -mb-px ${
+                      tabSoBan === t
+                        ? "text-gov-blue-dark border-gov-blue"
+                        : "text-muted-foreground border-transparent hover:text-gov-blue"
+                    }`}
+                  >
+                    {t === "Các Sở, Ban" ? <><Briefcase className="inline h-4 w-4 mr-1" /> {t}</> : <><MapPin className="inline h-4 w-4 mr-1" /> {t}</>}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <input
+                  value={searchSo}
+                  onChange={(e) => setSearchSo(e.target.value)}
+                  placeholder={tabSoBan === "Các Sở, Ban" ? "Tìm kiếm trong các sở, ban..." : "Tìm kiếm xã, phường, đặc khu..."}
+                  className="w-full bg-muted/50 border border-border rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-gov-blue"
+                />
+              </div>
+
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-2">
+                {filtered.map((s, i) => (
+                  <li key={i} className="flex items-center gap-2 py-1.5 text-sm text-foreground hover:text-gov-blue cursor-pointer">
+                    <Globe className="h-4 w-4 text-gov-blue shrink-0" />
+                    <span className="truncate">{s}</span>
+                  </li>
+                ))}
+                {filtered.length === 0 && (
+                  <li className="text-sm text-muted-foreground italic col-span-full py-3">Không có kết quả phù hợp.</li>
+                )}
+              </ul>
+            </div>
           </div>
 
-          {/* Hoạt động mới nhất */}
-          <div className="rounded-xl bg-gov-blue-dark text-white p-5 shadow-sm">
-            <h4 className="font-bold mb-3 border-b border-white/20 pb-2 uppercase text-sm tracking-wide">
-              Hoạt động mới nhất
-            </h4>
-            <ul className="space-y-3 text-sm">
-              {NEWS.map((n, i) => (
-                <li key={i} className="border-b border-white/10 pb-2 last:border-0">
-                  <p className="text-white/90 hover:text-gov-yellow leading-snug cursor-pointer">
-                    {n}
-                  </p>
-                  <p className="text-xs text-white/60 mt-1 flex items-center gap-1">
-                    <Calendar className="h-3 w-3" /> 20/04/2026
-                  </p>
-                </li>
-              ))}
-            </ul>
+          {/* Liên kết Website */}
+          <aside>
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center gap-2">
+                <Globe className="h-4 w-4 text-gov-blue" />
+                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
+                  Liên kết Website
+                </h4>
+              </div>
+              <ul className="divide-y divide-border">
+                {LIEN_KET_WEB.map((l, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted/40 transition group">
+                      <span className="text-sm font-medium text-foreground group-hover:text-gov-blue">{l}</span>
+                      <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-gov-blue" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </section>
+
+        {/* ============== CƠ CẤU TỔ CHỨC + LÃNH ĐẠO (giữ nguyên cũ) ============== */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2 space-y-8">
+            <section>
+              <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {ORGS.map((o, i) => (
+                  <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
+                    <o.icon className="h-8 w-8 text-gov-blue mb-3" />
+                    <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <SectionTitle>Giới thiệu khái quát</SectionTitle>
+              <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
+                <p>
+                  Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
+                  Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
+                  <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
+                </p>
+                <p>
+                  Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
+                  UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
+                </p>
+              </div>
+            </section>
           </div>
-        </aside>
+
+          <aside className="space-y-6">
+            <Link to="/chinh-quyen" className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-red to-gov-red-dark text-white shadow-md hover:shadow-lg transition">
+              <div className="flex items-center gap-3 p-4">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/90">Trang tin</p>
+                  <p className="text-sm font-semibold mt-1">{CHU_TICH.title}</p>
+                  <p className="text-lg font-extrabold text-gov-yellow mt-1 leading-tight">{CHU_TICH.name}</p>
+                </div>
+                <div className="h-20 w-20 rounded-full bg-white/15 ring-2 ring-white/40 overflow-hidden shrink-0">
+                  <LeaderAvatar name={CHU_TICH.name} />
+                </div>
+              </div>
+            </Link>
+
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 pt-4 pb-3 border-b border-border">
+                <p className="text-sm font-semibold text-gov-blue">Trang tin</p>
+                <p className="text-base font-bold text-gov-blue-dark uppercase">Các Phó Chủ tịch UBND tỉnh</p>
+              </div>
+              <ul className="divide-y divide-border">
+                {PHO_CHU_TICH.map((p, i) => (
+                  <li key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40 transition cursor-pointer">
+                    <div className="h-12 w-12 rounded-full overflow-hidden ring-1 ring-border shrink-0">
+                      <LeaderAvatar name={p.name} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-gov-blue font-medium">{p.role}</p>
+                      <p className="text-sm font-bold text-gov-blue-dark truncate">{p.name}</p>
+                    </div>
+                    <User className="h-4 w-4 text-muted-foreground ml-auto shrink-0" />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
     </SiteLayout>
   );
