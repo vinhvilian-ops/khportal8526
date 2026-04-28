@@ -811,29 +811,6 @@ function HomePage() {
                 <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
-            {/* NCSC — Tín nhiệm mạng */}
-            <div className="group relative rounded-xl overflow-hidden border border-blue-300 shadow-sm hover:shadow-lg transition-all">
-              <div className="relative bg-gradient-to-r from-[#0a2a6b] via-gov-blue-dark to-gov-blue px-3 py-2 flex items-center justify-between overflow-hidden">
-                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%)" }} />
-                <div className="relative flex items-center gap-1.5">
-                  <div className="bg-white rounded-md px-1.5 py-0.5 text-[9px] font-bold text-gov-blue-dark leading-tight shadow-sm">
-                    NCSC<span className="text-gov-red">★</span>
-                    <div className="text-[7px] text-gray-500 font-normal -mt-0.5">VN</div>
-                  </div>
-                </div>
-                <span className="relative text-[10px] font-bold text-white tracking-wider bg-white/15 backdrop-blur px-2 py-0.5 rounded-full ring-1 ring-white/20">CƠ BẢN</span>
-              </div>
-              <div className="bg-gradient-to-br from-blue-100 via-sky-100 to-indigo-100 p-3 text-center relative overflow-hidden">
-                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-blue-300/40 blur-2xl" />
-                <ShieldCheck className="absolute right-2 top-2 h-4 w-4 text-gov-blue/40" />
-                <p className="relative text-[11px] font-semibold text-gov-blue-dark leading-tight">Website đạt chứng nhận</p>
-                <p className="relative text-sm font-extrabold bg-gradient-to-r from-gov-red to-red-500 bg-clip-text text-transparent tracking-wide mt-0.5">TÍN NHIỆM MẠNG</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ============ CẤP 3 — ĐA DẠNG NỘI DUNG ============ */}
       <PageHero level="CẤP 3" topic="ĐA DẠNG NỘI DUNG" title="Du khách, Chuyên trang & " highlight="Truyền thông" />
 
