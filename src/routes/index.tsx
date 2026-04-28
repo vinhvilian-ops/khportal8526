@@ -816,7 +816,7 @@ function HomePage() {
       </div>
 
       {/* ============ CẤP 3 — ĐA DẠNG NỘI DUNG ============ */}
-      <PageHero level="CẤP 3" topic="ĐA DẠNG NỘI DUNG" title="Du khách, Chuyên trang & " highlight="Truyền thông" />
+      <PageHero level="CẤP 3" topic="ĐA DẠNG NỘI DUNG" title="Du khách & " highlight="Truyền thông" />
 
       <div className="container mx-auto px-4">
         {/* Tourism block */}
