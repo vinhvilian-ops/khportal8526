@@ -811,6 +811,10 @@ function HomePage() {
                 <li className="flex gap-1.5"><AlertCircle className="h-3 w-3 text-gov-red shrink-0 mt-1" /> Hướng về tổ hai đại nhân kim quân ở khu BS NThuan – PB,...</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+
       {/* ============ CẤP 3 — ĐA DẠNG NỘI DUNG ============ */}
       <PageHero level="CẤP 3" topic="ĐA DẠNG NỘI DUNG" title="Du khách, Chuyên trang & " highlight="Truyền thông" />
 
