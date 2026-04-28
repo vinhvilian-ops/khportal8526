@@ -871,27 +871,6 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Chuyên trang */}
-          <div className="border-t p-5">
-            <h4 className="font-bold text-gov-blue-dark mb-4 text-sm uppercase tracking-wide border-b-2 border-gov-blue/30 pb-2 inline-flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-gov-blue" /> Chuyên trang, chuyên mục
-            </h4>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {CHUYEN_TRANG.map((c, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="group flex items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-gov-blue hover:border-gov-blue hover:bg-gov-blue/5 hover:text-gov-blue-dark hover:shadow-sm transition-all"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue group-hover:bg-gov-blue group-hover:text-white transition-colors">
-                    <c.icon className="h-4 w-4" />
-                  </span>
-                  <span className="leading-snug">{c.label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-
           {/* Video clip */}
           <div className="border-t p-5">
             <h4 className="font-bold text-gov-blue border-b-2 border-gov-blue/30 pb-2 mb-5 inline-flex items-center gap-2 uppercase text-sm tracking-wide">
