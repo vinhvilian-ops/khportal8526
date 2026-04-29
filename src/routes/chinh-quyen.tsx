@@ -201,15 +201,6 @@ const TAB_CCHC = {
    COMPONENT PHỤ
    ============================================================ */
 
-function LeaderAvatar({ name }: { name: string }) {
-  const initials = name.split(" ").slice(-2).map((s) => s[0]).join("");
-  return (
-    <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white font-bold">
-      {initials}
-    </div>
-  );
-}
-
 function SectionTitle({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
     <div className="flex items-end justify-between gap-3 mb-4 border-b-2 border-gov-blue/20 pb-2">
