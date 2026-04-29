@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
 import {
@@ -12,7 +12,7 @@ import {
   Briefcase,
   MapPin,
   ChevronRight,
-  User,
+  
   CalendarDays,
   FileSignature,
   FileCheck2,
@@ -38,6 +38,13 @@ import policyFeatured from "@/assets/policy-featured.jpg";
 import policyThumb1 from "@/assets/policy-thumb-1.jpg";
 import policyThumb2 from "@/assets/policy-thumb-2.jpg";
 import policyThumb3 from "@/assets/policy-thumb-3.jpg";
+
+import leaderChairman from "@/assets/leader-chairman.jpg";
+import leaderVc1 from "@/assets/leader-vc1.jpg";
+import leaderVc2 from "@/assets/leader-vc2.jpg";
+import leaderVc3 from "@/assets/leader-vc3.jpg";
+import leaderVc4 from "@/assets/leader-vc4.jpg";
+import leaderVc5 from "@/assets/leader-vc5.jpg";
 
 export const Route = createFileRoute("/chinh-quyen")({
   head: () => ({
@@ -100,13 +107,13 @@ const LIEN_KET_WEB = [
   "Website khác",
 ];
 
-const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa" };
+const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa", photo: leaderChairman };
 const PHO_CHU_TICH = [
-  { role: "Phó Chủ tịch Thường trực", name: "NGUYỄN LONG BIÊN" },
-  { role: "Phó Chủ tịch", name: "LÊ HUYỀN" },
-  { role: "Phó Chủ tịch", name: "TRỊNH MINH HOÀNG" },
-  { role: "Phó Chủ tịch", name: "TRẦN HÒA NAM" },
-  { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ" },
+  { role: "Phó Chủ tịch Thường trực", name: "NGUYỄN LONG BIÊN", photo: leaderVc1 },
+  { role: "Phó Chủ tịch", name: "LÊ HUYỀN", photo: leaderVc2 },
+  { role: "Phó Chủ tịch", name: "TRỊNH MINH HOÀNG", photo: leaderVc3 },
+  { role: "Phó Chủ tịch", name: "TRẦN HÒA NAM", photo: leaderVc4 },
+  { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ", photo: leaderVc5 },
 ];
 
 /* Hoạt động lãnh đạo tỉnh */
@@ -193,15 +200,6 @@ const TAB_CCHC = {
 /* ============================================================
    COMPONENT PHỤ
    ============================================================ */
-
-function LeaderAvatar({ name }: { name: string }) {
-  const initials = name.split(" ").slice(-2).map((s) => s[0]).join("");
-  return (
-    <div className="flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-gov-blue to-gov-blue-dark text-white font-bold">
-      {initials}
-    </div>
-  );
-}
 
 function SectionTitle({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
@@ -344,6 +342,65 @@ function ChinhQuyenPage() {
                 <span className="text-xs font-medium text-foreground leading-tight">{s.label}</span>
               </a>
             ))}
+          </div>
+        </section>
+
+        {/* ============== LÃNH ĐẠO UBND TỈNH (BĂNG NGANG) ============== */}
+        <section>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gov-blue/20 bg-gradient-to-br from-gov-blue-dark via-gov-blue to-gov-blue-dark">
+            <div className="px-6 py-4 flex items-center justify-between border-b border-white/15">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-gov-yellow font-semibold">Trang tin</p>
+                <h2 className="text-lg md:text-xl font-extrabold text-white tracking-wide">
+                  LÃNH ĐẠO UBND TỈNH KHÁNH HÒA
+                </h2>
+              </div>
+              <Landmark className="h-8 w-8 text-gov-yellow/80 hidden md:block" />
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10">
+              {[CHU_TICH, ...PHO_CHU_TICH].map((p, i) => {
+                const isChair = i === 0;
+                return (
+                  <a
+                    key={i}
+                    href="#"
+                    className={`group relative flex flex-col items-center text-center p-5 transition ${
+                      isChair
+                        ? "bg-gradient-to-b from-gov-red to-gov-red-dark hover:from-gov-red-dark hover:to-gov-red"
+                        : "bg-gov-blue-dark/95 hover:bg-gov-blue"
+                    }`}
+                  >
+                    {isChair && (
+                      <span className="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gov-yellow text-gov-blue-dark">
+                        Chủ tịch
+                      </span>
+                    )}
+                    <div className="relative">
+                      <div className="h-24 w-24 md:h-28 md:w-28 rounded-full overflow-hidden ring-4 ring-gov-yellow/70 group-hover:ring-gov-yellow shadow-xl bg-white">
+                        <img
+                          src={p.photo}
+                          alt={p.name}
+                          loading="lazy"
+                          width={512}
+                          height={640}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                    <p className={`mt-3 text-[11px] font-semibold uppercase tracking-wider ${isChair ? "text-gov-yellow" : "text-gov-yellow/90"}`}>
+                      {isChair ? "Chủ tịch UBND tỉnh" : (p as typeof PHO_CHU_TICH[number]).role}
+                    </p>
+                    <p className="mt-1 text-sm md:text-base font-extrabold text-white leading-tight">
+                      {p.name}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 group-hover:text-gov-yellow transition">
+                      Trang tin <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -517,73 +574,35 @@ function ChinhQuyenPage() {
           </aside>
         </section>
 
-        {/* ============== CƠ CẤU TỔ CHỨC + LÃNH ĐẠO (giữ nguyên cũ) ============== */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2 space-y-8">
-            <section>
-              <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {ORGS.map((o, i) => (
-                  <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
-                    <o.icon className="h-8 w-8 text-gov-blue mb-3" />
-                    <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <SectionTitle>Giới thiệu khái quát</SectionTitle>
-              <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
-                <p>
-                  Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
-                  Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
-                  <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
-                </p>
-                <p>
-                  Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
-                  UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
-                </p>
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-6">
-            <Link to="/chinh-quyen" className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-red to-gov-red-dark text-white shadow-md hover:shadow-lg transition">
-              <div className="flex items-center gap-3 p-4">
-                <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/90">Trang tin</p>
-                  <p className="text-sm font-semibold mt-1">{CHU_TICH.title}</p>
-                  <p className="text-lg font-extrabold text-gov-yellow mt-1 leading-tight">{CHU_TICH.name}</p>
-                </div>
-                <div className="h-20 w-20 rounded-full bg-white/15 ring-2 ring-white/40 overflow-hidden shrink-0">
-                  <LeaderAvatar name={CHU_TICH.name} />
-                </div>
-              </div>
-            </Link>
-
-            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
-              <div className="px-4 pt-4 pb-3 border-b border-border">
-                <p className="text-sm font-semibold text-gov-blue">Trang tin</p>
-                <p className="text-base font-bold text-gov-blue-dark uppercase">Các Phó Chủ tịch UBND tỉnh</p>
-              </div>
-              <ul className="divide-y divide-border">
-                {PHO_CHU_TICH.map((p, i) => (
-                  <li key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40 transition cursor-pointer">
-                    <div className="h-12 w-12 rounded-full overflow-hidden ring-1 ring-border shrink-0">
-                      <LeaderAvatar name={p.name} />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-gov-blue font-medium">{p.role}</p>
-                      <p className="text-sm font-bold text-gov-blue-dark truncate">{p.name}</p>
-                    </div>
-                    <User className="h-4 w-4 text-muted-foreground ml-auto shrink-0" />
-                  </li>
-                ))}
-              </ul>
+        {/* ============== CƠ CẤU TỔ CHỨC ============== */}
+        <div className="space-y-8">
+          <section>
+            <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {ORGS.map((o, i) => (
+                <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
+                  <o.icon className="h-8 w-8 text-gov-blue mb-3" />
+                  <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
+                </article>
+              ))}
             </div>
-          </aside>
+          </section>
+
+          <section>
+            <SectionTitle>Giới thiệu khái quát</SectionTitle>
+            <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
+              <p>
+                Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
+                Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
+                <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
+              </p>
+              <p>
+                Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
+                UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
     </SiteLayout>
