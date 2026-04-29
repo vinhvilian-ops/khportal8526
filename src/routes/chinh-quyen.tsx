@@ -32,7 +32,7 @@ import infoFeatured from "@/assets/info-1.jpg";
 import info2 from "@/assets/info-2.jpg";
 import info3 from "@/assets/info-3.jpg";
 import info4 from "@/assets/info-4.jpg";
-import gioToHungVuong from "@/assets/gio-to-hung-vuong.jpg";
+
 import videoMain from "@/assets/video-main.jpg";
 import policyFeatured from "@/assets/policy-featured.jpg";
 import policyThumb1 from "@/assets/policy-thumb-1.jpg";
