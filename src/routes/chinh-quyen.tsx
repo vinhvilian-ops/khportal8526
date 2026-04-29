@@ -28,10 +28,10 @@ import leaderFeatured from "@/assets/leader-featured.jpg";
 import leaderThumb1 from "@/assets/leader-thumb-1.jpg";
 import leaderThumb2 from "@/assets/leader-thumb-2.jpg";
 import leaderThumb3 from "@/assets/leader-thumb-3.jpg";
-import infoFeatured from "@/assets/info-1.jpg";
-import info2 from "@/assets/info-2.jpg";
-import info3 from "@/assets/info-3.jpg";
-import info4 from "@/assets/info-4.jpg";
+import infoFeatured from "@/assets/dir-1.jpg";
+import info2 from "@/assets/dir-2.jpg";
+import info3 from "@/assets/dir-3.jpg";
+import info4 from "@/assets/dir-4.jpg";
 
 import videoMain from "@/assets/video-main.jpg";
 import policyFeatured from "@/assets/policy-featured.jpg";
