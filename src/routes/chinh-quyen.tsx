@@ -12,7 +12,7 @@ import {
   Briefcase,
   MapPin,
   ChevronRight,
-  User,
+  User as _User,
   CalendarDays,
   FileSignature,
   FileCheck2,
