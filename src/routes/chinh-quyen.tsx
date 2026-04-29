@@ -347,21 +347,6 @@ function ChinhQuyenPage() {
           </div>
         </section>
 
-        {/* ============== BANNER GIỖ TỔ ============== */}
-        <section>
-          <a href="#" className="block relative rounded-2xl overflow-hidden shadow-md group">
-            <img src={gioToHungVuong} alt="Giỗ Tổ Hùng Vương" className="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-r from-gov-blue-dark/90 via-gov-blue/70 to-gov-red/40" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-              <h3 className="text-xl md:text-3xl font-extrabold tracking-wide drop-shadow">
-                GIỖ TỔ HÙNG VƯƠNG — LỄ HỘI ĐỀN HÙNG
-              </h3>
-              <p className="text-sm md:text-base text-gov-yellow font-semibold mt-1">
-                VÀ TUẦN VĂN HÓA — DU LỊCH ĐẤT TỔ • NĂM BÍNH NGỌ 2026
-              </p>
-            </div>
-          </a>
-        </section>
 
         {/* ============== TABS THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH ============== */}
         <section className="grid lg:grid-cols-3 gap-6">
