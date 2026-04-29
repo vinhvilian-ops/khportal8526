@@ -283,40 +283,53 @@ function ChinhQuyenPage() {
             Hoạt động lãnh đạo tỉnh
           </SectionTitle>
 
-          <div className="grid lg:grid-cols-3 gap-5">
-            {/* Featured */}
-            <article className="lg:col-span-3 relative rounded-2xl overflow-hidden shadow-md group cursor-pointer">
-              <img src={LEADER_FEATURED.img} alt={LEADER_FEATURED.title} className="w-full h-[380px] md:h-[440px] object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div className="flex flex-col gap-6">
+            {/* Featured leader news - full width */}
+            <article className="relative rounded-xl overflow-hidden shadow-lg min-h-[420px] md:min-h-[520px] flex flex-col justify-end">
+              <img
+                src={LEADER_FEATURED.img}
+                alt={LEADER_FEATURED.title}
+                width={1600}
+                height={900}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-                <span className="inline-block bg-gov-red px-3 py-1 text-xs font-bold uppercase tracking-wider rounded">
-                  {LEADER_FEATURED.tag}
-                </span>
-                <p className="text-xs text-white/80 mt-3 flex items-center gap-1.5">
-                  <Calendar className="h-3.5 w-3.5" /> {LEADER_FEATURED.date}
-                </p>
-                <h3 className="text-xl md:text-2xl font-bold mt-2 max-w-3xl leading-snug">
-                  {LEADER_FEATURED.title}
-                </h3>
+              <div className="relative p-6 md:p-8 text-white max-w-4xl">
+                <span className="inline-block w-fit rounded bg-gov-red px-2 py-1 text-xs font-bold mb-3">{LEADER_FEATURED.tag}</span>
+                <p className="text-xs flex items-center gap-1 mb-2"><Calendar className="h-3 w-3" /> {LEADER_FEATURED.date}</p>
+                <h3 className="text-2xl md:text-3xl font-bold leading-snug">{LEADER_FEATURED.title}</h3>
               </div>
             </article>
 
-            {/* Grid 4 */}
-            {LEADER_GRID.map((n, i) => (
-              <article key={i} className="lg:col-span-3/4 bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition group cursor-pointer" style={{ gridColumn: 'span 1 / span 1' }}>
-                <div className="overflow-hidden aspect-[16/10]">
-                  <img src={n.img} alt={n.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-3">
-                  <h4 className="text-sm font-semibold text-gov-blue-dark leading-snug line-clamp-3 group-hover:text-gov-red transition">
-                    {n.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
-                    <Calendar className="h-3 w-3" /> {n.date}
-                  </p>
-                </div>
-              </article>
-            ))}
+            {/* 4 vertical cards below */}
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {LEADER_GRID.map((n, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="group flex flex-col rounded-xl overflow-hidden bg-card shadow-sm hover:shadow-lg transition"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={n.img}
+                      alt={n.title}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2 p-4">
+                    <h3 className="text-sm md:text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
+                      {n.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground flex items-center gap-1">
+                      <Calendar className="h-3 w-3" /> {n.date}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
