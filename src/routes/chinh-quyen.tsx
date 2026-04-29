@@ -44,7 +44,7 @@ import leaderVc1 from "@/assets/leader-vc1.jpg";
 import leaderVc2 from "@/assets/leader-vc2.jpg";
 import leaderVc3 from "@/assets/leader-vc3.jpg";
 import leaderVc4 from "@/assets/leader-vc4.jpg";
-import leaderVc5 from "@/assets/leader-vc5.jpg";
+
 
 export const Route = createFileRoute("/chinh-quyen")({
   head: () => ({
@@ -113,7 +113,6 @@ const PHO_CHU_TICH = [
   { role: "Phó Chủ tịch", name: "TRẦN HÒA NAM", photo: leaderVc2 },
   { role: "Phó Chủ tịch", name: "LÊ HUYỀN", photo: leaderVc3 },
   { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ", photo: leaderVc4 },
-];
 ];
 
 /* Hoạt động lãnh đạo tỉnh */
