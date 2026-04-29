@@ -354,6 +354,65 @@ function ChinhQuyenPage() {
           </div>
         </section>
 
+        {/* ============== LÃNH ĐẠO UBND TỈNH (BĂNG NGANG) ============== */}
+        <section>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gov-blue/20 bg-gradient-to-br from-gov-blue-dark via-gov-blue to-gov-blue-dark">
+            <div className="px-6 py-4 flex items-center justify-between border-b border-white/15">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-gov-yellow font-semibold">Trang tin</p>
+                <h2 className="text-lg md:text-xl font-extrabold text-white tracking-wide">
+                  LÃNH ĐẠO UBND TỈNH KHÁNH HÒA
+                </h2>
+              </div>
+              <Landmark className="h-8 w-8 text-gov-yellow/80 hidden md:block" />
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10">
+              {[CHU_TICH, ...PHO_CHU_TICH].map((p, i) => {
+                const isChair = i === 0;
+                return (
+                  <a
+                    key={i}
+                    href="#"
+                    className={`group relative flex flex-col items-center text-center p-5 transition ${
+                      isChair
+                        ? "bg-gradient-to-b from-gov-red to-gov-red-dark hover:from-gov-red-dark hover:to-gov-red"
+                        : "bg-gov-blue-dark/95 hover:bg-gov-blue"
+                    }`}
+                  >
+                    {isChair && (
+                      <span className="absolute top-2 right-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gov-yellow text-gov-blue-dark">
+                        Chủ tịch
+                      </span>
+                    )}
+                    <div className="relative">
+                      <div className="h-24 w-24 md:h-28 md:w-28 rounded-full overflow-hidden ring-4 ring-gov-yellow/70 group-hover:ring-gov-yellow shadow-xl bg-white">
+                        <img
+                          src={p.photo}
+                          alt={p.name}
+                          loading="lazy"
+                          width={512}
+                          height={640}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                    <p className={`mt-3 text-[11px] font-semibold uppercase tracking-wider ${isChair ? "text-gov-yellow" : "text-gov-yellow/90"}`}>
+                      {isChair ? "Chủ tịch UBND tỉnh" : (p as typeof PHO_CHU_TICH[number]).role}
+                    </p>
+                    <p className="mt-1 text-sm md:text-base font-extrabold text-white leading-tight">
+                      {p.name}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 group-hover:text-gov-yellow transition">
+                      Trang tin <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
 
         {/* ============== TABS THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH ============== */}
         <section className="grid lg:grid-cols-3 gap-6">
