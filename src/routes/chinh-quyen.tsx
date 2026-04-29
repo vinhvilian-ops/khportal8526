@@ -39,6 +39,13 @@ import policyThumb1 from "@/assets/policy-thumb-1.jpg";
 import policyThumb2 from "@/assets/policy-thumb-2.jpg";
 import policyThumb3 from "@/assets/policy-thumb-3.jpg";
 
+import leaderChairman from "@/assets/leader-chairman.jpg";
+import leaderVc1 from "@/assets/leader-vc1.jpg";
+import leaderVc2 from "@/assets/leader-vc2.jpg";
+import leaderVc3 from "@/assets/leader-vc3.jpg";
+import leaderVc4 from "@/assets/leader-vc4.jpg";
+import leaderVc5 from "@/assets/leader-vc5.jpg";
+
 export const Route = createFileRoute("/chinh-quyen")({
   head: () => ({
     meta: [
