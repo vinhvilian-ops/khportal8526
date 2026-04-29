@@ -107,13 +107,13 @@ const LIEN_KET_WEB = [
   "Website khác",
 ];
 
-const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa" };
+const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa", photo: leaderChairman };
 const PHO_CHU_TICH = [
-  { role: "Phó Chủ tịch Thường trực", name: "NGUYỄN LONG BIÊN" },
-  { role: "Phó Chủ tịch", name: "LÊ HUYỀN" },
-  { role: "Phó Chủ tịch", name: "TRỊNH MINH HOÀNG" },
-  { role: "Phó Chủ tịch", name: "TRẦN HÒA NAM" },
-  { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ" },
+  { role: "Phó Chủ tịch Thường trực", name: "NGUYỄN LONG BIÊN", photo: leaderVc1 },
+  { role: "Phó Chủ tịch", name: "LÊ HUYỀN", photo: leaderVc2 },
+  { role: "Phó Chủ tịch", name: "TRỊNH MINH HOÀNG", photo: leaderVc3 },
+  { role: "Phó Chủ tịch", name: "TRẦN HÒA NAM", photo: leaderVc4 },
+  { role: "Phó Chủ tịch", name: "NGUYỄN THANH HÀ", photo: leaderVc5 },
 ];
 
 /* Hoạt động lãnh đạo tỉnh */
