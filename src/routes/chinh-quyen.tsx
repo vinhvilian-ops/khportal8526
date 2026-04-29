@@ -583,73 +583,35 @@ function ChinhQuyenPage() {
           </aside>
         </section>
 
-        {/* ============== CƠ CẤU TỔ CHỨC + LÃNH ĐẠO (giữ nguyên cũ) ============== */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2 space-y-8">
-            <section>
-              <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {ORGS.map((o, i) => (
-                  <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
-                    <o.icon className="h-8 w-8 text-gov-blue mb-3" />
-                    <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <SectionTitle>Giới thiệu khái quát</SectionTitle>
-              <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
-                <p>
-                  Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
-                  Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
-                  <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
-                </p>
-                <p>
-                  Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
-                  UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
-                </p>
-              </div>
-            </section>
-          </div>
-
-          <aside className="space-y-6">
-            <Link to="/chinh-quyen" className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-red to-gov-red-dark text-white shadow-md hover:shadow-lg transition">
-              <div className="flex items-center gap-3 p-4">
-                <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/90">Trang tin</p>
-                  <p className="text-sm font-semibold mt-1">{CHU_TICH.title}</p>
-                  <p className="text-lg font-extrabold text-gov-yellow mt-1 leading-tight">{CHU_TICH.name}</p>
-                </div>
-                <div className="h-20 w-20 rounded-full bg-white/15 ring-2 ring-white/40 overflow-hidden shrink-0">
-                  <LeaderAvatar name={CHU_TICH.name} />
-                </div>
-              </div>
-            </Link>
-
-            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
-              <div className="px-4 pt-4 pb-3 border-b border-border">
-                <p className="text-sm font-semibold text-gov-blue">Trang tin</p>
-                <p className="text-base font-bold text-gov-blue-dark uppercase">Các Phó Chủ tịch UBND tỉnh</p>
-              </div>
-              <ul className="divide-y divide-border">
-                {PHO_CHU_TICH.map((p, i) => (
-                  <li key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/40 transition cursor-pointer">
-                    <div className="h-12 w-12 rounded-full overflow-hidden ring-1 ring-border shrink-0">
-                      <LeaderAvatar name={p.name} />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs text-gov-blue font-medium">{p.role}</p>
-                      <p className="text-sm font-bold text-gov-blue-dark truncate">{p.name}</p>
-                    </div>
-                    <User className="h-4 w-4 text-muted-foreground ml-auto shrink-0" />
-                  </li>
-                ))}
-              </ul>
+        {/* ============== CƠ CẤU TỔ CHỨC ============== */}
+        <div className="space-y-8">
+          <section>
+            <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {ORGS.map((o, i) => (
+                <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
+                  <o.icon className="h-8 w-8 text-gov-blue mb-3" />
+                  <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
+                </article>
+              ))}
             </div>
-          </aside>
+          </section>
+
+          <section>
+            <SectionTitle>Giới thiệu khái quát</SectionTitle>
+            <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
+              <p>
+                Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
+                Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
+                <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
+              </p>
+              <p>
+                Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
+                UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
     </SiteLayout>
