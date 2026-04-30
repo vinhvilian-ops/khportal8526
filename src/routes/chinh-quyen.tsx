@@ -578,6 +578,119 @@ function ChinhQuyenPage() {
           </aside>
         </section>
 
+        {/* ============== 2 BANNER TRỤ SỞ ============== */}
+        <section className="grid md:grid-cols-2 gap-4">
+          <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+              <Building className="h-6 w-6 text-gov-yellow" />
+            </div>
+            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+              Trụ sở làm việc của các đơn vị hành chính xã, phường, đặc khu
+            </p>
+            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+          </a>
+          <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+              <Building2 className="h-6 w-6 text-gov-yellow" />
+            </div>
+            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+              Trụ sở Trung tâm phục vụ hành chính công xã, phường, đặc khu
+            </p>
+            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+          </a>
+        </section>
+
+        {/* ============== KINH TẾ - XÃ HỘI / QUY HOẠCH + SIDEBAR LÃNH ĐẠO & PHÁT NGÔN ============== */}
+        <section className="grid lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-3">
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-end justify-between gap-4 border-b mb-4">
+                <div className="flex items-center gap-1 flex-wrap">
+                  {(Object.keys(TAB_KTXH) as (keyof typeof TAB_KTXH)[]).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setTabKtxh(tab)}
+                      className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                        tabKtxh === tab
+                          ? "text-gov-blue-dark"
+                          : "text-muted-foreground hover:text-gov-blue-dark"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <BarChart3 className={`h-4 w-4 ${tabKtxh === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                        {tab.toUpperCase()}
+                      </span>
+                      {tabKtxh === tab && (
+                        <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+                <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-2.5 shrink-0">
+                  Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
+                <a href="#" className="group flex flex-col">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                    <img src={ktxh.main.img} alt={ktxh.main.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-x-0 bottom-0 bg-gov-blue/95 text-white px-4 py-3">
+                      <p className="font-semibold leading-snug line-clamp-2">{ktxh.main.title}</p>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {ktxh.main.date}</p>
+                </a>
+                <div className="flex flex-col divide-y h-full">
+                  {ktxh.list.map((n, i) => (
+                    <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                      <img src={n.img} alt={n.title} loading="lazy" className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                      <div className="flex flex-col justify-center min-w-0">
+                        <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                        <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar phải: Quick lãnh đạo + Người phát ngôn */}
+          <aside className="space-y-5">
+            <div className="rounded-xl border-2 border-gov-red p-3 space-y-2.5 bg-card shadow-sm">
+              {QUICK_LINKS_LD.map((q, i) => (
+                <a key={i} href="#" className={`block w-full ${q.color} hover:bg-gov-red-dark text-white font-bold uppercase text-xs md:text-sm tracking-wide text-center py-2.5 px-3 rounded-md transition`}>
+                  {q.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
+                <Mic className="h-4 w-4 text-gov-red" />
+                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
+                  Thông tin người phát ngôn
+                </h4>
+              </div>
+              <ul className="divide-y divide-border">
+                {NGUOI_PHAT_NGON.map((n, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex gap-3 px-4 py-3 hover:bg-muted/40 transition group items-start">
+                      <div className="shrink-0 h-12 w-12 rounded bg-gov-red/10 flex items-center justify-center">
+                        <Newspaper className="h-5 w-5 text-gov-red" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </section>
+
         {/* ============== TABS CCHC / THI ĐUA / PCTN ============== */}
         <section>
           <Tabs
