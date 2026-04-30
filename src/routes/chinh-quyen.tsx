@@ -12,7 +12,7 @@ import {
   Briefcase,
   MapPin,
   ChevronRight,
-  
+  Megaphone,
   CalendarDays,
   FileSignature,
   FileCheck2,
@@ -405,40 +405,65 @@ function ChinhQuyenPage() {
 
 
         {/* ============== TABS THÔNG TIN CHỈ ĐẠO ĐIỀU HÀNH ============== */}
-        <section className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
-            <Tabs
-              tabs={Object.keys(TAB_INDIEU_HANH) as (keyof typeof TAB_INDIEU_HANH)[]}
-              active={tabIndieu}
-              onChange={setTabIndieu}
-            />
-            <div className="grid md:grid-cols-2 gap-4">
-              <article className="group cursor-pointer">
-                <div className="overflow-hidden rounded-xl aspect-[4/3]">
-                  <img src={indieu.main.img} alt={indieu.main.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <section className="grid lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-3">
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-end justify-between gap-4 border-b mb-4">
+                <div className="flex items-center gap-1 flex-wrap">
+                  {(Object.keys(TAB_INDIEU_HANH) as (keyof typeof TAB_INDIEU_HANH)[]).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setTabIndieu(tab)}
+                      className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                        tabIndieu === tab
+                          ? "text-gov-blue-dark"
+                          : "text-muted-foreground hover:text-gov-blue-dark"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <Megaphone className={`h-4 w-4 ${tabIndieu === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                        {tab.toUpperCase()}
+                      </span>
+                      {tabIndieu === tab && (
+                        <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                      )}
+                    </button>
+                  ))}
                 </div>
-                <h4 className="font-bold text-gov-blue-dark mt-3 group-hover:text-gov-red leading-snug">
-                  {indieu.main.title}
-                </h4>
-                <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                  <Calendar className="h-3 w-3" /> {indieu.main.date}
-                </p>
-              </article>
-              <ul className="space-y-3">
-                {indieu.list.map((n, i) => (
-                  <li key={i} className="flex gap-3 group cursor-pointer pb-3 border-b border-dashed border-border last:border-0">
-                    <img src={n.img} alt={n.title} className="w-24 h-20 rounded-lg object-cover shrink-0" />
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">
-                        {n.title}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                        <Calendar className="h-3 w-3" /> {n.date}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-2.5 shrink-0">
+                  Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
+                <a href="#" className="group flex flex-col">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                    <img
+                      src={indieu.main.img}
+                      alt={indieu.main.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="mt-3 text-lg font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{indieu.main.title}</p>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {indieu.main.date}</p>
+                </a>
+                <div className="flex flex-col divide-y h-full">
+                  {indieu.list.slice(0, 3).map((n, i) => (
+                    <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                      <img
+                        src={n.img}
+                        alt={n.title}
+                        loading="lazy"
+                        className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover"
+                      />
+                      <div className="flex flex-col justify-center min-w-0">
+                        <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                        <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
