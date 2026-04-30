@@ -22,6 +22,16 @@ import {
   Play,
   Globe,
   ArrowRight,
+  Building,
+  BarChart3,
+  BookOpen,
+  Mic,
+  Newspaper,
+  ShieldCheck,
+  QrCode,
+  Smartphone,
+  CheckCircle2,
+  Vote,
 } from "lucide-react";
 
 import leaderFeatured from "@/assets/leader-featured.jpg";
