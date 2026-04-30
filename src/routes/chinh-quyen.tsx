@@ -218,6 +218,62 @@ const TAB_CCHC = {
   },
 };
 
+/* Tabs Kinh tế - Xã hội / Quy hoạch - Kế hoạch */
+const TAB_KTXH = {
+  "Thông tin Kinh tế - Xã hội": {
+    main: { img: info1, title: "Tăng cường quản lý, điều hành và bình ổn giá trên địa bàn tỉnh", date: "29/04/2026" },
+    list: [
+      { img: info2img, title: "Phát triển ngành sữa, Khánh Hòa đẩy mạnh hạ tầng logistics lạnh, nâng cao giá trị chuỗi sản xuất", date: "29/04/2026" },
+      { img: info3img, title: "Khánh Hòa mở rộng thu phí không dùng, thúc đẩy chuyển đổi số trong lĩnh vực đường bộ", date: "29/04/2026" },
+      { img: info4img, title: "Họp báo tình hình kinh tế - xã hội quý I-2026", date: "23/04/2026" },
+    ],
+  },
+  "Thông tin Quy hoạch - Kế hoạch": {
+    main: { img: dir5, title: "Công bố Quy hoạch tỉnh Khánh Hòa thời kỳ 2021-2030, tầm nhìn đến năm 2050", date: "28/04/2026" },
+    list: [
+      { img: dir6, title: "Kế hoạch sử dụng đất năm 2026 trên địa bàn tỉnh Khánh Hòa", date: "27/04/2026" },
+      { img: info2img, title: "Phê duyệt nhiệm vụ Quy hoạch chung đô thị Cam Ranh đến năm 2045", date: "26/04/2026" },
+      { img: info3img, title: "Triển khai kế hoạch đầu tư công trung hạn giai đoạn 2026-2030", date: "25/04/2026" },
+    ],
+  },
+};
+
+/* Người phát ngôn */
+const NGUOI_PHAT_NGON = [
+  { title: "Người phát ngôn và cung cấp thông tin cho báo chí của UBND tỉnh", date: "20/04/2026" },
+  { title: "Danh sách người phát ngôn và cung cấp thông tin cho báo chí của các cơ quan, đơn vị", date: "15/04/2026" },
+];
+
+/* Quick links lãnh đạo (sidebar) */
+const QUICK_LINKS_LD = [
+  { label: "Thường trực HĐND tỉnh", color: "bg-gov-red" },
+  { label: "Lãnh đạo UBND tỉnh", color: "bg-gov-red" },
+  { label: "Lãnh đạo xã, phường, đặc khu", color: "bg-gov-red" },
+];
+
+/* Đồ họa trực quan */
+const DO_HOA = [
+  { img: dir5, title: "Hướng dẫn cập nhật thông tin CC/CCCD cho thuê bao di động" },
+  { img: dir6, title: "Hướng dẫn xác thực thông tin bảo vệ sim chính chủ" },
+  { img: info1, title: "Hỗ trợ phụ nữ khởi nghiệp giai đoạn 2026 - 2035" },
+  { img: info2img, title: "Tháng hành động vì an toàn thực phẩm năm 2026" },
+];
+
+/* Chuyên trang */
+const CHUYEN_TRANG = [
+  "Dự án, Đầu tư, mua sắm công",
+  "Nghiệp vụ Kho bạc Nhà nước",
+];
+
+/* Video clips trang chính quyền */
+const VIDEO_LIST = [
+  { img: video1, title: "Nhiều điểm mới trong công tác tuyển sinh lớp 1...", date: "16/03/2026 - 08:34" },
+  { img: video2, title: "Đồng bào Chăm với ngày hội non sông", date: "13/03/2026 - 03:34" },
+  { img: video3, title: "Bí thư Tỉnh ủy Khánh Hòa Nghiêm Xuân Thành chú...", date: "17/02/2026 - 12:04" },
+  { img: video4, title: "Tết ấm trong những ngôi nhà Quang Trung", date: "16/02/2026 - 03:13" },
+  { img: video5, title: "Hướng về Đại hội đại biểu toàn quốc lần thứ XIV", date: "19/01/2026 - 07:52" },
+];
+
 /* ============================================================
    COMPONENT PHỤ
    ============================================================ */
