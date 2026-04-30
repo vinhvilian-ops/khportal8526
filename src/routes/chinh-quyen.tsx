@@ -329,14 +329,18 @@ function ChinhQuyenPage() {
     useState<keyof typeof TAB_INDIEU_HANH>("Thông tin chỉ đạo điều hành");
   const [tabCchc, setTabCchc] =
     useState<keyof typeof TAB_CCHC>("Cải cách hành chính");
+  const [tabKtxh, setTabKtxh] =
+    useState<keyof typeof TAB_KTXH>("Thông tin Kinh tế - Xã hội");
   const [tabSoBan, setTabSoBan] = useState<"Các Sở, Ban" | "UBND các xã, phường, đặc khu">("Các Sở, Ban");
   const [searchSo, setSearchSo] = useState("");
+  const [survey, setSurvey] = useState<"yes" | "no" | "more" | null>("yes");
 
   const list = tabSoBan === "Các Sở, Ban" ? SO_BAN_NGANH : UBND_XA;
   const filtered = list.filter((s) => s.toLowerCase().includes(searchSo.toLowerCase()));
 
   const indieu = TAB_INDIEU_HANH[tabIndieu];
   const cchc = TAB_CCHC[tabCchc];
+  const ktxh = TAB_KTXH[tabKtxh];
 
   return (
     <SiteLayout>
