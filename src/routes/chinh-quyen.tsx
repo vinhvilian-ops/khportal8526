@@ -12,7 +12,7 @@ import {
   Briefcase,
   MapPin,
   ChevronRight,
-  
+  Megaphone,
   CalendarDays,
   FileSignature,
   FileCheck2,
