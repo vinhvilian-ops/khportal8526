@@ -55,6 +55,18 @@ import leaderVc2 from "@/assets/leader-vc2.jpg";
 import leaderVc3 from "@/assets/leader-vc3.jpg";
 import leaderVc4 from "@/assets/leader-vc4.jpg";
 
+import video1 from "@/assets/video-1.jpg";
+import video2 from "@/assets/video-2.jpg";
+import video3 from "@/assets/video-3.jpg";
+import video4 from "@/assets/video-4.jpg";
+import video5 from "@/assets/video-5.jpg";
+import dir5 from "@/assets/dir-5.jpg";
+import dir6 from "@/assets/dir-6.jpg";
+import info1 from "@/assets/info-1.jpg";
+import info2img from "@/assets/info-2.jpg";
+import info3img from "@/assets/info-3.jpg";
+import info4img from "@/assets/info-4.jpg";
+
 
 export const Route = createFileRoute("/chinh-quyen")({
   head: () => ({
