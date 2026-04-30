@@ -22,6 +22,16 @@ import {
   Play,
   Globe,
   ArrowRight,
+  Building,
+  BarChart3,
+  BookOpen,
+  Mic,
+  Newspaper,
+  ShieldCheck,
+  QrCode,
+  Smartphone,
+  CheckCircle2,
+  Vote,
 } from "lucide-react";
 
 import leaderFeatured from "@/assets/leader-featured.jpg";
@@ -44,6 +54,18 @@ import leaderVc1 from "@/assets/leader-vc1.jpg";
 import leaderVc2 from "@/assets/leader-vc2.jpg";
 import leaderVc3 from "@/assets/leader-vc3.jpg";
 import leaderVc4 from "@/assets/leader-vc4.jpg";
+
+import video1 from "@/assets/video-1.jpg";
+import video2 from "@/assets/video-2.jpg";
+import video3 from "@/assets/video-3.jpg";
+import video4 from "@/assets/video-4.jpg";
+import video5 from "@/assets/video-5.jpg";
+import dir5 from "@/assets/dir-5.jpg";
+import dir6 from "@/assets/dir-6.jpg";
+import info1 from "@/assets/info-1.jpg";
+import info2img from "@/assets/info-2.jpg";
+import info3img from "@/assets/info-3.jpg";
+import info4img from "@/assets/info-4.jpg";
 
 
 export const Route = createFileRoute("/chinh-quyen")({
@@ -196,6 +218,62 @@ const TAB_CCHC = {
   },
 };
 
+/* Tabs Kinh tế - Xã hội / Quy hoạch - Kế hoạch */
+const TAB_KTXH = {
+  "Thông tin Kinh tế - Xã hội": {
+    main: { img: info1, title: "Tăng cường quản lý, điều hành và bình ổn giá trên địa bàn tỉnh", date: "29/04/2026" },
+    list: [
+      { img: info2img, title: "Phát triển ngành sữa, Khánh Hòa đẩy mạnh hạ tầng logistics lạnh, nâng cao giá trị chuỗi sản xuất", date: "29/04/2026" },
+      { img: info3img, title: "Khánh Hòa mở rộng thu phí không dùng, thúc đẩy chuyển đổi số trong lĩnh vực đường bộ", date: "29/04/2026" },
+      { img: info4img, title: "Họp báo tình hình kinh tế - xã hội quý I-2026", date: "23/04/2026" },
+    ],
+  },
+  "Thông tin Quy hoạch - Kế hoạch": {
+    main: { img: dir5, title: "Công bố Quy hoạch tỉnh Khánh Hòa thời kỳ 2021-2030, tầm nhìn đến năm 2050", date: "28/04/2026" },
+    list: [
+      { img: dir6, title: "Kế hoạch sử dụng đất năm 2026 trên địa bàn tỉnh Khánh Hòa", date: "27/04/2026" },
+      { img: info2img, title: "Phê duyệt nhiệm vụ Quy hoạch chung đô thị Cam Ranh đến năm 2045", date: "26/04/2026" },
+      { img: info3img, title: "Triển khai kế hoạch đầu tư công trung hạn giai đoạn 2026-2030", date: "25/04/2026" },
+    ],
+  },
+};
+
+/* Người phát ngôn */
+const NGUOI_PHAT_NGON = [
+  { title: "Người phát ngôn và cung cấp thông tin cho báo chí của UBND tỉnh", date: "20/04/2026" },
+  { title: "Danh sách người phát ngôn và cung cấp thông tin cho báo chí của các cơ quan, đơn vị", date: "15/04/2026" },
+];
+
+/* Quick links lãnh đạo (sidebar) */
+const QUICK_LINKS_LD = [
+  { label: "Thường trực HĐND tỉnh", color: "bg-gov-red" },
+  { label: "Lãnh đạo UBND tỉnh", color: "bg-gov-red" },
+  { label: "Lãnh đạo xã, phường, đặc khu", color: "bg-gov-red" },
+];
+
+/* Đồ họa trực quan */
+const DO_HOA = [
+  { img: dir5, title: "Hướng dẫn cập nhật thông tin CC/CCCD cho thuê bao di động" },
+  { img: dir6, title: "Hướng dẫn xác thực thông tin bảo vệ sim chính chủ" },
+  { img: info1, title: "Hỗ trợ phụ nữ khởi nghiệp giai đoạn 2026 - 2035" },
+  { img: info2img, title: "Tháng hành động vì an toàn thực phẩm năm 2026" },
+];
+
+/* Chuyên trang */
+const CHUYEN_TRANG = [
+  "Dự án, Đầu tư, mua sắm công",
+  "Nghiệp vụ Kho bạc Nhà nước",
+];
+
+/* Video clips trang chính quyền */
+const VIDEO_LIST = [
+  { img: video1, title: "Nhiều điểm mới trong công tác tuyển sinh lớp 1...", date: "16/03/2026 - 08:34" },
+  { img: video2, title: "Đồng bào Chăm với ngày hội non sông", date: "13/03/2026 - 03:34" },
+  { img: video3, title: "Bí thư Tỉnh ủy Khánh Hòa Nghiêm Xuân Thành chú...", date: "17/02/2026 - 12:04" },
+  { img: video4, title: "Tết ấm trong những ngôi nhà Quang Trung", date: "16/02/2026 - 03:13" },
+  { img: video5, title: "Hướng về Đại hội đại biểu toàn quốc lần thứ XIV", date: "19/01/2026 - 07:52" },
+];
+
 /* ============================================================
    COMPONENT PHỤ
    ============================================================ */
@@ -251,14 +329,18 @@ function ChinhQuyenPage() {
     useState<keyof typeof TAB_INDIEU_HANH>("Thông tin chỉ đạo điều hành");
   const [tabCchc, setTabCchc] =
     useState<keyof typeof TAB_CCHC>("Cải cách hành chính");
+  const [tabKtxh, setTabKtxh] =
+    useState<keyof typeof TAB_KTXH>("Thông tin Kinh tế - Xã hội");
   const [tabSoBan, setTabSoBan] = useState<"Các Sở, Ban" | "UBND các xã, phường, đặc khu">("Các Sở, Ban");
   const [searchSo, setSearchSo] = useState("");
+  const [survey, setSurvey] = useState<"yes" | "no" | "more" | null>("yes");
 
   const list = tabSoBan === "Các Sở, Ban" ? SO_BAN_NGANH : UBND_XA;
   const filtered = list.filter((s) => s.toLowerCase().includes(searchSo.toLowerCase()));
 
   const indieu = TAB_INDIEU_HANH[tabIndieu];
   const cchc = TAB_CCHC[tabCchc];
+  const ktxh = TAB_KTXH[tabKtxh];
 
   return (
     <SiteLayout>
@@ -496,6 +578,119 @@ function ChinhQuyenPage() {
           </aside>
         </section>
 
+        {/* ============== 2 BANNER TRỤ SỞ ============== */}
+        <section className="grid md:grid-cols-2 gap-4">
+          <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+              <Building className="h-6 w-6 text-gov-yellow" />
+            </div>
+            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+              Trụ sở làm việc của các đơn vị hành chính xã, phường, đặc khu
+            </p>
+            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+          </a>
+          <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+              <Building2 className="h-6 w-6 text-gov-yellow" />
+            </div>
+            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+              Trụ sở Trung tâm phục vụ hành chính công xã, phường, đặc khu
+            </p>
+            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+          </a>
+        </section>
+
+        {/* ============== KINH TẾ - XÃ HỘI / QUY HOẠCH + SIDEBAR LÃNH ĐẠO & PHÁT NGÔN ============== */}
+        <section className="grid lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-3">
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-end justify-between gap-4 border-b mb-4">
+                <div className="flex items-center gap-1 flex-wrap">
+                  {(Object.keys(TAB_KTXH) as (keyof typeof TAB_KTXH)[]).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setTabKtxh(tab)}
+                      className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                        tabKtxh === tab
+                          ? "text-gov-blue-dark"
+                          : "text-muted-foreground hover:text-gov-blue-dark"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <BarChart3 className={`h-4 w-4 ${tabKtxh === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                        {tab.toUpperCase()}
+                      </span>
+                      {tabKtxh === tab && (
+                        <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+                <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-2.5 shrink-0">
+                  Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
+                <a href="#" className="group flex flex-col">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                    <img src={ktxh.main.img} alt={ktxh.main.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-x-0 bottom-0 bg-gov-blue/95 text-white px-4 py-3">
+                      <p className="font-semibold leading-snug line-clamp-2">{ktxh.main.title}</p>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {ktxh.main.date}</p>
+                </a>
+                <div className="flex flex-col divide-y h-full">
+                  {ktxh.list.map((n, i) => (
+                    <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                      <img src={n.img} alt={n.title} loading="lazy" className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                      <div className="flex flex-col justify-center min-w-0">
+                        <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                        <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar phải: Quick lãnh đạo + Người phát ngôn */}
+          <aside className="space-y-5">
+            <div className="rounded-xl border-2 border-gov-red p-3 space-y-2.5 bg-card shadow-sm">
+              {QUICK_LINKS_LD.map((q, i) => (
+                <a key={i} href="#" className={`block w-full ${q.color} hover:bg-gov-red-dark text-white font-bold uppercase text-xs md:text-sm tracking-wide text-center py-2.5 px-3 rounded-md transition`}>
+                  {q.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
+                <Mic className="h-4 w-4 text-gov-red" />
+                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
+                  Thông tin người phát ngôn
+                </h4>
+              </div>
+              <ul className="divide-y divide-border">
+                {NGUOI_PHAT_NGON.map((n, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex gap-3 px-4 py-3 hover:bg-muted/40 transition group items-start">
+                      <div className="shrink-0 h-12 w-12 rounded bg-gov-red/10 flex items-center justify-center">
+                        <Newspaper className="h-5 w-5 text-gov-red" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </section>
+
         {/* ============== TABS CCHC / THI ĐUA / PCTN ============== */}
         <section>
           <Tabs
@@ -529,6 +724,167 @@ function ChinhQuyenPage() {
               </li>
             </ul>
           </div>
+        </section>
+
+        {/* ============== ĐỒ HỌA / CHUYÊN TRANG / VIDEO + SIDEBAR ZALO/FANPAGE/NCSC/KHẢO SÁT ============== */}
+        <section className="grid lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-3 space-y-8">
+            {/* Đồ họa trực quan */}
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-center gap-2 border-b-2 border-gov-blue/20 pb-2 mb-4">
+                <BarChart3 className="h-5 w-5 text-gov-blue-dark" />
+                <h4 className="font-bold text-gov-blue-dark tracking-wide uppercase">Đồ họa trực quan</h4>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {DO_HOA.map((c, i) => (
+                  <a key={i} href="#" className="group rounded-md overflow-hidden bg-card border border-border hover:shadow-md transition flex flex-col">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img src={c.img} alt={c.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <div className="px-3 py-2.5 bg-gov-blue/10 flex-1 flex items-start">
+                      <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{c.title}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Chuyên trang, chuyên mục */}
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-center gap-2 border-b-2 border-gov-blue/20 pb-2 mb-4">
+                <BookOpen className="h-5 w-5 text-gov-blue-dark" />
+                <h4 className="font-bold text-gov-blue-dark tracking-wide uppercase">Chuyên trang, chuyên mục</h4>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {CHUYEN_TRANG.map((t, i) => (
+                  <a key={i} href="#" className="flex items-center gap-3 rounded-lg border border-border bg-muted/30 px-4 py-3 hover:border-gov-blue hover:bg-gov-blue/5 transition group">
+                    <ChevronRight className="h-4 w-4 text-gov-blue group-hover:translate-x-0.5 transition-transform" />
+                    <span className="text-sm font-semibold text-foreground group-hover:text-gov-blue-dark">{t}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Video clip */}
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-gov-blue border-b-2 border-gov-blue/30 pb-2 mb-5 inline-flex items-center gap-2 uppercase text-sm tracking-wide">
+                <Play className="h-4 w-4 fill-gov-blue" /> Video clip
+              </h4>
+              <div className="grid md:grid-cols-12 gap-5">
+                <a href="#" className="group block md:col-span-7">
+                  <div className="relative aspect-video rounded-lg overflow-hidden">
+                    <img src={videoMain} alt="Video chính" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition flex items-center justify-center">
+                      <div className="h-16 w-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <Play className="h-7 w-7 text-gov-red fill-gov-red ml-1" />
+                      </div>
+                    </div>
+                  </div>
+                  <h5 className="mt-3 text-lg leading-snug font-semibold text-foreground group-hover:text-gov-red">
+                    Giải pháp giúp hộ kinh doanh kê khai thuế đúng, an tâm tuân thủ, phát triển bền vững
+                  </h5>
+                </a>
+                <ul className="md:col-span-5 flex flex-col justify-between gap-3">
+                  {VIDEO_LIST.map((v, i) => (
+                    <li key={i} className="flex-1">
+                      <a href="#" className="flex gap-3 group items-center h-full">
+                        <div className="relative h-16 w-24 shrink-0 rounded overflow-hidden">
+                          <img src={v.img} alt={v.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                            <Play className="h-4 w-4 text-white fill-white" />
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug line-clamp-2">{v.title}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{v.date}</p>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar: Zalo + Fanpage + NCSC + Khảo sát */}
+          <aside className="space-y-5">
+            {/* Zalo */}
+            <a href="#" className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-cyan text-white shadow-md hover:shadow-lg transition">
+              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/20">
+                <div className="h-9 w-9 rounded-md bg-white text-gov-blue font-extrabold flex items-center justify-center text-sm">Zalo</div>
+                <p className="text-xs font-semibold leading-tight">Chính quyền điện tử<br/>tỉnh Khánh Hòa</p>
+              </div>
+              <div className="p-4 flex items-center justify-center">
+                <div className="bg-white p-3 rounded-lg">
+                  <QrCode className="h-24 w-24 text-gov-blue-dark" />
+                </div>
+              </div>
+            </a>
+
+            {/* Fanpage */}
+            <a href="#" className="block rounded-xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition">
+              <div className="bg-gov-blue text-white px-4 py-3 flex items-center gap-2">
+                <Smartphone className="h-4 w-4" />
+                <p className="text-xs font-bold uppercase tracking-wide leading-tight">Fanpage<br/>Cổng TTĐT tỉnh Khánh Hòa</p>
+              </div>
+              <div className="p-4 flex items-center justify-center">
+                <div className="bg-white p-3 rounded-lg border border-border">
+                  <QrCode className="h-24 w-24 text-gov-blue-dark" />
+                </div>
+              </div>
+            </a>
+
+            {/* NCSC - Tín nhiệm mạng */}
+            <a href="#" className="flex items-center gap-3 rounded-xl bg-card border border-border shadow-sm p-4 hover:shadow-md transition">
+              <div className="shrink-0 h-12 w-12 rounded-md bg-gov-blue-dark text-white flex items-center justify-center">
+                <ShieldCheck className="h-7 w-7 text-gov-yellow" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold text-gov-red uppercase tracking-wider">NCSC.VN — Cơ bản</p>
+                <p className="text-sm font-extrabold text-gov-blue-dark uppercase leading-tight">Website đạt chứng nhận Tín Nhiệm Mạng</p>
+              </div>
+            </a>
+
+            {/* Khảo sát ý kiến */}
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
+                <Vote className="h-4 w-4 text-gov-red" />
+                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">Khảo sát ý kiến</h4>
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-semibold text-foreground leading-snug">Bạn có hài lòng về giao diện Cổng thông tin không?</p>
+                <p className="text-xs text-muted-foreground italic mt-1">Đã có 7341 lượt biểu quyết</p>
+
+                <div className="mt-3 space-y-2">
+                  {[
+                    { key: "yes", label: "Hài lòng (Giao diện thân thiện, rõ ràng, dễ chịu, dễ đọc)" },
+                    { key: "no", label: "Không hài lòng" },
+                    { key: "more", label: "Cần cập nhật thêm" },
+                  ].map((o) => (
+                    <label key={o.key} className="flex items-start gap-2 text-sm cursor-pointer">
+                      <input
+                        type="radio"
+                        name="cq-survey"
+                        checked={survey === o.key}
+                        onChange={() => setSurvey(o.key as "yes" | "no" | "more")}
+                        className="mt-1 accent-gov-blue"
+                      />
+                      <span className="text-foreground/90 leading-snug">{o.label}</span>
+                    </label>
+                  ))}
+                </div>
+
+                <div className="flex gap-2 mt-4">
+                  <button className="flex-1 bg-gov-blue hover:bg-gov-blue-dark text-white text-sm font-semibold py-2 rounded-md transition inline-flex items-center justify-center gap-1">
+                    <CheckCircle2 className="h-4 w-4" /> Biểu quyết
+                  </button>
+                  <button className="flex-1 bg-muted hover:bg-muted/70 text-foreground text-sm font-semibold py-2 rounded-md transition border border-border">
+                    Xem kết quả
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
         </section>
 
         {/* ============== TABS SỞ BAN + LIÊN KẾT WEBSITE ============== */}
