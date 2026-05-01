@@ -28,8 +28,6 @@ import {
   Mic,
   Newspaper,
   ShieldCheck,
-  QrCode,
-  Smartphone,
   CheckCircle2,
   Vote,
 } from "lucide-react";
@@ -600,9 +598,11 @@ function ChinhQuyenPage() {
           </a>
         </section>
 
-        {/* ============== KINH TẾ - XÃ HỘI / QUY HOẠCH + SIDEBAR LÃNH ĐẠO & PHÁT NGÔN ============== */}
+        {/* ============== MAIN CONTENT + CONTINUOUS RIGHT SIDEBAR ============== */}
         <section className="grid lg:grid-cols-4 gap-6">
-          <div className="lg:col-span-3">
+          {/* LEFT: KTXH -> CCHC -> Đồ họa -> Chuyên trang -> Video (continuous) */}
+          <div className="lg:col-span-3 space-y-8">
+            {/* KTXH / Quy hoạch */}
             <div className="rounded-xl bg-card p-5 shadow-sm">
               <div className="flex items-end justify-between gap-4 border-b mb-4">
                 <div className="flex items-center gap-1 flex-wrap">
@@ -653,82 +653,42 @@ function ChinhQuyenPage() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Sidebar phải: Quick lãnh đạo + Người phát ngôn */}
-          <aside className="space-y-5">
-            <div className="rounded-xl border-2 border-gov-red p-3 space-y-2.5 bg-card shadow-sm">
-              {QUICK_LINKS_LD.map((q, i) => (
-                <a key={i} href="#" className={`block w-full ${q.color} hover:bg-gov-red-dark text-white font-bold uppercase text-xs md:text-sm tracking-wide text-center py-2.5 px-3 rounded-md transition`}>
-                  {q.label}
-                </a>
-              ))}
-            </div>
-
-            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
-              <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
-                <Mic className="h-4 w-4 text-gov-red" />
-                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
-                  Thông tin người phát ngôn
-                </h4>
-              </div>
-              <ul className="divide-y divide-border">
-                {NGUOI_PHAT_NGON.map((n, i) => (
-                  <li key={i}>
-                    <a href="#" className="flex gap-3 px-4 py-3 hover:bg-muted/40 transition group items-start">
-                      <div className="shrink-0 h-12 w-12 rounded bg-gov-red/10 flex items-center justify-center">
-                        <Newspaper className="h-5 w-5 text-gov-red" />
-                      </div>
+            {/* CCHC / Thi đua / PCTN */}
+            <div>
+              <Tabs
+                tabs={Object.keys(TAB_CCHC) as (keyof typeof TAB_CCHC)[]}
+                active={tabCchc}
+                onChange={setTabCchc}
+              />
+              <div className="grid md:grid-cols-2 gap-5">
+                <article className="relative rounded-xl overflow-hidden group cursor-pointer">
+                  <img src={cchc.main.img} alt={cchc.main.title} className="w-full h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gov-blue/95 text-white p-4">
+                    <h4 className="font-bold leading-snug">{cchc.main.title}</h4>
+                  </div>
+                </article>
+                <ul className="space-y-4">
+                  {cchc.list.map((n, i) => (
+                    <li key={i} className="flex gap-3 group cursor-pointer">
+                      <img src={n.img} alt={n.title} className="w-28 h-24 rounded-lg object-cover shrink-0" />
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
-                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug">
+                          {n.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">{n.date}</p>
                       </div>
+                    </li>
+                  ))}
+                  <li className="text-right">
+                    <a href="#" className="text-sm font-semibold text-gov-blue hover:text-gov-red inline-flex items-center gap-1">
+                      Xem tất cả bài viết <ArrowRight className="h-4 w-4" />
                     </a>
                   </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-        </section>
-
-        {/* ============== TABS CCHC / THI ĐUA / PCTN ============== */}
-        <section>
-          <Tabs
-            tabs={Object.keys(TAB_CCHC) as (keyof typeof TAB_CCHC)[]}
-            active={tabCchc}
-            onChange={setTabCchc}
-          />
-          <div className="grid md:grid-cols-2 gap-5">
-            <article className="relative rounded-xl overflow-hidden group cursor-pointer">
-              <img src={cchc.main.img} alt={cchc.main.title} className="w-full h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 bg-gov-blue/95 text-white p-4">
-                <h4 className="font-bold leading-snug">{cchc.main.title}</h4>
+                </ul>
               </div>
-            </article>
-            <ul className="space-y-4">
-              {cchc.list.map((n, i) => (
-                <li key={i} className="flex gap-3 group cursor-pointer">
-                  <img src={n.img} alt={n.title} className="w-28 h-24 rounded-lg object-cover shrink-0" />
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug">
-                      {n.title}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">{n.date}</p>
-                  </div>
-                </li>
-              ))}
-              <li className="text-right">
-                <a href="#" className="text-sm font-semibold text-gov-blue hover:text-gov-red inline-flex items-center gap-1">
-                  Xem tất cả bài viết <ArrowRight className="h-4 w-4" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
+            </div>
 
-        {/* ============== ĐỒ HỌA / CHUYÊN TRANG / VIDEO + SIDEBAR ZALO/FANPAGE/NCSC/KHẢO SÁT ============== */}
-        <section className="grid lg:grid-cols-4 gap-6">
-          <div className="lg:col-span-3 space-y-8">
             {/* Đồ họa trực quan */}
             <div className="rounded-xl bg-card p-5 shadow-sm">
               <div className="flex items-center gap-2 border-b-2 border-gov-blue/20 pb-2 mb-4">
@@ -806,33 +766,67 @@ function ChinhQuyenPage() {
             </div>
           </div>
 
-          {/* Sidebar: Zalo + Fanpage + NCSC + Khảo sát */}
+          {/* RIGHT: continuous sidebar */}
           <aside className="space-y-5">
-            {/* Zalo */}
-            <a href="#" className="block rounded-xl overflow-hidden bg-gradient-to-br from-gov-blue to-gov-cyan text-white shadow-md hover:shadow-lg transition">
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/20">
-                <div className="h-9 w-9 rounded-md bg-white text-gov-blue font-extrabold flex items-center justify-center text-sm">Zalo</div>
-                <p className="text-xs font-semibold leading-tight">Chính quyền điện tử<br/>tỉnh Khánh Hòa</p>
-              </div>
-              <div className="p-4 flex items-center justify-center">
-                <div className="bg-white p-3 rounded-lg">
-                  <QrCode className="h-24 w-24 text-gov-blue-dark" />
-                </div>
-              </div>
-            </a>
+            {/* Quick links lãnh đạo */}
+            <div className="rounded-xl border-2 border-gov-red p-3 space-y-2.5 bg-card shadow-sm">
+              {QUICK_LINKS_LD.map((q, i) => (
+                <a key={i} href="#" className={`block w-full ${q.color} hover:bg-gov-red-dark text-white font-bold uppercase text-xs md:text-sm tracking-wide text-center py-2.5 px-3 rounded-md transition`}>
+                  {q.label}
+                </a>
+              ))}
+            </div>
 
-            {/* Fanpage */}
-            <a href="#" className="block rounded-xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition">
-              <div className="bg-gov-blue text-white px-4 py-3 flex items-center gap-2">
-                <Smartphone className="h-4 w-4" />
-                <p className="text-xs font-bold uppercase tracking-wide leading-tight">Fanpage<br/>Cổng TTĐT tỉnh Khánh Hòa</p>
+            {/* Người phát ngôn */}
+            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
+              <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
+                <Mic className="h-4 w-4 text-gov-red" />
+                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
+                  Thông tin người phát ngôn
+                </h4>
               </div>
-              <div className="p-4 flex items-center justify-center">
-                <div className="bg-white p-3 rounded-lg border border-border">
-                  <QrCode className="h-24 w-24 text-gov-blue-dark" />
+              <ul className="divide-y divide-border">
+                {NGUOI_PHAT_NGON.map((n, i) => (
+                  <li key={i}>
+                    <a href="#" className="flex gap-3 px-4 py-3 hover:bg-muted/40 transition group items-start">
+                      <div className="shrink-0 h-12 w-12 rounded bg-gov-red/10 flex items-center justify-center">
+                        <Newspaper className="h-5 w-5 text-gov-red" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-2">{n.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Chỉ đạo, điều hành của Chính phủ */}
+            <div className="rounded-xl bg-gradient-to-br from-gov-blue-dark to-gov-blue text-white p-5 shadow-md">
+              <h4 className="font-bold mb-3 uppercase text-sm tracking-wide border-b border-white/20 pb-2">
+                Chỉ đạo, điều hành của Chính phủ, Thủ tướng
+              </h4>
+              <div className="relative rounded-lg overflow-hidden mb-4 cursor-pointer group">
+                <img src={videoMain} alt="video" className="w-full h-40 object-cover group-hover:scale-105 transition-transform" />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="h-14 w-14 rounded-full bg-white/30 backdrop-blur flex items-center justify-center group-hover:bg-white/50 transition">
+                    <Play className="h-6 w-6 text-white fill-white ml-1" />
+                  </div>
                 </div>
               </div>
-            </a>
+              <ul className="space-y-2.5 text-sm">
+                {CHI_DAO_CP.map((n, i) => (
+                  <li key={i} className="flex gap-2 items-start text-white/90 hover:text-gov-yellow cursor-pointer leading-snug">
+                    <ChevronRight className="h-4 w-4 text-gov-yellow shrink-0 mt-0.5" />
+                    <span>{n}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[11px] italic text-white/60 mt-3 pt-3 border-t border-white/15">
+                Nguồn: Cổng Thông tin điện tử Chính phủ
+              </p>
+            </div>
 
             {/* NCSC - Tín nhiệm mạng */}
             <a href="#" className="flex items-center gap-3 rounded-xl bg-card border border-border shadow-sm p-4 hover:shadow-md transition">
