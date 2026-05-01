@@ -828,17 +828,6 @@ function ChinhQuyenPage() {
               </p>
             </div>
 
-            {/* NCSC - Tín nhiệm mạng */}
-            <a href="#" className="flex items-center gap-3 rounded-xl bg-card border border-border shadow-sm p-4 hover:shadow-md transition">
-              <div className="shrink-0 h-12 w-12 rounded-md bg-gov-blue-dark text-white flex items-center justify-center">
-                <ShieldCheck className="h-7 w-7 text-gov-yellow" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] font-bold text-gov-red uppercase tracking-wider">NCSC.VN — Cơ bản</p>
-                <p className="text-sm font-extrabold text-gov-blue-dark uppercase leading-tight">Website đạt chứng nhận Tín Nhiệm Mạng</p>
-              </div>
-            </a>
-
             {/* Khảo sát ý kiến */}
             <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
               <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
@@ -878,6 +867,17 @@ function ChinhQuyenPage() {
                 </div>
               </div>
             </div>
+
+            {/* NCSC - Tín nhiệm mạng */}
+            <a href="#" className="flex items-center gap-3 rounded-xl bg-card border border-border shadow-sm p-4 hover:shadow-md transition">
+              <div className="shrink-0 h-12 w-12 rounded-md bg-gov-blue-dark text-white flex items-center justify-center">
+                <ShieldCheck className="h-7 w-7 text-gov-yellow" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold text-gov-red uppercase tracking-wider">NCSC.VN — Cơ bản</p>
+                <p className="text-sm font-extrabold text-gov-blue-dark uppercase leading-tight">Website đạt chứng nhận Tín Nhiệm Mạng</p>
+              </div>
+            </a>
           </aside>
         </section>
 
