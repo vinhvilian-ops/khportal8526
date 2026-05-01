@@ -28,8 +28,6 @@ import {
   Mic,
   Newspaper,
   ShieldCheck,
-  QrCode,
-  Smartphone,
   CheckCircle2,
   Vote,
 } from "lucide-react";
