@@ -136,13 +136,38 @@ const UBND_XA = [
   "Đặc khu Trường Sa", "Đặc khu Vân Phong",
 ];
 
-const LIEN_KET_WEB = [
-  "Chính phủ, bộ ngành",
-  "Các tỉnh, thành phố",
-  "Tổ chức chính trị",
-  "Đơn vị sự nghiệp",
-  "Website khác",
-];
+const WEBSITE_LINKS: Record<string, string[]> = {
+  "-- Chính phủ, bộ ngành --": ["Cổng TTĐT Chính phủ", "Bộ Nội vụ", "Bộ Tài chính", "Bộ Công Thương", "Bộ Y tế", "Bộ Giáo dục và Đào tạo"],
+  "-- Các tỉnh, thành phố --": ["TP. Hà Nội", "TP. Hồ Chí Minh", "TP. Đà Nẵng", "Tỉnh Ninh Thuận", "Tỉnh Phú Yên", "Tỉnh Bình Thuận"],
+  "-- Tổ chức chính trị --": ["Đảng Cộng sản Việt Nam", "Mặt trận Tổ quốc", "Đoàn TNCS Hồ Chí Minh", "Hội Liên hiệp Phụ nữ", "Tổng Liên đoàn Lao động"],
+  "-- Đơn vị sự nghiệp --": ["Đại học Nha Trang", "Bệnh viện Đa khoa tỉnh", "Đài PT-TH Khánh Hòa", "Báo Khánh Hòa"],
+  "-- Website khác --": ["Cổng Dịch vụ công Quốc gia", "Hệ thống văn bản QPPL", "Bảo hiểm xã hội Việt Nam", "Tổng cục Thuế"],
+};
+
+function getDeptIcon(name: string): LucideIcon {
+  const n = name.toLowerCase();
+  if (n.includes("nội vụ")) return Users;
+  if (n.includes("tư pháp")) return Scale;
+  if (n.includes("văn phòng ubnd")) return Building2;
+  if (n.includes("tài chính")) return Coins;
+  if (n.includes("thanh tra")) return ShieldCheck;
+  if (n.includes("xây dựng") && !n.includes("đầu tư")) return Hammer;
+  if (n.includes("công thương")) return Factory;
+  if (n.includes("khoa học")) return FlaskConical;
+  if (n.includes("giáo dục")) return GraduationCap;
+  if (n.includes("nông nghiệp")) return Sprout;
+  if (n.includes("văn hóa")) return Music;
+  if (n.includes("y tế")) return HeartPulse;
+  if (n.includes("dân tộc") || n.includes("tôn giáo")) return Handshake;
+  if (n.includes("vườn quốc gia") || n.includes("núi chúa")) return TreePine;
+  if (n.includes("khu kinh tế") || n.includes("khu công nghiệp")) return Factory;
+  if (n.includes("đầu tư xây dựng") || n.includes("dự án")) return FolderKanban;
+  if (n.includes("ban quản lý") || n.includes("ban ")) return Briefcase;
+  if (n.includes("đặc khu") || n.includes("trường sa")) return Waves;
+  if (n.includes("phường")) return Building2;
+  if (n.includes("xã")) return HomeIcon;
+  return Landmark;
+}
 
 const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa", photo: leaderChairman };
 const PHO_CHU_TICH = [
