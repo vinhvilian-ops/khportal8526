@@ -939,7 +939,7 @@ function ChinhQuyenPage() {
         </section>
 
         {/* ============== TABS SỞ BAN + LIÊN KẾT WEBSITE ============== */}
-        <section className="grid lg:grid-cols-3 gap-6 items-start">
+        <section className="grid lg:grid-cols-3 gap-6 items-stretch">
           <div className="lg:col-span-2">
             <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
               <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
