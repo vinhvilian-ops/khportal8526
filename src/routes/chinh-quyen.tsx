@@ -374,6 +374,7 @@ function ChinhQuyenPage() {
   const [tabSoBan, setTabSoBan] = useState<"Các Sở, Ban" | "UBND các xã, phường, đặc khu">("Các Sở, Ban");
   const [searchSo, setSearchSo] = useState("");
   const [survey, setSurvey] = useState<"yes" | "no" | "more" | null>("yes");
+  const [openWebCat, setOpenWebCat] = useState<string | null>(null);
 
   const list = tabSoBan === "Các Sở, Ban" ? SO_BAN_NGANH : UBND_XA;
   const filtered = list.filter((s) => s.toLowerCase().includes(searchSo.toLowerCase()));
