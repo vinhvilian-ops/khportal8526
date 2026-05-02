@@ -30,6 +30,23 @@ import {
   ShieldCheck,
   CheckCircle2,
   Vote,
+  Sparkles,
+  Users,
+  Scale,
+  Coins,
+  Hammer,
+  Factory,
+  FlaskConical,
+  GraduationCap,
+  Sprout,
+  Music,
+  HeartPulse,
+  Handshake,
+  TreePine,
+  FolderKanban,
+  Waves,
+  Home as HomeIcon,
+  type LucideIcon,
 } from "lucide-react";
 
 import leaderFeatured from "@/assets/leader-featured.jpg";
