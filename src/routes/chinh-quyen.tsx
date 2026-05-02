@@ -30,6 +30,23 @@ import {
   ShieldCheck,
   CheckCircle2,
   Vote,
+  Sparkles,
+  Users,
+  Scale,
+  Coins,
+  Hammer,
+  Factory,
+  FlaskConical,
+  GraduationCap,
+  Sprout,
+  Music,
+  HeartPulse,
+  Handshake,
+  TreePine,
+  FolderKanban,
+  Waves,
+  Home as HomeIcon,
+  type LucideIcon,
 } from "lucide-react";
 
 import leaderFeatured from "@/assets/leader-featured.jpg";
@@ -119,13 +136,38 @@ const UBND_XA = [
   "Đặc khu Trường Sa", "Đặc khu Vân Phong",
 ];
 
-const LIEN_KET_WEB = [
-  "Chính phủ, bộ ngành",
-  "Các tỉnh, thành phố",
-  "Tổ chức chính trị",
-  "Đơn vị sự nghiệp",
-  "Website khác",
-];
+const WEBSITE_LINKS: Record<string, string[]> = {
+  "-- Chính phủ, bộ ngành --": ["Cổng TTĐT Chính phủ", "Bộ Nội vụ", "Bộ Tài chính", "Bộ Công Thương", "Bộ Y tế", "Bộ Giáo dục và Đào tạo"],
+  "-- Các tỉnh, thành phố --": ["TP. Hà Nội", "TP. Hồ Chí Minh", "TP. Đà Nẵng", "Tỉnh Ninh Thuận", "Tỉnh Phú Yên", "Tỉnh Bình Thuận"],
+  "-- Tổ chức chính trị --": ["Đảng Cộng sản Việt Nam", "Mặt trận Tổ quốc", "Đoàn TNCS Hồ Chí Minh", "Hội Liên hiệp Phụ nữ", "Tổng Liên đoàn Lao động"],
+  "-- Đơn vị sự nghiệp --": ["Đại học Nha Trang", "Bệnh viện Đa khoa tỉnh", "Đài PT-TH Khánh Hòa", "Báo Khánh Hòa"],
+  "-- Website khác --": ["Cổng Dịch vụ công Quốc gia", "Hệ thống văn bản QPPL", "Bảo hiểm xã hội Việt Nam", "Tổng cục Thuế"],
+};
+
+function getDeptIcon(name: string): LucideIcon {
+  const n = name.toLowerCase();
+  if (n.includes("nội vụ")) return Users;
+  if (n.includes("tư pháp")) return Scale;
+  if (n.includes("văn phòng ubnd")) return Building2;
+  if (n.includes("tài chính")) return Coins;
+  if (n.includes("thanh tra")) return ShieldCheck;
+  if (n.includes("xây dựng") && !n.includes("đầu tư")) return Hammer;
+  if (n.includes("công thương")) return Factory;
+  if (n.includes("khoa học")) return FlaskConical;
+  if (n.includes("giáo dục")) return GraduationCap;
+  if (n.includes("nông nghiệp")) return Sprout;
+  if (n.includes("văn hóa")) return Music;
+  if (n.includes("y tế")) return HeartPulse;
+  if (n.includes("dân tộc") || n.includes("tôn giáo")) return Handshake;
+  if (n.includes("vườn quốc gia") || n.includes("núi chúa")) return TreePine;
+  if (n.includes("khu kinh tế") || n.includes("khu công nghiệp")) return Factory;
+  if (n.includes("đầu tư xây dựng") || n.includes("dự án")) return FolderKanban;
+  if (n.includes("ban quản lý") || n.includes("ban ")) return Briefcase;
+  if (n.includes("đặc khu") || n.includes("trường sa")) return Waves;
+  if (n.includes("phường")) return Building2;
+  if (n.includes("xã")) return HomeIcon;
+  return Landmark;
+}
 
 const CHU_TICH = { title: "CHỦ TỊCH UBND TỈNH", name: "NGUYỄN VIỆT HÙNG", role: "Chủ tịch UBND tỉnh Khánh Hòa", photo: leaderChairman };
 const PHO_CHU_TICH = [
@@ -332,6 +374,7 @@ function ChinhQuyenPage() {
   const [tabSoBan, setTabSoBan] = useState<"Các Sở, Ban" | "UBND các xã, phường, đặc khu">("Các Sở, Ban");
   const [searchSo, setSearchSo] = useState("");
   const [survey, setSurvey] = useState<"yes" | "no" | "more" | null>("yes");
+  const [openWebCat, setOpenWebCat] = useState<string | null>(null);
 
   const list = tabSoBan === "Các Sở, Ban" ? SO_BAN_NGANH : UBND_XA;
   const filtered = list.filter((s) => s.toLowerCase().includes(searchSo.toLowerCase()));
@@ -896,68 +939,113 @@ function ChinhQuyenPage() {
         </section>
 
         {/* ============== TABS SỞ BAN + LIÊN KẾT WEBSITE ============== */}
-        <section className="grid lg:grid-cols-3 gap-6">
+        <section className="grid lg:grid-cols-3 gap-6 items-start">
           <div className="lg:col-span-2">
-            <div className="rounded-xl bg-card border border-border shadow-sm p-5">
-              <div className="flex flex-wrap gap-1 border-b border-border mb-4">
-                {(["Các Sở, Ban", "UBND các xã, phường, đặc khu"] as const).map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => { setTabSoBan(t); setSearchSo(""); }}
-                    className={`px-4 py-2.5 text-sm font-semibold uppercase tracking-wide transition border-b-2 -mb-px ${
-                      tabSoBan === t
-                        ? "text-gov-blue-dark border-gov-blue"
-                        : "text-muted-foreground border-transparent hover:text-gov-blue"
-                    }`}
-                  >
-                    {t === "Các Sở, Ban" ? <><Briefcase className="inline h-4 w-4 mr-1" /> {t}</> : <><MapPin className="inline h-4 w-4 mr-1" /> {t}</>}
-                  </button>
-                ))}
+            <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
+              <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
+                {(["Các Sở, Ban", "UBND các xã, phường, đặc khu"] as const).map((t) => {
+                  const isActive = tabSoBan === t;
+                  const Icon = t === "Các Sở, Ban" ? Building2 : Landmark;
+                  return (
+                    <button
+                      key={t}
+                      onClick={() => { setTabSoBan(t); setSearchSo(""); }}
+                      className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors flex items-center gap-2 ${
+                        isActive ? "text-gov-blue-dark" : "text-muted-foreground hover:text-gov-blue-dark"
+                      }`}
+                    >
+                      <Icon className={`h-4 w-4 ${isActive ? "text-gov-red" : ""}`} />
+                      {t.toUpperCase()}
+                      {isActive && <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />}
+                    </button>
+                  );
+                })}
               </div>
 
               <div className="relative mb-4">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <input
+                  type="search"
                   value={searchSo}
                   onChange={(e) => setSearchSo(e.target.value)}
                   placeholder={tabSoBan === "Các Sở, Ban" ? "Tìm kiếm trong các sở, ban..." : "Tìm kiếm xã, phường, đặc khu..."}
-                  className="w-full bg-muted/50 border border-border rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-gov-blue"
+                  className="w-full rounded-lg border border-input bg-background pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gov-blue/40 transition"
                 />
               </div>
 
-              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-2">
-                {filtered.map((s, i) => (
-                  <li key={i} className="flex items-center gap-2 py-1.5 text-sm text-foreground hover:text-gov-blue cursor-pointer">
-                    <Globe className="h-4 w-4 text-gov-blue shrink-0" />
-                    <span className="truncate">{s}</span>
-                  </li>
-                ))}
-                {filtered.length === 0 && (
-                  <li className="text-sm text-muted-foreground italic col-span-full py-3">Không có kết quả phù hợp.</li>
+              <div
+                key={tabSoBan}
+                className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1 flex-1 min-h-0 animate-in fade-in slide-in-from-bottom-2 duration-300"
+              >
+                {filtered.length === 0 ? (
+                  <p className="col-span-full text-sm text-muted-foreground py-6 text-center">
+                    Không tìm thấy kết quả phù hợp.
+                  </p>
+                ) : (
+                  filtered.map((d, i) => {
+                    const Icon = getDeptIcon(d);
+                    return (
+                      <a
+                        key={i}
+                        href="#"
+                        className="group text-sm text-foreground hover:text-gov-red flex items-center gap-2.5 py-1.5 transition-colors"
+                      >
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gov-blue/10 text-gov-blue transition-colors group-hover:bg-gov-blue group-hover:text-white">
+                          <Icon className="h-3.5 w-3.5" />
+                        </span>
+                        <span className="truncate">{d}</span>
+                      </a>
+                    );
+                  })
                 )}
-              </ul>
+              </div>
             </div>
           </div>
 
           {/* Liên kết Website */}
           <aside>
-            <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
-              <div className="px-4 py-3 border-b border-border flex items-center gap-2">
-                <Globe className="h-4 w-4 text-gov-blue" />
-                <h4 className="font-bold text-gov-blue-dark uppercase text-sm tracking-wide">
-                  Liên kết Website
-                </h4>
+            <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
+              <h4 className="flex items-center gap-2 font-bold text-gov-blue-dark mb-4 text-sm uppercase border-b-2 border-gov-red/40 pb-2">
+                <Sparkles className="h-4 w-4 text-gov-red" />
+                Liên kết Website
+              </h4>
+              <div className="flex flex-col gap-2 flex-1 justify-between">
+                {Object.entries(WEBSITE_LINKS).map(([category, links]) => {
+                  const isOpen = openWebCat === category;
+                  return (
+                    <div key={category} className="rounded-lg border border-border overflow-hidden flex-1 flex flex-col min-h-[44px]">
+                      <button
+                        onClick={() => setOpenWebCat(isOpen ? null : category)}
+                        className="w-full flex flex-1 items-center justify-between px-3 py-2.5 text-sm text-foreground hover:bg-muted transition-colors"
+                      >
+                        <span className="flex items-center gap-2">
+                          <Globe className="h-4 w-4 text-gov-blue" />
+                          {category}
+                        </span>
+                        <ChevronRight
+                          className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                            isOpen ? "rotate-90" : ""
+                          }`}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div className="bg-muted/30 px-3 py-2 flex flex-col gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
+                          {links.map((l, i) => (
+                            <a
+                              key={i}
+                              href="#"
+                              className="text-xs text-foreground hover:text-gov-red flex items-center gap-2 py-1"
+                            >
+                              <span className="h-1 w-1 rounded-full bg-gov-orange shrink-0" />
+                              {l}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-              <ul className="divide-y divide-border">
-                {LIEN_KET_WEB.map((l, i) => (
-                  <li key={i}>
-                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted/40 transition group">
-                      <span className="text-sm font-medium text-foreground group-hover:text-gov-blue">{l}</span>
-                      <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-gov-blue" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </div>
           </aside>
         </section>
