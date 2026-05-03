@@ -472,9 +472,9 @@ function ChinhQuyenPage() {
           <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ORGS.map((o, i) => (
-              <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
-                <o.icon className="h-8 w-8 text-gov-blue mb-3" />
-                <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
+              <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-red hover:shadow-md transition">
+                <o.icon className="h-8 w-8 text-gov-red mb-3" />
+                <h3 className="font-bold text-gov-red mb-2">{o.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
               </article>
             ))}
@@ -483,7 +483,7 @@ function ChinhQuyenPage() {
 
         {/* ============== LÃNH ĐẠO UBND TỈNH (BĂNG NGANG) ============== */}
         <section>
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-gov-blue/20 bg-gradient-to-br from-gov-blue-dark via-gov-blue to-gov-blue-dark">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gov-red/20 bg-gradient-to-br from-gov-red-dark via-gov-red to-gov-red-dark">
             <div className="px-6 py-4 flex items-center justify-between border-b border-white/15">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-gov-yellow font-semibold">Trang tin</p>
@@ -503,12 +503,12 @@ function ChinhQuyenPage() {
                     href="#"
                     className={`group relative flex flex-col items-center text-center p-6 md:p-8 transition ${
                       isChair
-                        ? "bg-gradient-to-b from-gov-red to-gov-red-dark hover:from-gov-red-dark hover:to-gov-red"
-                        : "bg-gov-blue-dark/95 hover:bg-gov-blue"
+                        ? "bg-gradient-to-b from-gov-red-dark to-[#7a0a14] hover:from-[#7a0a14] hover:to-gov-red-dark"
+                        : "bg-gov-red/95 hover:bg-gov-red-dark"
                     }`}
                   >
                     {isChair && (
-                      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gov-yellow text-gov-blue-dark">
+                      <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gov-yellow text-gov-red-dark">
                         Chủ tịch
                       </span>
                     )}
