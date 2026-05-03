@@ -712,37 +712,53 @@ function ChinhQuyenPage() {
             </div>
 
             {/* CCHC / Thi đua / PCTN */}
-            <div>
-              <Tabs
-                tabs={Object.keys(TAB_CCHC) as (keyof typeof TAB_CCHC)[]}
-                active={tabCchc}
-                onChange={setTabCchc}
-              />
-              <div className="grid md:grid-cols-2 gap-5">
-                <article className="relative rounded-xl overflow-hidden group cursor-pointer">
-                  <img src={cchc.main.img} alt={cchc.main.title} className="w-full h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gov-blue/95 text-white p-4">
-                    <h4 className="font-bold leading-snug">{cchc.main.title}</h4>
-                  </div>
-                </article>
-                <ul className="space-y-4">
-                  {cchc.list.map((n, i) => (
-                    <li key={i} className="flex gap-3 group cursor-pointer">
-                      <img src={n.img} alt={n.title} className="w-28 h-24 rounded-lg object-cover shrink-0" />
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug">
-                          {n.title}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1">{n.date}</p>
-                      </div>
-                    </li>
+            <div className="rounded-xl bg-card p-5 shadow-sm">
+              <div className="flex items-end justify-between gap-4 border-b mb-4">
+                <div className="flex items-center gap-1 flex-wrap">
+                  {(Object.keys(TAB_CCHC) as (keyof typeof TAB_CCHC)[]).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setTabCchc(tab)}
+                      className={`relative px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${
+                        tabCchc === tab
+                          ? "text-gov-blue-dark"
+                          : "text-muted-foreground hover:text-gov-blue-dark"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <BarChart3 className={`h-4 w-4 ${tabCchc === tab ? "text-gov-red" : "text-muted-foreground"}`} />
+                        {tab.toUpperCase()}
+                      </span>
+                      {tabCchc === tab && (
+                        <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />
+                      )}
+                    </button>
                   ))}
-                  <li className="text-right">
-                    <a href="#" className="text-sm font-semibold text-gov-blue hover:text-gov-red inline-flex items-center gap-1">
-                      Xem tất cả bài viết <ArrowRight className="h-4 w-4" />
+                </div>
+                <a href="#" className="group hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-2.5 shrink-0">
+                  Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
+                <a href="#" className="group flex flex-col">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                    <img src={cchc.main.img} alt={cchc.main.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-x-0 bottom-0 bg-gov-blue/95 text-white px-4 py-3">
+                      <p className="font-semibold leading-snug line-clamp-2">{cchc.main.title}</p>
+                    </div>
+                  </div>
+                </a>
+                <div className="flex flex-col divide-y h-full">
+                  {cchc.list.map((n, i) => (
+                    <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                      <img src={n.img} alt={n.title} loading="lazy" className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                      <div className="flex flex-col justify-center min-w-0">
+                        <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
+                        <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      </div>
                     </a>
-                  </li>
-                </ul>
+                  ))}
+                </div>
               </div>
             </div>
 
