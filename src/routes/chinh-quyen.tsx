@@ -472,9 +472,9 @@ function ChinhQuyenPage() {
           <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ORGS.map((o, i) => (
-              <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-blue hover:shadow-md transition">
-                <o.icon className="h-8 w-8 text-gov-blue mb-3" />
-                <h3 className="font-bold text-gov-blue-dark mb-2">{o.title}</h3>
+              <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-red hover:shadow-md transition">
+                <o.icon className="h-8 w-8 text-gov-red mb-3" />
+                <h3 className="font-bold text-gov-red mb-2">{o.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
               </article>
             ))}
