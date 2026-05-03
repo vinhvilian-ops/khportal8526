@@ -969,8 +969,8 @@ function ChinhQuyenPage() {
         </section>
 
         {/* ============== TABS SỞ BAN + LIÊN KẾT WEBSITE ============== */}
-        <section className="grid lg:grid-cols-3 gap-6 items-stretch">
-          <div className="lg:col-span-2">
+        <section className="grid lg:grid-cols-4 gap-6 items-stretch">
+          <div className="lg:col-span-3">
             <div className="rounded-xl bg-card p-5 shadow-sm h-full flex flex-col">
               <div className="flex items-center gap-1 border-b mb-4 flex-wrap">
                 {(["Các Sở, Ban", "UBND các xã, phường, đặc khu"] as const).map((t) => {
