@@ -876,6 +876,29 @@ function ChinhQuyenPage() {
               </p>
             </div>
 
+            {/* Quick links: Lịch công tác / Tiếp công dân / Ý kiến cử tri */}
+            <div className="space-y-3">
+              {[
+                { icon: CalendarDays, sub: "LỊCH CÔNG TÁC", title: "LÃNH ĐẠO UBND THÀNH PHỐ" },
+                { icon: Users2, sub: "LỊCH", title: "TIẾP CÔNG DÂN" },
+                { icon: MessageSquare, sub: "GIẢI TRÌNH", title: "Ý KIẾN CỬ TRI" },
+              ].map((it, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="flex items-center gap-3 rounded-xl border-2 border-gov-red/30 bg-gov-red/5 hover:bg-gov-red/10 hover:border-gov-red transition px-4 py-3 shadow-sm group"
+                >
+                  <div className="h-11 w-11 shrink-0 rounded-lg bg-gov-red/15 flex items-center justify-center text-gov-red group-hover:scale-110 transition-transform">
+                    <it.icon className="h-6 w-6" />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-[11px] font-semibold text-gov-red tracking-wider">{it.sub}</div>
+                    <div className="text-sm font-bold text-gov-blue-dark uppercase tracking-wide">{it.title}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
             {/* Khảo sát ý kiến */}
             <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
               <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
