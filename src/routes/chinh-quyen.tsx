@@ -825,15 +825,6 @@ function ChinhQuyenPage() {
 
           {/* RIGHT: continuous sidebar */}
           <aside className="space-y-5">
-            {/* Quick links lãnh đạo */}
-            <div className="rounded-xl border-2 border-gov-red p-3 space-y-2.5 bg-card shadow-sm">
-              {QUICK_LINKS_LD.map((q, i) => (
-                <a key={i} href="#" className={`block w-full ${q.color} hover:bg-gov-red-dark text-white font-bold uppercase text-xs md:text-sm tracking-wide text-center py-2.5 px-3 rounded-md transition`}>
-                  {q.label}
-                </a>
-              ))}
-            </div>
-
             {/* Người phát ngôn */}
             <div className="rounded-xl bg-card border border-border shadow-sm overflow-hidden">
               <div className="px-4 py-3 border-b border-border flex items-center gap-2 bg-muted/30">
