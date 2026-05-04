@@ -643,22 +643,24 @@ function ChinhQuyenPage() {
         {/* ============== 2 BANNER TRỤ SỞ ============== */}
         <section className="grid md:grid-cols-2 gap-4">
           <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+            <Building className="pointer-events-none absolute -right-4 -bottom-6 h-40 w-40 text-white/10 rotate-[-8deg]" />
+            <div className="relative shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
               <Building className="h-6 w-6 text-gov-yellow" />
             </div>
-            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+            <p className="relative font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
               Trụ sở làm việc của các đơn vị hành chính xã, phường, đặc khu
             </p>
-            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+            <ArrowRight className="relative ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
           </a>
           <a href="#" className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white px-6 py-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-            <div className="shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
+            <Building2 className="pointer-events-none absolute -right-4 -bottom-6 h-40 w-40 text-white/10 rotate-[-8deg]" />
+            <div className="relative shrink-0 h-12 w-12 rounded-lg bg-white/15 backdrop-blur flex items-center justify-center">
               <Building2 className="h-6 w-6 text-gov-yellow" />
             </div>
-            <p className="font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
+            <p className="relative font-extrabold uppercase text-sm md:text-base tracking-wide leading-tight">
               Trụ sở Trung tâm phục vụ hành chính công xã, phường, đặc khu
             </p>
-            <ArrowRight className="ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
+            <ArrowRight className="relative ml-auto h-5 w-5 text-gov-yellow group-hover:translate-x-1 transition-transform shrink-0" />
           </a>
         </section>
 
