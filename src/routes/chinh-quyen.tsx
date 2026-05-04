@@ -469,7 +469,14 @@ function ChinhQuyenPage() {
 
         {/* ============== CƠ CẤU TỔ CHỨC BỘ MÁY CHÍNH QUYỀN ============== */}
         <section>
-          <SectionTitle>Cơ cấu tổ chức bộ máy chính quyền</SectionTitle>
+          <div className="flex items-end justify-between gap-3 mb-4 border-b-2 border-gov-red/20 pb-2">
+            <div className="flex items-center gap-3">
+              <div className="h-7 w-1.5 rounded bg-gov-red" />
+              <h2 className="text-lg md:text-xl font-bold text-gov-red uppercase tracking-wide">
+                Cơ cấu tổ chức bộ máy chính quyền
+              </h2>
+            </div>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ORGS.map((o, i) => (
               <article key={i} className="rounded-xl bg-card p-5 shadow-sm border-l-4 border-gov-red hover:shadow-md transition">
