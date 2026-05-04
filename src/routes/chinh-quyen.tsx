@@ -1080,23 +1080,6 @@ function ChinhQuyenPage() {
           </aside>
         </section>
 
-        {/* ============== GIỚI THIỆU KHÁI QUÁT ============== */}
-        <div className="space-y-8">
-          <section>
-            <SectionTitle>Giới thiệu khái quát</SectionTitle>
-            <div className="rounded-xl bg-card p-6 shadow-sm space-y-3 text-sm leading-relaxed text-foreground/90">
-              <p>
-                Tỉnh Khánh Hòa nằm ở khu vực Duyên hải Nam Trung Bộ, có vị trí chiến lược về quốc phòng, an ninh và phát triển kinh tế biển.
-                Bộ máy chính quyền tỉnh được tổ chức theo mô hình{" "}
-                <strong>chính quyền địa phương 02 cấp</strong> (cấp tỉnh và cấp xã), bảo đảm tinh gọn, hiệu năng, hiệu lực, hiệu quả.
-              </p>
-              <p>
-                Hệ thống chính trị tỉnh gồm Tỉnh ủy, Đoàn ĐBQH, HĐND tỉnh, UBND tỉnh, Ủy ban MTTQ Việt Nam tỉnh và các tổ chức chính trị - xã hội.
-                UBND tỉnh có 19 cơ quan chuyên môn cùng các đơn vị sự nghiệp trực thuộc.
-              </p>
-            </div>
-          </section>
-        </div>
       </div>
     </SiteLayout>
   );
