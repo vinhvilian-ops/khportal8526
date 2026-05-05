@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LichCongTacRouteImport } from './routes/lich-cong-tac'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
 import { Route as DuKhachRouteImport } from './routes/du-khach'
 import { Route as DoanhNghiepRouteImport } from './routes/doanh-nghiep'
@@ -16,6 +17,11 @@ import { Route as CongDanRouteImport } from './routes/cong-dan'
 import { Route as ChinhQuyenRouteImport } from './routes/chinh-quyen'
 import { Route as IndexRouteImport } from './routes/index'
 
+const LichCongTacRoute = LichCongTacRouteImport.update({
+  id: '/lich-cong-tac',
+  path: '/lich-cong-tac',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GioiThieuRoute = GioiThieuRouteImport.update({
   id: '/gioi-thieu',
   path: '/gioi-thieu',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/doanh-nghiep': typeof DoanhNghiepRoute
   '/du-khach': typeof DuKhachRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lich-cong-tac': typeof LichCongTacRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/doanh-nghiep': typeof DoanhNghiepRoute
   '/du-khach': typeof DuKhachRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lich-cong-tac': typeof LichCongTacRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/doanh-nghiep': typeof DoanhNghiepRoute
   '/du-khach': typeof DuKhachRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lich-cong-tac': typeof LichCongTacRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/doanh-nghiep'
     | '/du-khach'
     | '/gioi-thieu'
+    | '/lich-cong-tac'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/doanh-nghiep'
     | '/du-khach'
     | '/gioi-thieu'
+    | '/lich-cong-tac'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/doanh-nghiep'
     | '/du-khach'
     | '/gioi-thieu'
+    | '/lich-cong-tac'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,10 +118,18 @@ export interface RootRouteChildren {
   DoanhNghiepRoute: typeof DoanhNghiepRoute
   DuKhachRoute: typeof DuKhachRoute
   GioiThieuRoute: typeof GioiThieuRoute
+  LichCongTacRoute: typeof LichCongTacRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/lich-cong-tac': {
+      id: '/lich-cong-tac'
+      path: '/lich-cong-tac'
+      fullPath: '/lich-cong-tac'
+      preLoaderRoute: typeof LichCongTacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gioi-thieu': {
       id: '/gioi-thieu'
       path: '/gioi-thieu'
@@ -162,7 +182,17 @@ const rootRouteChildren: RootRouteChildren = {
   DoanhNghiepRoute: DoanhNghiepRoute,
   DuKhachRoute: DuKhachRoute,
   GioiThieuRoute: GioiThieuRoute,
+  LichCongTacRoute: LichCongTacRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
