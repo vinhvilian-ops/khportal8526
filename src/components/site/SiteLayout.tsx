@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { SiteHeader, SiteNav } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { ChatBot } from "./ChatBot";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <SiteNav />
       <main className="flex-1">{children}</main>
       <SiteFooter />
+      <ChatBot />
     </div>
   );
 }
