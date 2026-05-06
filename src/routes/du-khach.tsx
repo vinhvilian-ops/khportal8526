@@ -170,15 +170,86 @@ function DuKhachPage() {
             </div>
           </div>
 
-          {/* Side map */}
-          <aside className="bg-card rounded-xl shadow-sm overflow-hidden">
-            <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-sm flex items-center gap-2">
-              <MapPin className="h-4 w-4" /> BẢN ĐỒ DU LỊCH KHÁNH HÒA
+          {/* Sidebar column — map + extras (đồng bộ trang chủ) */}
+          <aside className="space-y-5">
+            {/* Map — nhỏ gọn */}
+            <div className="bg-card rounded-xl shadow-sm overflow-hidden">
+              <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
+                <MapPin className="h-4 w-4" /> BẢN ĐỒ DU LỊCH KHÁNH HÒA
+              </div>
+              <div className="relative">
+                <img src={SIDE_MAP_IMG} alt="Map" className="w-full h-[220px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3">
+                  <button className="w-full bg-gov-yellow text-gov-blue-dark text-xs font-bold py-1.5 rounded hover:bg-white transition">Mở bản đồ tương tác →</button>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <img src={SIDE_MAP_IMG} alt="Map" className="w-full h-[420px] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                <button className="w-full bg-gov-yellow text-gov-blue-dark font-bold py-2 rounded hover:bg-white transition">Mở bản đồ tương tác →</button>
+
+            {/* Chỉ đạo, điều hành */}
+            <div className="bg-card rounded-xl shadow-sm overflow-hidden">
+              <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
+                <Award className="h-4 w-4" /> CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
+              </div>
+              <div className="p-3 space-y-2">
+                <a href="#" className="block group">
+                  <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=360&fit=crop" alt="" className="w-full h-32 object-cover rounded" />
+                </a>
+                <ul className="space-y-2 text-sm">
+                  {[
+                    "Đề xuất sửa đổi Pháp lệnh Ưu đãi người có công với cách mạng",
+                    "10 nhóm công nghệ chiến lược từ 1/7/2026",
+                    "Kế hoạch triển khai thi hành Luật Thuế thu nhập cá nhân",
+                    "Phó Thủ tướng Thường trực Phạm Gia Túc làm Tổ trưởng Tổ công tác thích ứng với điều chỉnh…",
+                    "Tặng bằng khen của Thủ tướng Chính phủ cho HLV Kim Sang Sik và 3 trợ lý",
+                  ].map((t, i) => (
+                    <li key={i} className="border-b border-border last:border-0 pb-2 last:pb-0">
+                      <a href="#" className="text-foreground hover:text-gov-red leading-snug font-medium">{t}</a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[11px] italic text-muted-foreground pt-1">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
+              </div>
+            </div>
+
+            {/* Banners chuyên đề */}
+            <div className="space-y-3">
+              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red to-gov-orange">
+                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                  <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Học tập và làm theo<br/>tư tưởng, đạo đức, phong cách<br/><span className="text-gov-yellow text-base">Hồ Chí Minh</span></p>
+                </div>
+              </a>
+              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red-dark to-gov-red">
+                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                  <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Đưa nghị quyết của Đảng<br/>vào cuộc sống</p>
+                </div>
+              </a>
+              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-blue to-gov-cyan">
+                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                  <p className="text-white font-extrabold text-base uppercase tracking-wider drop-shadow">Trường Sa<br/><span className="text-gov-yellow">thân yêu</span></p>
+                </div>
+              </a>
+            </div>
+
+            {/* Khảo sát ý kiến */}
+            <div className="bg-card rounded-xl shadow-sm overflow-hidden">
+              <div className="bg-gradient-to-r from-gov-blue to-gov-blue-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
+                <Star className="h-4 w-4" /> KHẢO SÁT Ý KIẾN
+              </div>
+              <div className="p-4 space-y-3 text-sm">
+                <p className="font-semibold text-foreground">Bạn có hài lòng về giao diện Cổng thông tin không?</p>
+                <p className="text-[11px] text-muted-foreground">Đã có 7341 lượt biểu quyết</p>
+                <div className="space-y-2">
+                  {["Hài lòng (Giao diện thân thiện, rõ ràng, dễ chịu, dễ đọc)", "Không hài lòng", "Cần cập nhật thêm"].map((opt, i) => (
+                    <label key={i} className="flex items-start gap-2 cursor-pointer">
+                      <input type="radio" name="poll" defaultChecked={i === 0} className="mt-1 accent-gov-blue" />
+                      <span className="text-sm">{opt}</span>
+                    </label>
+                  ))}
+                </div>
+                <div className="flex gap-2 pt-1">
+                  <button className="bg-gov-blue text-white text-xs font-bold px-4 py-1.5 rounded hover:bg-gov-blue-dark">Biểu quyết</button>
+                  <button className="bg-gov-red text-white text-xs font-bold px-4 py-1.5 rounded hover:bg-gov-red-dark">Xem kết quả</button>
+                </div>
               </div>
             </div>
           </aside>
