@@ -145,96 +145,251 @@ function DuKhachPage() {
         </div>
       </section>
 
-      {/* INTRO + MAP */}
-      <section className="container mx-auto px-4 py-10">
-        <div className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 bg-card rounded-xl shadow-sm p-5">
+      {/* PAGE TITLE */}
+      <div className="container mx-auto px-4 pt-10 pb-6 flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gov-blue-dark">
+            Khám phá <span className="text-gov-red">Khánh Hòa</span>
+          </h2>
+          <p className="text-sm text-muted-foreground italic mt-1">Discover Khanh Hoa — Tin tức, điểm đến, di sản & văn hoá</p>
+          <div className="mt-3 h-1 w-20 rounded bg-gov-yellow" />
+        </div>
+        <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-blue-dark hover:text-gov-blue transition">
+          Xem tất cả bài viết <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
+      </div>
+
+      {/* MAIN GRID — đồng bộ trang chủ: 3 cột nội dung + 1 cột sidebar */}
+      <div className="container mx-auto px-4 grid gap-6 lg:grid-cols-4 pb-10">
+        {/* LEFT — main content stack */}
+        <div className="lg:col-span-3 space-y-6">
+          {/* GIỚI THIỆU */}
+          <div className="rounded-xl bg-card p-5 shadow-sm">
             <SectionTitle vi="GIỚI THIỆU ĐẾN DU KHÁCH" en="Welcome to visitors" />
-            <div className="grid md:grid-cols-2 gap-5">
-              <a href="#" className="group">
+            <div className="grid md:grid-cols-2 gap-5 md:items-stretch">
+              <a href="#" className="group flex flex-col">
                 <div className="rounded-lg overflow-hidden relative aspect-[4/3]">
                   <img src={INTRO_FEATURED.image} alt={INTRO_FEATURED.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                   <div className="absolute top-3 left-3 bg-gov-red text-white text-[10px] font-bold px-2 py-1 rounded">{INTRO_FEATURED.tag}</div>
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 text-white">
-                    <p className="font-bold text-sm leading-snug">{INTRO_FEATURED.title}</p>
-                    <p className="text-[11px] italic text-white/80">{INTRO_FEATURED.subtitle}</p>
-                  </div>
                 </div>
+                <p className="mt-3 text-lg font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{INTRO_FEATURED.title}</p>
+                <p className="text-[11px] italic text-muted-foreground mt-1">{INTRO_FEATURED.subtitle}</p>
+                <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {INTRO_FEATURED.date}</p>
               </a>
-              <ul className="space-y-3">
+              <div className="flex flex-col divide-y h-full">
                 {INTRO_NEWS.map((n, i) => (
-                  <li key={i} className="flex gap-3 group">
-                    <img src={n.image} alt={n.title} className="w-24 h-20 object-cover rounded flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-semibold text-foreground group-hover:text-gov-red leading-snug">{n.title}</p>
+                  <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                    <img src={n.image} alt={n.title} className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                    <div className="flex flex-col justify-center min-w-0">
+                      <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{n.title}</p>
                       <p className="text-[11px] italic text-muted-foreground mt-0.5">{n.en}</p>
-                      <p className="text-[11px] text-gov-blue mt-1 flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
+                      <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {n.date}</p>
                     </div>
-                  </li>
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
-          {/* Sidebar column — map + extras (đồng bộ trang chủ) */}
-          <aside className="space-y-5">
-            {/* Map — nhỏ gọn */}
-            <div className="bg-card rounded-xl shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> BẢN ĐỒ DU LỊCH KHÁNH HÒA
+          {/* CTA banners */}
+          <div className="grid gap-4 md:grid-cols-2">
+            <a href="#" className="rounded-xl bg-gradient-to-r from-gov-red to-gov-orange text-white p-5 flex items-center gap-4 hover:shadow-lg transition shadow-md">
+              <Globe className="h-12 w-12 shrink-0" />
+              <div>
+                <p className="font-bold text-sm uppercase">Hỏi đáp du lịch</p>
+                <p className="font-extrabold">CÔNG DÂN, DU KHÁCH HỎI</p>
+                <p className="text-xs text-white/85 italic">Q&A with local authorities</p>
               </div>
-              <div className="relative">
-                <img src={SIDE_MAP_IMG} alt="Map" className="w-full h-[220px] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3">
-                  <button className="w-full bg-gov-yellow text-gov-blue-dark text-xs font-bold py-1.5 rounded hover:bg-white transition">Mở bản đồ tương tác →</button>
+            </a>
+            <a href="#" className="rounded-xl bg-gradient-to-r from-gov-blue to-gov-cyan text-white p-5 flex items-center gap-4 hover:shadow-lg transition shadow-md">
+              <Compass className="h-12 w-12 shrink-0" />
+              <div>
+                <p className="font-bold text-sm uppercase">Cơ sở dữ liệu</p>
+                <p className="font-extrabold">TRA CỨU CSDL DU LỊCH KHÁNH HÒA</p>
+                <p className="text-xs text-white/85 italic">Provincial tourism database</p>
+              </div>
+            </a>
+          </div>
+
+          {/* ĐIỂM DU LỊCH */}
+          <div id="destinations" className="rounded-xl bg-card p-5 shadow-sm">
+            <SectionTitle vi="ĐIỂM DU LỊCH · DANH LAM THẮNG CẢNH" en="Top destinations & landscapes" accent />
+            <div className="grid md:grid-cols-2 gap-5 md:items-stretch">
+              <a href="#" className="group flex flex-col">
+                <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src={DESTINATIONS[0].image} alt={DESTINATIONS[0].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute top-3 left-3 bg-gov-yellow text-gov-blue-dark text-[10px] font-bold px-2 py-1 rounded">HOT</div>
                 </div>
+                <p className="mt-3 text-lg font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{DESTINATIONS[0].desc}</p>
+                <p className="text-[11px] italic text-muted-foreground mt-1">{DESTINATIONS[0].en}</p>
+                <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {DESTINATIONS[0].date}</p>
+              </a>
+              <div className="flex flex-col divide-y h-full">
+                {DESTINATIONS.slice(1).map((d, i) => (
+                  <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                    <img src={d.image} alt={d.title} className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                    <div className="flex flex-col justify-center min-w-0">
+                      <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{d.desc}</p>
+                      <p className="text-[11px] italic text-muted-foreground">{d.en}</p>
+                      <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {d.date}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
+          </div>
 
-            {/* Chỉ đạo, điều hành */}
-            <div className="bg-card rounded-xl shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
-                <Award className="h-4 w-4" /> CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
+          {/* HERITAGE — tabs giả lập */}
+          <div className="rounded-xl bg-card p-5 shadow-sm">
+            <div className="flex items-end justify-between gap-4 border-b mb-4 pb-2.5 flex-wrap">
+              <div className="flex items-center gap-1 flex-wrap">
+                {TABS.map((t, i) => (
+                  <button key={t} className={`relative px-4 py-2 text-sm font-bold tracking-wide ${i === 0 ? "text-gov-blue-dark" : "text-muted-foreground hover:text-gov-blue-dark"}`}>
+                    <span className="flex items-center gap-2">
+                      <Megaphone className={`h-4 w-4 ${i === 0 ? "text-gov-red" : "text-muted-foreground"}`} />
+                      {t}
+                    </span>
+                    {i === 0 && <span className="absolute -bottom-px left-0 right-0 h-0.5 bg-gov-red" />}
+                  </button>
+                ))}
               </div>
-              <div className="p-3 space-y-2">
-                <a href="#" className="block group">
-                  <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=360&fit=crop" alt="" className="w-full h-32 object-cover rounded" />
+              <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline shrink-0">
+                Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 md:items-stretch">
+              <a href="#" className="group flex flex-col">
+                <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+                  <img src={HERITAGE[0].image} alt={HERITAGE[0].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <p className="mt-3 text-lg font-bold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{HERITAGE[0].title}</p>
+                <p className="text-[11px] italic text-muted-foreground mt-1">{HERITAGE[0].en}</p>
+              </a>
+              <div className="flex flex-col divide-y h-full">
+                {HERITAGE.slice(1).map((h, i) => (
+                  <a key={i} href="#" className="flex gap-4 group flex-1 items-center py-3 first:pt-0 last:pb-0">
+                    <img src={h.image} alt={h.title} className="h-24 w-32 md:h-28 md:w-36 shrink-0 rounded object-cover" />
+                    <div className="flex flex-col justify-center min-w-0">
+                      <p className="text-base font-semibold text-gov-blue-dark group-hover:text-gov-red leading-snug line-clamp-3">{h.title}</p>
+                      <p className="text-[11px] italic text-muted-foreground">{h.en}</p>
+                      <p className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Calendar className="h-3 w-3" /> {h.date}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* GALLERY */}
+          <div id="gallery" className="rounded-xl bg-card p-5 shadow-sm">
+            <SectionTitle vi="THƯ VIỆN ẢNH · ẢNH NGHỆ THUẬT" en="Photo gallery — Art shots of Khanh Hoa" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <a href="#" className="md:col-span-2 md:row-span-2 group relative rounded-lg overflow-hidden aspect-[16/10]">
+                <img src={GALLERY[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                  <div className="text-white">
+                    <ImageIcon className="h-5 w-5 mb-1 text-gov-yellow" />
+                    <p className="font-bold text-lg">Nha Trang về đêm</p>
+                    <p className="text-xs italic text-gov-yellow">Nha Trang by night</p>
+                  </div>
+                </div>
+              </a>
+              {GALLERY.slice(1).map((g, i) => (
+                <a key={i} href="#" className="group relative rounded-lg overflow-hidden aspect-[4/3]">
+                  <img src={g} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition" />
                 </a>
-                <ul className="space-y-2 text-sm">
-                  {[
-                    "Đề xuất sửa đổi Pháp lệnh Ưu đãi người có công với cách mạng",
-                    "10 nhóm công nghệ chiến lược từ 1/7/2026",
-                    "Kế hoạch triển khai thi hành Luật Thuế thu nhập cá nhân",
-                    "Phó Thủ tướng Thường trực Phạm Gia Túc làm Tổ trưởng Tổ công tác thích ứng với điều chỉnh…",
-                    "Tặng bằng khen của Thủ tướng Chính phủ cho HLV Kim Sang Sik và 3 trợ lý",
-                  ].map((t, i) => (
-                    <li key={i} className="border-b border-border last:border-0 pb-2 last:pb-0">
-                      <a href="#" className="text-foreground hover:text-gov-red leading-snug font-medium">{t}</a>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[11px] italic text-muted-foreground pt-1">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT — sidebar (đồng bộ trang chủ) */}
+        <aside className="space-y-6">
+          {/* Map */}
+          <div className="bg-card rounded-xl shadow-sm overflow-hidden">
+            <div className="bg-gradient-to-r from-gov-red to-gov-red-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
+              <MapPin className="h-4 w-4" /> BẢN ĐỒ DU LỊCH KHÁNH HÒA
+            </div>
+            <div className="relative">
+              <img src={SIDE_MAP_IMG} alt="Map" className="w-full h-[220px] object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3">
+                <button className="w-full bg-gov-yellow text-gov-blue-dark text-xs font-bold py-1.5 rounded hover:bg-white transition">Mở bản đồ tương tác →</button>
               </div>
             </div>
+          </div>
 
-            {/* Banners chuyên đề */}
-            <div className="space-y-3">
-              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red to-gov-orange">
-                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                  <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Học tập và làm theo<br/>tư tưởng, đạo đức, phong cách<br/><span className="text-gov-yellow text-base">Hồ Chí Minh</span></p>
+          {/* Chỉ đạo TW — phong cách giống trang chủ */}
+          <div className="rounded-xl bg-gov-blue-dark text-white p-5 shadow-sm">
+            <h4 className="font-bold text-sm mb-3 border-b border-white/20 pb-2 flex items-center gap-2">
+              <Megaphone className="h-4 w-4 text-gov-yellow" />
+              CHỈ ĐẠO, ĐIỀU HÀNH CỦA CHÍNH PHỦ, THỦ TƯỚNG
+            </h4>
+            <div className="space-y-4">
+              <div className="aspect-video rounded overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=360&fit=crop" alt="" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <Play className="h-10 w-10 text-gov-yellow" />
                 </div>
-              </a>
-              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red-dark to-gov-red">
-                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                  <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Đưa nghị quyết của Đảng<br/>vào cuộc sống</p>
-                </div>
-              </a>
-              <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-blue to-gov-cyan">
-                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                  <p className="text-white font-extrabold text-base uppercase tracking-wider drop-shadow">Trường Sa<br/><span className="text-gov-yellow">thân yêu</span></p>
-                </div>
-              </a>
+              </div>
+              <ul className="space-y-2 text-xs">
+                {[
+                  "Đề xuất sửa đổi Pháp lệnh Ưu đãi người có công với cách mạng",
+                  "10 nhóm công nghệ chiến lược từ 1/7/2026",
+                  "Kế hoạch triển khai thi hành Luật Thuế thu nhập cá nhân",
+                  "Phó Thủ tướng Thường trực làm Tổ trưởng Tổ công tác thích ứng…",
+                  "Tặng bằng khen của Thủ tướng Chính phủ cho HLV và 3 trợ lý",
+                ].map((t, i) => (
+                  <li key={i} className="flex gap-2"><Star className="h-3 w-3 shrink-0 text-gov-yellow mt-0.5" /><span className="text-white/90">{t}</span></li>
+                ))}
+              </ul>
             </div>
+            <p className="mt-3 text-[10px] italic text-white/60">Nguồn: Cổng Thông tin điện tử Chính phủ</p>
+          </div>
+
+          {/* Banners chuyên đề */}
+          <div className="space-y-3">
+            <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red to-gov-orange">
+              <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Học tập và làm theo<br/>tư tưởng, đạo đức, phong cách<br/><span className="text-gov-yellow text-base">Hồ Chí Minh</span></p>
+              </div>
+            </a>
+            <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-red-dark to-gov-red">
+              <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                <p className="text-white font-extrabold text-sm uppercase leading-tight drop-shadow">Đưa nghị quyết của Đảng<br/>vào cuộc sống</p>
+              </div>
+            </a>
+            <a href="#" className="block rounded-xl overflow-hidden shadow-sm relative aspect-[16/6] bg-gradient-to-r from-gov-blue to-gov-cyan">
+              <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                <p className="text-white font-extrabold text-base uppercase tracking-wider drop-shadow">Trường Sa<br/><span className="text-gov-yellow">thân yêu</span></p>
+              </div>
+            </a>
+          </div>
+
+          {/* Khảo sát ý kiến */}
+          <div className="bg-card rounded-xl shadow-sm overflow-hidden">
+            <div className="bg-gradient-to-r from-gov-blue to-gov-blue-dark text-white px-4 py-2 font-bold text-xs flex items-center gap-2">
+              <Star className="h-4 w-4" /> KHẢO SÁT Ý KIẾN
+            </div>
+            <div className="p-4 space-y-3 text-sm">
+              <p className="font-semibold text-foreground">Bạn có hài lòng về giao diện Cổng thông tin không?</p>
+              <p className="text-[11px] text-muted-foreground">Đã có 7341 lượt biểu quyết</p>
+              <div className="space-y-2">
+                {["Hài lòng (Giao diện thân thiện, rõ ràng, dễ chịu, dễ đọc)", "Không hài lòng", "Cần cập nhật thêm"].map((opt, i) => (
+                  <label key={i} className="flex items-start gap-2 cursor-pointer">
+                    <input type="radio" name="poll" defaultChecked={i === 0} className="mt-1 accent-gov-blue" />
+                    <span className="text-sm">{opt}</span>
+                  </label>
+                ))}
+              </div>
+              <div className="flex gap-2 pt-1">
+                <button className="bg-gov-blue text-white text-xs font-bold px-4 py-1.5 rounded hover:bg-gov-blue-dark">Biểu quyết</button>
+                <button className="bg-gov-red text-white text-xs font-bold px-4 py-1.5 rounded hover:bg-gov-red-dark">Xem kết quả</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
 
             {/* Khảo sát ý kiến */}
             <div className="bg-card rounded-xl shadow-sm overflow-hidden">
