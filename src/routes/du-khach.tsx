@@ -73,14 +73,23 @@ const STATS = [
 
 function SectionTitle({ vi, en, accent }: { vi: string; en?: string; accent?: boolean }) {
   return (
-    <div className="flex items-end justify-between border-b-2 border-gov-yellow mb-4 pb-2">
-      <div>
-        <h2 className={`font-extrabold text-lg md:text-xl ${accent ? "text-gov-red" : "text-gov-blue-dark"}`}>{vi}</h2>
-        {en && <p className="text-xs text-muted-foreground italic">{en}</p>}
+    <div className="flex items-end justify-between gap-4 border-b mb-4 pb-2.5">
+      <div className="flex items-center gap-2">
+        <Megaphone-icon />
+        <div>
+          <h2 className={`font-bold text-base md:text-lg tracking-wide ${accent ? "text-gov-red" : "text-gov-blue-dark"}`}>{vi}</h2>
+          {en && <p className="text-[11px] text-muted-foreground italic">{en}</p>}
+        </div>
       </div>
-      <a href="#" className="text-xs text-gov-blue hover:text-gov-red flex items-center gap-1">Xem tất cả <ChevronRight className="h-3 w-3" /></a>
+      <a href="#" className="group inline-flex items-center gap-1 text-sm font-semibold text-gov-red hover:underline pb-0.5 shrink-0">
+        Xem tất cả <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+      </a>
     </div>
   );
+}
+
+function Megaphone-icon() {
+  return <span className="inline-block h-2 w-2 rounded-full bg-gov-red" />;
 }
 
 function DuKhachPage() {
