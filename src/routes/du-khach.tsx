@@ -55,10 +55,11 @@ const HERITAGE = [
 ];
 
 const GALLERY = [
-  "https://images.unsplash.com/photo-1528127269322-539801943592?w=900&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=240&fit=crop",
-  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=240&fit=crop",
-  "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=240&fit=crop",
+  "https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&h=800&fit=crop",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop&sat=-30",
 ];
 
 const SIDE_MAP_IMG = "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=900&fit=crop";
