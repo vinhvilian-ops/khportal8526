@@ -4,6 +4,7 @@ import {
   Calendar, MapPin, Camera, Waves, Mountain, Utensils, Music,
   Sparkles, Sun, Plane, Globe, ChevronRight, Play, Heart, Star,
   TrendingUp, Languages, Compass, Ship, Palmtree, Award, Image as ImageIcon,
+  Megaphone, BookOpen,
 } from "lucide-react";
 
 export const Route = createFileRoute("/du-khach")({
