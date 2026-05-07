@@ -75,7 +75,7 @@ function SectionTitle({ vi, en, accent }: { vi: string; en?: string; accent?: bo
   return (
     <div className="flex items-end justify-between gap-4 border-b mb-4 pb-2.5">
       <div className="flex items-center gap-2">
-        <Megaphone-icon />
+        <Megaphone className={`h-4 w-4 ${accent ? "text-gov-red" : "text-gov-blue"}`} />
         <div>
           <h2 className={`font-bold text-base md:text-lg tracking-wide ${accent ? "text-gov-red" : "text-gov-blue-dark"}`}>{vi}</h2>
           {en && <p className="text-[11px] text-muted-foreground italic">{en}</p>}
@@ -86,10 +86,6 @@ function SectionTitle({ vi, en, accent }: { vi: string; en?: string; accent?: bo
       </a>
     </div>
   );
-}
-
-function Megaphone-icon() {
-  return <span className="inline-block h-2 w-2 rounded-full bg-gov-red" />;
 }
 
 function DuKhachPage() {
