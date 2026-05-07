@@ -284,9 +284,9 @@ function DuKhachPage() {
           {/* GALLERY */}
           <div id="gallery" className="rounded-xl bg-card p-5 shadow-sm">
             <SectionTitle vi="THƯ VIỆN ẢNH · ẢNH NGHỆ THUẬT" en="Photo gallery — Art shots of Khanh Hoa" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <a href="#" className="md:col-span-2 md:row-span-2 group relative rounded-lg overflow-hidden aspect-[16/10]">
-                <img src={GALLERY[0]} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-3 auto-rows-fr">
+              <a href="#" className="md:col-span-2 md:row-span-2 group relative rounded-lg overflow-hidden">
+                <img src={GALLERY[0]} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                   <div className="text-white">
                     <ImageIcon className="h-5 w-5 mb-1 text-gov-yellow" />
@@ -296,8 +296,8 @@ function DuKhachPage() {
                 </div>
               </a>
               {GALLERY.slice(1).map((g, i) => (
-                <a key={i} href="#" className="group relative rounded-lg overflow-hidden aspect-[4/3]">
-                  <img src={g} alt="" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <a key={i} href="#" className="group relative rounded-lg overflow-hidden">
+                  <img src={g} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition" />
                 </a>
               ))}
