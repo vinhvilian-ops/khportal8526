@@ -122,14 +122,14 @@ const POLICY_NEWS = [
 ];
 
 const SIDE_BANNERS = [
-  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star", theme: "from-blue-700 via-blue-600 to-sky-500" },
-  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag", theme: "from-indigo-700 via-blue-700 to-blue-500" },
-  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave", theme: "from-sky-600 via-cyan-500 to-teal-400" },
-  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem", theme: "from-blue-800 via-indigo-700 to-purple-600" },
-  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale", theme: "from-slate-800 via-blue-800 to-indigo-700" },
-  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem", theme: "from-blue-900 via-blue-700 to-sky-600" },
-  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave", theme: "from-cyan-600 via-sky-500 to-blue-500" },
-  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book", theme: "from-indigo-800 via-blue-700 to-cyan-500" },
+  { label: "HỌC TẬP VÀ LÀM THEO TƯ TƯỞNG, ĐẠO ĐỨC, PHONG CÁCH HỒ CHÍ MINH", emoji: "☀️", motif: "star", theme: "from-blue-700 via-blue-600 to-sky-500", image: "https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?w=600&h=300&fit=crop" },
+  { label: "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG", emoji: "🚩", motif: "flag", theme: "from-indigo-700 via-blue-700 to-blue-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=300&fit=crop" },
+  { label: "TRƯỜNG SA THÂN YÊU", emoji: "⚓", motif: "wave", theme: "from-sky-600 via-cyan-500 to-teal-400", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=300&fit=crop" },
+  { label: "PHẢN ÁNH, KIẾN NGHỊ VĂN BẢN QPPL", emoji: "📋", motif: "emblem", theme: "from-blue-800 via-indigo-700 to-purple-600", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=300&fit=crop" },
+  { label: "BỘ PHÁP ĐIỂN", emoji: "⚖️", motif: "scale", theme: "from-slate-800 via-blue-800 to-indigo-700", image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&h=300&fit=crop" },
+  { label: "CÔNG BÁO NƯỚC CHXHCN VIỆT NAM", emoji: "🏛️", motif: "emblem", theme: "from-blue-900 via-blue-700 to-sky-600", image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&h=300&fit=crop" },
+  { label: "CÔNG BÁO TỈNH KHÁNH HÒA", emoji: "🌊", motif: "wave", theme: "from-cyan-600 via-sky-500 to-blue-500", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=300&fit=crop&sat=-50" },
+  { label: "THÔNG TIN TUYÊN TRUYỀN PHỔ BIẾN GIÁO DỤC PHÁP LUẬT", emoji: "📚", motif: "book", theme: "from-indigo-800 via-blue-700 to-cyan-500", image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=300&fit=crop" },
 ];
 
 const CHARTS = [
@@ -738,6 +738,18 @@ function HomePage() {
                 href="#"
                 className={`group relative block overflow-hidden rounded-xl bg-gradient-to-br ${b.theme} px-5 py-5 min-h-[68px] text-white shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300`}
               >
+                {/* Ảnh nền mờ */}
+                <img
+                  src={b.image}
+                  alt=""
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay group-hover:opacity-40 transition-opacity duration-500"
+                />
+                {/* Phủ gradient để giữ độ tương phản chữ */}
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${b.theme} opacity-70`}
+                />
                 {/* Hình mờ làm nền */}
                 <span
                   aria-hidden
