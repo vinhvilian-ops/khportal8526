@@ -55,10 +55,10 @@ const HERITAGE = [
 ];
 
 const GALLERY = [
-  "https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&h=800&fit=crop",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop",
+  { src: "https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&h=800&fit=crop", vi: "Nha Trang về đêm", en: "Nha Trang by night" },
+  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop", vi: "Bình minh trên biển", en: "Sunrise on the beach" },
+  { src: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop", vi: "Sóng vỗ Hòn Tằm", en: "Waves at Hon Tam" },
+  { src: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop", vi: "Nghỉ dưỡng Vĩnh Hy", en: "Vinh Hy resort" },
 ];
 
 const SIDE_MAP_IMG = "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=900&fit=crop";
@@ -373,19 +373,25 @@ function DuKhachPage() {
           <SectionTitle vi="THƯ VIỆN ẢNH · ẢNH NGHỆ THUẬT" en="Photo gallery — Art shots of Khanh Hoa" />
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 h-[340px]">
             <a href="#" className="md:col-span-2 group relative rounded-lg overflow-hidden h-full">
-              <img src={GALLERY[0]} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              <img src={GALLERY[0].src} alt={GALLERY[0].vi} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                 <div className="text-white">
                   <ImageIcon className="h-5 w-5 mb-1 text-gov-yellow" />
-                  <p className="font-bold text-lg">Nha Trang về đêm</p>
-                  <p className="text-xs italic text-gov-yellow">Nha Trang by night</p>
+                  <p className="font-bold text-lg">{GALLERY[0].vi}</p>
+                  <p className="text-xs italic text-gov-yellow">{GALLERY[0].en}</p>
                 </div>
               </div>
             </a>
             {GALLERY.slice(1).map((g, i) => (
               <a key={i} href="#" className="group relative rounded-lg overflow-hidden h-full">
-                <img src={g} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition" />
+                <img src={g.src} alt={g.vi} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-3">
+                  <div className="text-white">
+                    <ImageIcon className="h-4 w-4 mb-1 text-gov-yellow" />
+                    <p className="font-bold text-sm leading-tight">{g.vi}</p>
+                    <p className="text-[11px] italic text-gov-yellow">{g.en}</p>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
