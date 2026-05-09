@@ -1,5 +1,7 @@
 {
-  "outputDirectory": "dist/client",
-  "cleanUrls": true,
-  "framework": "vite"
+  "version": 2,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "outputDirectory": "dist/client"
 }
