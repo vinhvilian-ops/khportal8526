@@ -2,6 +2,5 @@
   "buildCommand": "npm run build && node vercel-build.mjs",
   "outputDirectory": "dist/client",
   "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "serverlessFunctionRegion": "iad1"
+  "installCommand": "npm install"
 }
